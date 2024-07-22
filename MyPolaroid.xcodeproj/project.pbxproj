@@ -20,6 +20,9 @@
 		724FC8C92C4E4A1800CDA561 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8C82C4E4A1800CDA561 /* OnBoardingViewController.swift */; };
 		724FC8CC2C4E4A7400CDA561 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8CB2C4E4A7400CDA561 /* OnBoardingView.swift */; };
 		724FC8CF2C4E4B2700CDA561 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC8CE2C4E4B2700CDA561 /* SnapKit */; };
+		724FC8D22C4E51D400CDA561 /* MainPosterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8D12C4E51D400CDA561 /* MainPosterImageView.swift */; };
+		724FC8D52C4E555F00CDA561 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8D42C4E555F00CDA561 /* Enums.swift */; };
+		724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8D62C4E561600CDA561 /* PointButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		724FC8C62C4E481C00CDA561 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		724FC8C82C4E4A1800CDA561 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		724FC8CB2C4E4A7400CDA561 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		724FC8D12C4E51D400CDA561 /* MainPosterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPosterImageView.swift; sourceTree = "<group>"; };
+		724FC8D42C4E555F00CDA561 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		724FC8D62C4E561600CDA561 /* PointButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 				724FC8A42C4E36A000CDA561 /* SceneDelegate.swift */,
 				724FC8AB2C4E36A200CDA561 /* Assets.xcassets */,
 				724FC8B72C4E389700CDA561 /* StoryBoard */,
+				724FC8D32C4E553D00CDA561 /* Constants */,
 				724FC8B92C4E40BB00CDA561 /* Fonts */,
 			);
 			path = Resources;
@@ -101,6 +108,7 @@
 		724FC8B82C4E38C800CDA561 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				724FC8D02C4E519D00CDA561 /* Custom */,
 				724FC8BF2C4E478600CDA561 /* Base */,
 				724FC8BE2C4E468C00CDA561 /* OnBoardingScene */,
 			);
@@ -141,6 +149,23 @@
 				724FC8CB2C4E4A7400CDA561 /* OnBoardingView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		724FC8D02C4E519D00CDA561 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8D12C4E51D400CDA561 /* MainPosterImageView.swift */,
+				724FC8D62C4E561600CDA561 /* PointButton.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		724FC8D32C4E553D00CDA561 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8D42C4E555F00CDA561 /* Enums.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,13 +247,16 @@
 			files = (
 				724FC8C32C4E47D000CDA561 /* BaseViewController.swift in Sources */,
 				724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */,
+				724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
 				724FC8CC2C4E4A7400CDA561 /* OnBoardingView.swift in Sources */,
 				724FC8C92C4E4A1800CDA561 /* OnBoardingViewController.swift in Sources */,
 				724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */,
 				724FC8C72C4E481C00CDA561 /* BaseTableViewCell.swift in Sources */,
 				724FC8C12C4E47AB00CDA561 /* BaseView.swift in Sources */,
+				724FC8D22C4E51D400CDA561 /* MainPosterImageView.swift in Sources */,
 				724FC8C52C4E47FB00CDA561 /* BaseCollectionViewCell.swift in Sources */,
+				724FC8D52C4E555F00CDA561 /* Enums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
