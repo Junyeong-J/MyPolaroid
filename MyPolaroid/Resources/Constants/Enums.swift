@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum ButtonTitle: String {
+    
+    case start = "시작하기"
+    case complete = "완료"
+    
+}
