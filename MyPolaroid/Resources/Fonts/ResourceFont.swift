@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - 앱에서 사용할 폰트
 enum Font {
     static let regular13: UIFont = .systemFont(ofSize: 13)
     static let regular14: UIFont = .systemFont(ofSize: 14)
