@@ -5,4 +5,20 @@
 //  Created by 전준영 on 7/22/24.
 //
 
-import Foundation
+import UIKit
+
+class CustomImageView: UIImageView {
+    
+    init(_ imageName: String) {
+        super.init(frame: .zero)
+        
+        image = UIImage(named: imageName)
+        contentMode = .scaleAspectFill
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
