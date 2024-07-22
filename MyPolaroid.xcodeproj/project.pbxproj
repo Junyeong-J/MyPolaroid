@@ -11,6 +11,8 @@
 		724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8A42C4E36A000CDA561 /* SceneDelegate.swift */; };
 		724FC8AC2C4E36A200CDA561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 724FC8AB2C4E36A200CDA561 /* Assets.xcassets */; };
 		724FC8AF2C4E36A200CDA561 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 724FC8AE2C4E36A200CDA561 /* Base */; };
+		724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8BA2C4E40F400CDA561 /* ResourceFont.swift */; };
+		724FC8BD2C4E414E00CDA561 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 724FC8BC2C4E414E00CDA561 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		724FC8AB2C4E36A200CDA561 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		724FC8AE2C4E36A200CDA561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		724FC8B02C4E36A200CDA561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		724FC8BA2C4E40F400CDA561 /* ResourceFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceFont.swift; sourceTree = "<group>"; };
+		724FC8BC2C4E414E00CDA561 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +40,7 @@
 		724FC8962C4E36A000CDA561 = {
 			isa = PBXGroup;
 			children = (
+				724FC8BC2C4E414E00CDA561 /* .gitignore */,
 				724FC8A12C4E36A000CDA561 /* MyPolaroid */,
 				724FC8A02C4E36A000CDA561 /* Products */,
 			);
@@ -66,6 +71,7 @@
 				724FC8A42C4E36A000CDA561 /* SceneDelegate.swift */,
 				724FC8AB2C4E36A200CDA561 /* Assets.xcassets */,
 				724FC8B72C4E389700CDA561 /* StoryBoard */,
+				724FC8B92C4E40BB00CDA561 /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -83,6 +89,14 @@
 			children = (
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		724FC8B92C4E40BB00CDA561 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8BA2C4E40F400CDA561 /* ResourceFont.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				724FC8AC2C4E36A200CDA561 /* Assets.xcassets in Resources */,
+				724FC8BD2C4E414E00CDA561 /* .gitignore in Resources */,
 				724FC8AF2C4E36A200CDA561 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
 				724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */,
 			);
