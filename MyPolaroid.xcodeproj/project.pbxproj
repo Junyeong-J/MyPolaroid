@@ -13,6 +13,10 @@
 		724FC8AF2C4E36A200CDA561 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 724FC8AE2C4E36A200CDA561 /* Base */; };
 		724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8BA2C4E40F400CDA561 /* ResourceFont.swift */; };
 		724FC8BD2C4E414E00CDA561 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 724FC8BC2C4E414E00CDA561 /* .gitignore */; };
+		724FC8C12C4E47AB00CDA561 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8C02C4E47AB00CDA561 /* BaseView.swift */; };
+		724FC8C32C4E47D000CDA561 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8C22C4E47D000CDA561 /* BaseViewController.swift */; };
+		724FC8C52C4E47FB00CDA561 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8C42C4E47FB00CDA561 /* BaseCollectionViewCell.swift */; };
+		724FC8C72C4E481C00CDA561 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8C62C4E481C00CDA561 /* BaseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		724FC8B02C4E36A200CDA561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724FC8BA2C4E40F400CDA561 /* ResourceFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceFont.swift; sourceTree = "<group>"; };
 		724FC8BC2C4E414E00CDA561 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		724FC8C02C4E47AB00CDA561 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		724FC8C22C4E47D000CDA561 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		724FC8C42C4E47FB00CDA561 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		724FC8C62C4E481C00CDA561 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,8 @@
 		724FC8B82C4E38C800CDA561 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				724FC8BF2C4E478600CDA561 /* Base */,
+				724FC8BE2C4E468C00CDA561 /* OnBoarding */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -97,6 +107,24 @@
 				724FC8BA2C4E40F400CDA561 /* ResourceFont.swift */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		724FC8BE2C4E468C00CDA561 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		724FC8BF2C4E478600CDA561 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8C02C4E47AB00CDA561 /* BaseView.swift */,
+				724FC8C22C4E47D000CDA561 /* BaseViewController.swift */,
+				724FC8C42C4E47FB00CDA561 /* BaseCollectionViewCell.swift */,
+				724FC8C62C4E481C00CDA561 /* BaseTableViewCell.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,9 +198,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724FC8C32C4E47D000CDA561 /* BaseViewController.swift in Sources */,
 				724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
 				724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */,
+				724FC8C72C4E481C00CDA561 /* BaseTableViewCell.swift in Sources */,
+				724FC8C12C4E47AB00CDA561 /* BaseView.swift in Sources */,
+				724FC8C52C4E47FB00CDA561 /* BaseCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
