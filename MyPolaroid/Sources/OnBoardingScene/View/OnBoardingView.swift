@@ -8,12 +8,12 @@
 import UIKit
 import SnapKit
 
-class OnBoardingView: BaseView {
+final class OnBoardingView: BaseView {
     
-    let serviceTitleImageView = CustomImageView("launch")
-    let mainPosterImageView = CustomImageView("launchImage")
-    let appStratButton = PointButton(title: .start)
-    let myName: UILabel = {
+    private let serviceTitleImageView = CustomImageView("launch")
+    private let mainPosterImageView = CustomImageView("launchImage")
+    let appStartButton = PointButton(title: .start)
+    private let myName: UILabel = {
         let label = UILabel()
         label.text = "전준영"
         label.font = Font.bold20
@@ -24,7 +24,7 @@ class OnBoardingView: BaseView {
         addSubview(mainPosterImageView)
         addSubview(serviceTitleImageView)
         addSubview(myName)
-        addSubview(appStratButton)
+        addSubview(appStartButton)
     }
     
     override func configureLayout() {
@@ -46,7 +46,7 @@ class OnBoardingView: BaseView {
             make.centerX.equalTo(safeAreaLayoutGuide)
         }
         
-        appStratButton.snp.makeConstraints { make in
+        appStartButton.snp.makeConstraints { make in
             make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide).inset(20)
             make.height.equalTo(50)
         }

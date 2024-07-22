@@ -11,16 +11,22 @@ final class OnBoardingViewController: BaseViewController<OnBoardingView>{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addTarget()
     }
     
-    override func configureHierarchy() {
-        
-    }
-    override func configureConstraints() {
-        
-    }
     override func configureView() {
         super.configureView()
     }
     
+}
+
+extension OnBoardingViewController {
+    private func addTarget() {
+        rootView.appStartButton.addTarget(self, action: #selector(appStartButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc private func appStartButtonClicked() {
+        let vc = ProfileSettingViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
