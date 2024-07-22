@@ -52,13 +52,37 @@
 		724FC8A12C4E36A000CDA561 /* MyPolaroid */ = {
 			isa = PBXGroup;
 			children = (
-				724FC8A22C4E36A000CDA561 /* AppDelegate.swift */,
-				724FC8A42C4E36A000CDA561 /* SceneDelegate.swift */,
-				724FC8AB2C4E36A200CDA561 /* Assets.xcassets */,
-				724FC8AD2C4E36A200CDA561 /* LaunchScreen.storyboard */,
+				724FC8B62C4E386600CDA561 /* Resources */,
+				724FC8B82C4E38C800CDA561 /* Sources */,
 				724FC8B02C4E36A200CDA561 /* Info.plist */,
 			);
 			path = MyPolaroid;
+			sourceTree = "<group>";
+		};
+		724FC8B62C4E386600CDA561 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8A22C4E36A000CDA561 /* AppDelegate.swift */,
+				724FC8A42C4E36A000CDA561 /* SceneDelegate.swift */,
+				724FC8AB2C4E36A200CDA561 /* Assets.xcassets */,
+				724FC8B72C4E389700CDA561 /* StoryBoard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		724FC8B72C4E389700CDA561 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8AD2C4E36A200CDA561 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		724FC8B82C4E38C800CDA561 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
