@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8A22C4E36A000CDA561 /* AppDelegate.swift */; };
 		724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8A42C4E36A000CDA561 /* SceneDelegate.swift */; };
-		724FC8A72C4E36A000CDA561 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8A62C4E36A000CDA561 /* ViewController.swift */; };
-		724FC8AA2C4E36A000CDA561 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 724FC8A92C4E36A000CDA561 /* Base */; };
 		724FC8AC2C4E36A200CDA561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 724FC8AB2C4E36A200CDA561 /* Assets.xcassets */; };
 		724FC8AF2C4E36A200CDA561 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 724FC8AE2C4E36A200CDA561 /* Base */; };
 /* End PBXBuildFile section */
@@ -19,8 +17,6 @@
 		724FC89F2C4E36A000CDA561 /* MyPolaroid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPolaroid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724FC8A22C4E36A000CDA561 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		724FC8A42C4E36A000CDA561 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		724FC8A62C4E36A000CDA561 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		724FC8A92C4E36A000CDA561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		724FC8AB2C4E36A200CDA561 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		724FC8AE2C4E36A200CDA561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		724FC8B02C4E36A200CDA561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,8 +54,6 @@
 			children = (
 				724FC8A22C4E36A000CDA561 /* AppDelegate.swift */,
 				724FC8A42C4E36A000CDA561 /* SceneDelegate.swift */,
-				724FC8A62C4E36A000CDA561 /* ViewController.swift */,
-				724FC8A82C4E36A000CDA561 /* Main.storyboard */,
 				724FC8AB2C4E36A200CDA561 /* Assets.xcassets */,
 				724FC8AD2C4E36A200CDA561 /* LaunchScreen.storyboard */,
 				724FC8B02C4E36A200CDA561 /* Info.plist */,
@@ -127,7 +121,6 @@
 			files = (
 				724FC8AC2C4E36A200CDA561 /* Assets.xcassets in Resources */,
 				724FC8AF2C4E36A200CDA561 /* Base in Resources */,
-				724FC8AA2C4E36A000CDA561 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +131,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				724FC8A72C4E36A000CDA561 /* ViewController.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
 				724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +139,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		724FC8A82C4E36A000CDA561 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				724FC8A92C4E36A000CDA561 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		724FC8AD2C4E36A200CDA561 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,9 +281,9 @@
 				INFOPLIST_FILE = MyPolaroid/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +291,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.MyPolaroid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -325,9 +313,9 @@
 				INFOPLIST_FILE = MyPolaroid/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +323,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.MyPolaroid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
