@@ -10,14 +10,32 @@ import Foundation
 final class ProfileSettingViewModel {
     
     var inputNickname: Observable<String?> = Observable(nil)
+    var inputMbtiButtonTitle: Observable<String?> = Observable(nil)
     
     var outputValidationText = Observable("")
     var outputValid = Observable(false)
+    var outputMbtiButtonBool: Observable<[String: Bool]?> = Observable(nil)
+    
+    private let mbtiSet: [String: String] = ["E": "I", "I": "E", "S": "N", "N": "S", "T": "F", "F": "T", "J": "P", "P": "J"]
+    private var mbtiButtonBool: [String: Bool] = ["E": false, "I": false, "S": false, "N": false, "T": false, "F": false, "J": false, "P": false]
     
     init() {
         inputNickname.bind { [weak self] nickname in
             self?.validateNickname(nickname)
         }
+        
+        inputMbtiButtonTitle.bind { [weak self] buttonTitle in
+            self?.mbtiButtonCheck(buttonTitle)
+        }
+    }
+    
+    private func mbtiButtonCheck(_ title: String?) {
+        guard let title = title, let set = mbtiSet[title]else {return}
+        mbtiButtonBool[title]?.toggle()
+        if mbtiButtonBool[title] == true {
+            mbtiButtonBool[set] = false
+        }
+        outputMbtiButtonBool.value = mbtiButtonBool
     }
     
     private func validateNickname(_ nickname: String?) {

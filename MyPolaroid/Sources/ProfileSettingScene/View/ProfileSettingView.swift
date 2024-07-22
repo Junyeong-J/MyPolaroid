@@ -27,7 +27,7 @@ final class ProfileSettingView: BaseView {
     }()
     private let mbtiView = UIView()
     private let mbtiButtonTitles = ["E", "S", "T", "J", "I", "N", "F", "P"]
-    private lazy var mbtiButtons: [UIButton] = {
+    lazy var mbtiButtons: [UIButton] = {
         return mbtiButtonTitles.enumerated().map { index, title in
             let button = UIButton(configuration: .circleStyle(title: title), primaryAction: nil)
             button.layer.borderWidth = 2

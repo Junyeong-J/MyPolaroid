@@ -15,6 +15,7 @@ final class ProfileSettingViewController: BaseViewController<ProfileSettingView>
         super.viewDidLoad()
         configureTextField()
         bindData()
+        addTargets()
     }
     
     override func configureView() {
@@ -37,6 +38,36 @@ extension ProfileSettingViewController {
             self?.rootView.successButton.backgroundColor = value ? .myAppMain : .myAppGray
             self?.rootView.successButton.isEnabled = value
         }
+        
+        viewModel.outputMbtiButtonBool.bind { [weak self] value in
+            self?.selectedMbtiButton(value)
+        }
+    }
+    
+    private func addTargets() {
+        for mbtiButton in rootView.mbtiButtons {
+            mbtiButton.addTarget(self, action: #selector(mbtiButtonClicked), for: .touchUpInside)
+        }
+        
+        rootView.successButton.addTarget(self, action: #selector(successButtonClicked), for: .touchUpInside)
+    }
+    
+    private func selectedMbtiButton(_ mbtiButtonValue: [String: Bool]?) {
+        for button in rootView.mbtiButtons {
+            guard let title = button.configuration?.title else { return }
+            let isSelected = mbtiButtonValue?[title] ?? false
+            button.backgroundColor = isSelected ? .myAppMain : .myAppWhite
+            button.setTitleColor(isSelected ? .myAppWhite : .myAppGray, for: .normal)
+        }
+    }
+    
+    @objc private func mbtiButtonClicked(_ sender: UIButton) {
+        guard let buttonTitle = sender.configuration?.title else {return}
+        viewModel.inputMbtiButtonTitle.value = buttonTitle
+    }
+    
+    @objc private func successButtonClicked() {
+        
     }
 }
 

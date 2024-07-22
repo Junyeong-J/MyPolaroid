@@ -10,7 +10,7 @@ import UIKit
 extension UIButton.Configuration {
     
     static func circleStyle(title: String) -> UIButton.Configuration {
-        var configuration = UIButton.Configuration.filled()
+        var configuration = UIButton.Configuration.plain()
         configuration.title = title
         configuration.titleAlignment = .center
         configuration.baseBackgroundColor = .myAppWhite
