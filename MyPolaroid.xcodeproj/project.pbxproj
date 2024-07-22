@@ -29,6 +29,8 @@
 		724FC8E22C4E8E7D00CDA561 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8E12C4E8E7D00CDA561 /* ProfileImageView.swift */; };
 		724FC8E42C4E91EE00CDA561 /* NicknameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8E32C4E91EE00CDA561 /* NicknameTextField.swift */; };
 		724FC8E72C4E9BA600CDA561 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8E62C4E9BA600CDA561 /* UIButton+Extension.swift */; };
+		724FC8EA2C4EBF4300CDA561 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8E92C4EBF4300CDA561 /* Observable.swift */; };
+		724FC8ED2C4EBFA700CDA561 /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8EC2C4EBFA700CDA561 /* ProfileSettingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		724FC8E12C4E8E7D00CDA561 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		724FC8E32C4E91EE00CDA561 /* NicknameTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameTextField.swift; sourceTree = "<group>"; };
 		724FC8E62C4E9BA600CDA561 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		724FC8E92C4EBF4300CDA561 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		724FC8EC2C4EBFA700CDA561 /* ProfileSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 				724FC8B72C4E389700CDA561 /* StoryBoard */,
 				724FC8D32C4E553D00CDA561 /* Constants */,
 				724FC8B92C4E40BB00CDA561 /* Fonts */,
+				724FC8E82C4EBF3300CDA561 /* Observable */,
 				724FC8E52C4E9B7900CDA561 /* Extensions */,
 			);
 			path = Resources;
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				724FC8DA2C4E899D00CDA561 /* View */,
+				724FC8EB2C4EBF5E00CDA561 /* ViewModel */,
 			);
 			path = ProfileSettingScene;
 			sourceTree = "<group>";
@@ -208,6 +214,22 @@
 				724FC8E62C4E9BA600CDA561 /* UIButton+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		724FC8E82C4EBF3300CDA561 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8E92C4EBF4300CDA561 /* Observable.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
+		724FC8EB2C4EBF5E00CDA561 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8EC2C4EBFA700CDA561 /* ProfileSettingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,8 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724FC8EA2C4EBF4300CDA561 /* Observable.swift in Sources */,
 				724FC8E22C4E8E7D00CDA561 /* ProfileImageView.swift in Sources */,
 				724FC8C32C4E47D000CDA561 /* BaseViewController.swift in Sources */,
+				724FC8ED2C4EBFA700CDA561 /* ProfileSettingViewModel.swift in Sources */,
 				724FC8E02C4E8D7C00CDA561 /* CameraImage.swift in Sources */,
 				724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */,
 				724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */,

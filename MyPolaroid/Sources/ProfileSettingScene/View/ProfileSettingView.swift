@@ -12,8 +12,8 @@ final class ProfileSettingView: BaseView {
     
     private let cameraImageView = CameraImage()
     private lazy var profileImageView = ProfileImage(profile: "profile_0", corner: 50, border: 3)
-    private let nicknameTextField = NicknameTextField(style: .nickname)
-    private let stateLabel: UILabel = {
+    let nicknameTextField = NicknameTextField(style: .nickname)
+    let stateLabel: UILabel = {
         let label = UILabel()
         label.text = "테스트입니다."
         label.font = Font.bold15
@@ -37,7 +37,7 @@ final class ProfileSettingView: BaseView {
             return button
         }
     }()
-    private let successButton = PointButton(title: .complete)
+    let successButton = PointButton(title: .complete)
     
     override func configureHierarchy() {
         addSubview(profileImageView)
