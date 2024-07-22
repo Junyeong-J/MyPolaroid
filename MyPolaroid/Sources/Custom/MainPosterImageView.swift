@@ -13,7 +13,8 @@ class CustomImageView: UIImageView {
         super.init(frame: .zero)
         
         image = UIImage(named: imageName)
-        contentMode = .scaleAspectFill
+        contentMode = .scaleAspectFit
+        clipsToBounds = true
         
     }
     

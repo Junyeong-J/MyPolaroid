@@ -12,12 +12,17 @@ class OnBoardingView: BaseView {
     
     let serviceTitleImageView = CustomImageView("launch")
     let mainPosterImageView = CustomImageView("launchImage")
-    let myName = UILabel()
     let appStratButton = PointButton(title: .start)
+    let myName: UILabel = {
+        let label = UILabel()
+        label.text = "전준영"
+        label.font = Font.bold20
+        return label
+    }()
     
     override func configureHierarchy() {
-        addSubview(serviceTitleImageView)
         addSubview(mainPosterImageView)
+        addSubview(serviceTitleImageView)
         addSubview(myName)
         addSubview(appStratButton)
     }
@@ -31,6 +36,7 @@ class OnBoardingView: BaseView {
         
         serviceTitleImageView.snp.makeConstraints { make in
             make.bottom.equalTo(mainPosterImageView.snp.top).offset(-20)
+            make.centerX.equalTo(safeAreaLayoutGuide)
             make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(40)
             make.height.equalTo(100)
         }
@@ -44,10 +50,6 @@ class OnBoardingView: BaseView {
             make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide).inset(20)
             make.height.equalTo(50)
         }
-    }
-    
-    override func configureView() {
-        myName.text = "전준영"
     }
     
 }
