@@ -67,7 +67,12 @@ extension ProfileSettingViewController {
     }
     
     @objc private func successButtonClicked() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
         
+        let rootViewController = TabBarController()
+        sceneDelegate?.window?.rootViewController = rootViewController
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
 }
 
