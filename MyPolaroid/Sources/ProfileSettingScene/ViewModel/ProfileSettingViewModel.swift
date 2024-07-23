@@ -39,7 +39,7 @@ final class ProfileSettingViewModel {
     }
     
     private func validateNickname(_ nickname: String?) {
-        guard let text = nickname else {
+        guard let text = nickname, !text.isEmpty else {
             outputValidationText.value = NicknameError.ect.eachError
             outputValid.value = false
             return

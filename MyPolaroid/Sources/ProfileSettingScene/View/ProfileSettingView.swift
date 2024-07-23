@@ -15,8 +15,8 @@ final class ProfileSettingView: BaseView {
     let nicknameTextField = NicknameTextField(style: .nickname)
     let stateLabel: UILabel = {
         let label = UILabel()
-        label.text = "테스트입니다."
-        label.font = Font.bold15
+        label.text = ""
+        label.font = Font.regular13
         return label
     }()
     private let mbtiLabel: UILabel = {

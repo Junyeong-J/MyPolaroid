@@ -141,12 +141,12 @@
 			isa = PBXGroup;
 			children = (
 				724FC92C2C4F8F1D00CDA561 /* Protocols */,
-				724FC9242C4F8ADA00CDA561 /* EditProfileScene */,
 				724FC8FB2C4F6E0600CDA561 /* TabBar */,
 				724FC8D02C4E519D00CDA561 /* Custom */,
 				724FC8BF2C4E478600CDA561 /* Base */,
 				724FC8BE2C4E468C00CDA561 /* OnBoardingScene */,
 				724FC8D92C4E896E00CDA561 /* ProfileSettingScene */,
+				724FC9242C4F8ADA00CDA561 /* EditProfileScene */,
 				724FC8EE2C4F363900CDA561 /* MainScene */,
 			);
 			path = Sources;

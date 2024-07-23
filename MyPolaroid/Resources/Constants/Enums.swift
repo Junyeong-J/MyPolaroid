@@ -34,7 +34,7 @@ enum NicknameError: Error {
         case .correct:
             return "사용할 수 있는 닉네임이에요"
         case .ect:
-            return "텍스트 필드에 잘못 입력되었습니다."
+            return ""
         }
     }
 }

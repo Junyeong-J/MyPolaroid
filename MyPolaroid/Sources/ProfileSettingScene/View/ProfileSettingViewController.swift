@@ -13,6 +13,7 @@ final class ProfileSettingViewController: BaseViewController<ProfileSettingView>
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeNavigationUI()
         configureTextField()
         bindData()
         tapGesture()
@@ -36,6 +37,7 @@ extension ProfileSettingViewController {
         }
         
         viewModel.outputValid.bind { [weak self] value in
+            self?.rootView.stateLabel.textColor = value ? .myAppMain : .myAppLightRed
             self?.rootView.successButton.backgroundColor = value ? .myAppMain : .myAppGray
             self?.rootView.successButton.isEnabled = value
         }
