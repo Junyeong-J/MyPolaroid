@@ -16,7 +16,7 @@ final class ProfileSettingViewModel {
     var outputValid = Observable(false)
     var outputMbtiButtonBool: Observable<[String: Bool]?> = Observable(nil)
     
-    private let mbtiSet: [String: String] = ["E": "I", "I": "E", "S": "N", "N": "S", "T": "F", "F": "T", "J": "P", "P": "J"]
+    private let mbtiSet: [String: String] = ["E": "I", "S": "N", "T": "F", "J": "P"]
     private var mbtiButtonBool: [String: Bool] = ["E": false, "I": false, "S": false, "N": false, "T": false, "F": false, "J": false, "P": false]
     
     init() {
@@ -29,8 +29,12 @@ final class ProfileSettingViewModel {
         }
     }
     
+    //MARK: - mbti버튼 처리
     private func mbtiButtonCheck(_ title: String?) {
-        guard let title = title, let set = mbtiSet[title]else {return}
+        guard let title = title else {return}
+        //mbti버튼의 title을 가져와 같으면 set변수에 key값을 저장, key값에 없으면 value값으로 확인
+        let set = mbtiSet[title] ?? mbtiSet.first{ $0.value == title }?.key
+        guard let set = set else {return}
         mbtiButtonBool[title]?.toggle()
         if mbtiButtonBool[title] == true {
             mbtiButtonBool[set] = false
@@ -38,6 +42,7 @@ final class ProfileSettingViewModel {
         outputMbtiButtonBool.value = mbtiButtonBool
     }
     
+    //MARK: - 닉네임 조건 확인 및 버튼 상태 처리
     private func validateNickname(_ nickname: String?) {
         guard let text = nickname, !text.isEmpty else {
             outputValidationText.value = NicknameError.ect.eachError
