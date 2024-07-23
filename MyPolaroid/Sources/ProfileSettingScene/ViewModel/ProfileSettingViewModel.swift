@@ -13,7 +13,8 @@ final class ProfileSettingViewModel {
     var inputMbtiButtonTitle: Observable<String?> = Observable(nil)
     
     var outputValidationText = Observable("")
-    var outputValid = Observable(false)
+    var outputButtonValid = Observable(false)
+    var outputNicknameValid = Observable(false)
     var outputMbtiButtonBool: Observable<[String: Bool]?> = Observable(nil)
     
     private let mbtiSet: [String: String] = ["E": "I", "S": "N", "T": "F", "J": "P"]
@@ -40,27 +41,31 @@ final class ProfileSettingViewModel {
             mbtiButtonBool[set] = false
         }
         outputMbtiButtonBool.value = mbtiButtonBool
+        updateOutputValid()
     }
     
     //MARK: - 닉네임 조건 확인 및 버튼 상태 처리
     private func validateNickname(_ nickname: String?) {
         guard let text = nickname, !text.isEmpty else {
             outputValidationText.value = NicknameError.ect.eachError
-            outputValid.value = false
+            outputNicknameValid.value = false
+            updateOutputValid()
             return
         }
         
         do {
             try requestNickname(text: text)
             outputValidationText.value = NicknameError.correct.eachError
-            outputValid.value = true
+            outputNicknameValid.value = true
         } catch let error as NicknameError {
             outputValidationText.value = error.eachError
-            outputValid.value = false
+            outputNicknameValid.value = false
         } catch {
             outputValidationText.value = NicknameError.ect.eachError
-            outputValid.value = false
+            outputNicknameValid.value = false
         }
+        
+        updateOutputValid()
     }
     
     private func requestNickname(text: String) throws {
@@ -85,4 +90,9 @@ final class ProfileSettingViewModel {
         return text.count >= 2 && text.count < 10
     }
     
+    //MARK: - 버튼상태
+    private func updateOutputValid() {
+        let trueCount = mbtiButtonBool.values.filter { $0 }.count
+        outputButtonValid.value = (trueCount == 4) && outputNicknameValid.value
+    }
 }

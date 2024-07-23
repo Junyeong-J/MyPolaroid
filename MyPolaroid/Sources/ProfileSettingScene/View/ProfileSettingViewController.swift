@@ -36,14 +36,17 @@ extension ProfileSettingViewController {
             self?.rootView.stateLabel.text = value
         }
         
-        viewModel.outputValid.bind { [weak self] value in
+        viewModel.outputNicknameValid.bind { [weak self] value in
             self?.rootView.stateLabel.textColor = value ? .myAppMain : .myAppLightRed
-            self?.rootView.successButton.backgroundColor = value ? .myAppMain : .myAppGray
-            self?.rootView.successButton.isEnabled = value
         }
         
         viewModel.outputMbtiButtonBool.bind { [weak self] value in
             self?.selectedMbtiButton(value)
+        }
+        
+        viewModel.outputButtonValid.bind { [weak self] value in
+            self?.rootView.successButton.backgroundColor = value ? .myAppMain : .myAppGray
+            self?.rootView.successButton.isEnabled = value
         }
     }
     
