@@ -34,6 +34,10 @@
 		724FC8F12C4F36C800CDA561 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8F02C4F36C800CDA561 /* MainViewController.swift */; };
 		724FC8F32C4F36E600CDA561 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8F22C4F36E600CDA561 /* MainView.swift */; };
 		724FC8FD2C4F6E1800CDA561 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8FC2C4F6E1800CDA561 /* TabBarController.swift */; };
+		724FC9272C4F8B8000CDA561 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9262C4F8B8000CDA561 /* EditProfileViewController.swift */; };
+		724FC9292C4F8B8D00CDA561 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9282C4F8B8D00CDA561 /* EditProfileView.swift */; };
+		724FC92B2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC92A2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift */; };
+		724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC92D2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,10 @@
 		724FC8F02C4F36C800CDA561 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		724FC8F22C4F36E600CDA561 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		724FC8FC2C4F6E1800CDA561 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		724FC9262C4F8B8000CDA561 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		724FC9282C4F8B8D00CDA561 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		724FC92A2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		724FC92D2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +140,8 @@
 		724FC8B82C4E38C800CDA561 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				724FC92C2C4F8F1D00CDA561 /* Protocols */,
+				724FC9242C4F8ADA00CDA561 /* EditProfileScene */,
 				724FC8FB2C4F6E0600CDA561 /* TabBar */,
 				724FC8D02C4E519D00CDA561 /* Custom */,
 				724FC8BF2C4E478600CDA561 /* Base */,
@@ -265,6 +275,32 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		724FC9242C4F8ADA00CDA561 /* EditProfileScene */ = {
+			isa = PBXGroup;
+			children = (
+				724FC9252C4F8B6900CDA561 /* View */,
+			);
+			path = EditProfileScene;
+			sourceTree = "<group>";
+		};
+		724FC9252C4F8B6900CDA561 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				724FC9262C4F8B8000CDA561 /* EditProfileViewController.swift */,
+				724FC9282C4F8B8D00CDA561 /* EditProfileView.swift */,
+				724FC92A2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		724FC92C2C4F8F1D00CDA561 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				724FC92D2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -350,12 +386,16 @@
 				724FC8E02C4E8D7C00CDA561 /* CameraImage.swift in Sources */,
 				724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */,
 				724FC8F32C4F36E600CDA561 /* MainView.swift in Sources */,
+				724FC9272C4F8B8000CDA561 /* EditProfileViewController.swift in Sources */,
 				724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */,
 				724FC8E72C4E9BA600CDA561 /* UIButton+Extension.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
 				724FC8CC2C4E4A7400CDA561 /* OnBoardingView.swift in Sources */,
 				724FC8C92C4E4A1800CDA561 /* OnBoardingViewController.swift in Sources */,
 				724FC8E42C4E91EE00CDA561 /* NicknameTextField.swift in Sources */,
+				724FC9292C4F8B8D00CDA561 /* EditProfileView.swift in Sources */,
+				724FC92B2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift in Sources */,
+				724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */,
 				724FC8DC2C4E89AD00CDA561 /* ProfileSettingViewController.swift in Sources */,
 				724FC8FD2C4F6E1800CDA561 /* TabBarController.swift in Sources */,
 				724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */,
