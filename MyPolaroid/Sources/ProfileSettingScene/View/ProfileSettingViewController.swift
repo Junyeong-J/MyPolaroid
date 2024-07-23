@@ -15,6 +15,7 @@ final class ProfileSettingViewController: BaseViewController<ProfileSettingView>
         super.viewDidLoad()
         configureTextField()
         bindData()
+        tapGesture()
         addTargets()
     }
     
@@ -44,6 +45,12 @@ extension ProfileSettingViewController {
         }
     }
     
+    private func tapGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageViewClicked))
+        rootView.profileImageView.addGestureRecognizer(tapGesture)
+        rootView.profileImageView.isUserInteractionEnabled = true
+    }
+    
     private func addTargets() {
         for mbtiButton in rootView.mbtiButtons {
             mbtiButton.addTarget(self, action: #selector(mbtiButtonClicked), for: .touchUpInside)
@@ -59,6 +66,11 @@ extension ProfileSettingViewController {
             button.backgroundColor = isSelected ? .myAppMain : .myAppWhite
             button.setTitleColor(isSelected ? .myAppWhite : .myAppGray, for: .normal)
         }
+    }
+    
+    @objc private func profileImageViewClicked() {
+        let vc = EditProfileViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func mbtiButtonClicked(_ sender: UIButton) {

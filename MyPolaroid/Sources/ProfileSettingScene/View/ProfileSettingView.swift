@@ -11,7 +11,7 @@ import SnapKit
 final class ProfileSettingView: BaseView {
     
     private let cameraImageView = CameraImage()
-    private lazy var profileImageView = ProfileImage(profile: "profile_0", corner: 50, border: 3)
+    lazy var profileImageView = ProfileImage(profile: "profile_0", corner: 50, border: 3)
     let nicknameTextField = NicknameTextField(style: .nickname)
     let stateLabel: UILabel = {
         let label = UILabel()
