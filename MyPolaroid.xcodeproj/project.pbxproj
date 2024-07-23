@@ -38,6 +38,7 @@
 		724FC9292C4F8B8D00CDA561 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9282C4F8B8D00CDA561 /* EditProfileView.swift */; };
 		724FC92B2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC92A2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift */; };
 		724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC92D2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift */; };
+		724FC9302C501E1300CDA561 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC92F2C501E1300CDA561 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		724FC9282C4F8B8D00CDA561 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		724FC92A2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		724FC92D2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
+		724FC92F2C501E1300CDA561 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				724FC8E62C4E9BA600CDA561 /* UIButton+Extension.swift */,
+				724FC92F2C501E1300CDA561 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				724FC8CC2C4E4A7400CDA561 /* OnBoardingView.swift in Sources */,
 				724FC8C92C4E4A1800CDA561 /* OnBoardingViewController.swift in Sources */,
 				724FC8E42C4E91EE00CDA561 /* NicknameTextField.swift in Sources */,
+				724FC9302C501E1300CDA561 /* UIImage+Extension.swift in Sources */,
 				724FC9292C4F8B8D00CDA561 /* EditProfileView.swift in Sources */,
 				724FC92B2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift in Sources */,
 				724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */,

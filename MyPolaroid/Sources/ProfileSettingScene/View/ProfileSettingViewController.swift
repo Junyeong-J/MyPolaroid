@@ -9,7 +9,7 @@ import UIKit
 
 final class ProfileSettingViewController: BaseViewController<ProfileSettingView> {
     
-    let viewModel = ProfileSettingViewModel()
+    private let viewModel = ProfileSettingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +75,7 @@ extension ProfileSettingViewController {
     
     @objc private func profileImageViewClicked() {
         let vc = EditProfileViewController()
+        vc.profileImage = rootView.profileImageView.image
         navigationController?.pushViewController(vc, animated: true)
     }
     

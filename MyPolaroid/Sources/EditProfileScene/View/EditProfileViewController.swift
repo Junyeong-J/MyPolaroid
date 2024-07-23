@@ -10,6 +10,12 @@ import SnapKit
 
 final class EditProfileViewController: BaseViewController<EditProfileView> {
     
+    var profileImage: UIImage? {
+        didSet{
+            setupProfileImage()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
@@ -28,6 +34,12 @@ extension EditProfileViewController {
         
         rootView.collectionView.register(EditProfileCollectionViewCell.self, forCellWithReuseIdentifier: EditProfileCollectionViewCell.identifier)
         
+    }
+    
+    private func setupProfileImage() {
+        if let image = profileImage {
+            rootView.profileImageView.image = image
+        }
     }
 }
 

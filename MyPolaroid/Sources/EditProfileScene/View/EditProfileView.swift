@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class EditProfileView: BaseView {
     
@@ -27,8 +28,8 @@ final class EditProfileView: BaseView {
     }
     
     override func configureHierarchy() {
-        addSubview(cameraImage)
         addSubview(profileImageView)
+        addSubview(cameraImage)
         addSubview(collectionView)
     }
     
