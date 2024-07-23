@@ -10,7 +10,7 @@ import SnapKit
 
 final class EditProfileViewController: BaseViewController<EditProfileView> {
     
-    var profileImage: UIImage? {
+    var profileImage: String? {
         didSet{
             setupProfileImage()
         }
@@ -38,20 +38,19 @@ extension EditProfileViewController {
     
     private func setupProfileImage() {
         if let image = profileImage {
-            rootView.profileImageView.image = image
+            rootView.profileImageView.image = UIImage(named: image)
         }
     }
 }
 
 extension EditProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return UIImage.profileImage.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EditProfileCollectionViewCell.identifier, for: indexPath) as! EditProfileCollectionViewCell
-        let profileName = "profile_\(indexPath.item)"
-        cell.configureData(imageNames: profileName)
+        cell.configureData(imageNames: profileImage, setImage: UIImage.profileImage[indexPath.item])
         
         return cell
     }

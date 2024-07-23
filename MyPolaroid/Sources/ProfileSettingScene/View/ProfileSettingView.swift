@@ -10,10 +10,14 @@ import SnapKit
 
 final class ProfileSettingView: BaseView {
     
+    var profileImageName: String = ""
+    private let mbtiButtonTitles = ["E", "S", "T", "J", "I", "N", "F", "P"]
+    
     private let cameraImageView = CameraImage()
     lazy var profileImageView: ProfileImage = {
         let index = Int.random(in: 0..<UIImage.profileImage.count)
-        return ProfileImage(profile: UIImage.profileImage[index], corner: 50, border: 3)
+        profileImageName = UIImage.profileImage[index]
+        return ProfileImage(profile: profileImageName, corner: 50, border: 3)
     }()
     
     let nicknameTextField = NicknameTextField(style: .nickname)
@@ -30,7 +34,6 @@ final class ProfileSettingView: BaseView {
         return label
     }()
     private let mbtiView = UIView()
-    private let mbtiButtonTitles = ["E", "S", "T", "J", "I", "N", "F", "P"]
     lazy var mbtiButtons: [UIButton] = {
         return mbtiButtonTitles.enumerated().map { index, title in
             let button = UIButton(configuration: .circleStyle(title: title), primaryAction: nil)

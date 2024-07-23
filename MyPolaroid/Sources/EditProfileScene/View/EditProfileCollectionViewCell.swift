@@ -27,10 +27,11 @@ final class EditProfileCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func configureData(imageNames: String) {
-        imageView.image = UIImage(named: imageNames)
-        imageView.alpha = 0.5
-        imageView.layer.borderWidth = 1
+    func configureData(imageNames: String?, setImage: String) {
+        guard let imageNames = imageNames else {return}
+        imageView.image = UIImage(named: setImage)
+        imageView.alpha = imageNames == setImage ? 1 : 0.5
+        imageView.layer.borderWidth = imageNames == setImage ? 3 : 1
     }
     
 }

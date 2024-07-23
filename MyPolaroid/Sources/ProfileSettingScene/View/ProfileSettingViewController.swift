@@ -75,7 +75,7 @@ extension ProfileSettingViewController {
     
     @objc private func profileImageViewClicked() {
         let vc = EditProfileViewController()
-        vc.profileImage = rootView.profileImageView.image
+        vc.profileImage = rootView.profileImageName
         navigationController?.pushViewController(vc, animated: true)
     }
     
