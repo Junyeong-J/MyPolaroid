@@ -68,8 +68,11 @@ extension ProfileSettingViewController {
         for button in rootView.mbtiButtons {
             guard let title = button.configuration?.title else { return }
             let isSelected = mbtiButtonValue?[title] ?? false
+            var configuration = button.configuration
+            configuration?.baseForegroundColor = isSelected ? .myAppWhite : .myAppGray
+            button.configuration = configuration
             button.backgroundColor = isSelected ? .myAppMain : .myAppWhite
-            button.setTitleColor(isSelected ? .myAppWhite : .myAppGray, for: .normal)
+            button.layer.borderColor = isSelected ? UIColor.myAppMain.cgColor : UIColor.myAppGray.cgColor
         }
     }
     
