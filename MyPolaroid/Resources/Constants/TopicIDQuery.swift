@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum TopicIDQuery: String {
+    case goldenHour = "golden-hour"
+    case architectureInterior = "architecture-interior"
+    case businessWork = "business-work"
+}
