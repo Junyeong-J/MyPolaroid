@@ -10,6 +10,7 @@ import SnapKit
 
 final class EditProfileViewController: BaseViewController<EditProfileView> {
     
+    weak var delegate: ProfileSetProtocol?
     var profileImage: String? {
         didSet{
             setupProfileImage()
@@ -19,6 +20,13 @@ final class EditProfileViewController: BaseViewController<EditProfileView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let profileImage = profileImage, let index = UIImage.profileImage.firstIndex(of: profileImage) {
+            delegate?.selectSetImage(index)
+        }
     }
     
     override func configureView() {
@@ -51,8 +59,12 @@ extension EditProfileViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EditProfileCollectionViewCell.identifier, for: indexPath) as! EditProfileCollectionViewCell
         cell.configureData(imageNames: profileImage, setImage: UIImage.profileImage[indexPath.item])
-        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        profileImage = UIImage.profileImage[indexPath.item]
+        collectionView.reloadData()
     }
     
 }

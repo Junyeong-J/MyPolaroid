@@ -39,6 +39,7 @@
 		724FC92B2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC92A2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift */; };
 		724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC92D2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift */; };
 		724FC9302C501E1300CDA561 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC92F2C501E1300CDA561 /* UIImage+Extension.swift */; };
+		724FC9542C50E3D000CDA561 /* ProfileSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9532C50E3D000CDA561 /* ProfileSetProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		724FC92A2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		724FC92D2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		724FC92F2C501E1300CDA561 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		724FC9532C50E3D000CDA561 /* ProfileSetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				724FC92D2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift */,
+				724FC9532C50E3D000CDA561 /* ProfileSetProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				724FC9272C4F8B8000CDA561 /* EditProfileViewController.swift in Sources */,
 				724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */,
 				724FC8E72C4E9BA600CDA561 /* UIButton+Extension.swift in Sources */,
+				724FC9542C50E3D000CDA561 /* ProfileSetProtocol.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
 				724FC8CC2C4E4A7400CDA561 /* OnBoardingView.swift in Sources */,
 				724FC8C92C4E4A1800CDA561 /* OnBoardingViewController.swift in Sources */,

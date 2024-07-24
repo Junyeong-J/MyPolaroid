@@ -76,6 +76,7 @@ extension ProfileSettingViewController {
     @objc private func profileImageViewClicked() {
         let vc = EditProfileViewController()
         vc.profileImage = rootView.profileImageName
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -97,5 +98,13 @@ extension ProfileSettingViewController {
 extension ProfileSettingViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         viewModel.inputNickname.value = textField.text
+    }
+}
+
+extension ProfileSettingViewController: ProfileSetProtocol {
+    func selectSetImage(_ profileImageIndex: Int) {
+        let selectedImageName = UIImage.profileImage[profileImageIndex]
+        rootView.profileImageView.image = UIImage(named: selectedImageName)
+        rootView.profileImageName = selectedImageName
     }
 }
