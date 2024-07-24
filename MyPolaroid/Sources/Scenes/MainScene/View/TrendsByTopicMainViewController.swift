@@ -30,12 +30,9 @@ final class TrendsByTopicMainViewController: BaseViewController<TrendsByTopicMai
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    
     override func configureView() {
         super.configureView()
     }
-    
-    
     
 }
 
@@ -43,7 +40,6 @@ extension TrendsByTopicMainViewController {
     private func configureTableView() {
         rootView.tableView.dataSource = self
         rootView.tableView.delegate = self
-        rootView.tableView.reloadData()
     }
     
     private func bindData() {

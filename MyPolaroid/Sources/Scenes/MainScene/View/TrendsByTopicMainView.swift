@@ -12,7 +12,7 @@ final class TrendsByTopicMainView: BaseView{
     
     let tableView = {
         let view = UITableView()
-        view.rowHeight = 200
+        view.rowHeight = (ScreenSize.width / 2) * 2
         view.register(TrendsByTopicTableViewCell.self, forCellReuseIdentifier: TrendsByTopicTableViewCell.identifier)
         return view
     }()

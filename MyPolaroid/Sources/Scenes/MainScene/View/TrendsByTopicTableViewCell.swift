@@ -12,7 +12,7 @@ final class TrendsByTopicTableViewCell: BaseTableViewCell {
     
     private let titleLabel = {
         let view = UILabel()
-        view.font = .boldSystemFont(ofSize: 17)
+        view.font = Font.bold20
         view.text = "사진들"
         view.textColor = .black
         return view
@@ -22,10 +22,10 @@ final class TrendsByTopicTableViewCell: BaseTableViewCell {
     
     static func layout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 160)
+        layout.itemSize = CGSize(width: ScreenSize.width / 2, height: (ScreenSize.width / 2) * 1.5)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         layout.scrollDirection = .horizontal
         return layout
     }
@@ -44,7 +44,7 @@ final class TrendsByTopicTableViewCell: BaseTableViewCell {
         
         collectionView.snp.makeConstraints { make in
             make.horizontalEdges.bottom.equalTo(contentView)
-            make.top.equalTo(titleLabel.snp.bottom)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
         }
     }
     

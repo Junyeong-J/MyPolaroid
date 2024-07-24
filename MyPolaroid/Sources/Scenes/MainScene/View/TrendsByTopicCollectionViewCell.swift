@@ -10,7 +10,7 @@ import Kingfisher
 
 final class TrendsByTopicCollectionViewCell: BaseCollectionViewCell {
     
-    let posterImageView = UIImageView()
+    private let posterImageView = UIImageView()
     
     override func configureHierarchy() {
         contentView.addSubview(posterImageView)
@@ -20,12 +20,11 @@ final class TrendsByTopicCollectionViewCell: BaseCollectionViewCell {
         posterImageView.snp.makeConstraints { make in
             make.edges.equalTo(contentView)
         }
-        
-        
     }
     
     override func configureView() {
-        posterImageView.backgroundColor = .systemMint
+        contentView.layer.cornerRadius = 20
+        contentView.clipsToBounds = true
     }
     
     func configureData(imageData: TopicPhoto){
