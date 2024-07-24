@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class TrendsByTopicCollectionViewCell: BaseCollectionViewCell {
     
@@ -25,6 +26,11 @@ final class TrendsByTopicCollectionViewCell: BaseCollectionViewCell {
     
     override func configureView() {
         posterImageView.backgroundColor = .systemMint
+    }
+    
+    func configureData(imageData: TopicPhoto){
+        let url = URL(string: imageData.urls.small)
+        posterImageView.kf.setImage(with: url)
     }
     
 }

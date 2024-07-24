@@ -48,4 +48,8 @@ final class TrendsByTopicTableViewCell: BaseTableViewCell {
         }
     }
     
+    func configureData(title: String) {
+        titleLabel.text = title
+    }
+    
 }

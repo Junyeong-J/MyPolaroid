@@ -11,7 +11,7 @@ final class TrendsByTopicViewModel {
     
     var inputViewDidLoadTrigger: Observable<Void?> = Observable(nil)
     
-    var outputData: Observable<[TopicPhoto]> = Observable([])
+    var outputData: Observable<[[String:[TopicPhoto]]]> = Observable([])
     
     init(){
         transform()
@@ -19,19 +19,33 @@ final class TrendsByTopicViewModel {
     
     private func transform() {
         inputViewDidLoadTrigger.bind { [weak self] _ in
-            self?.callRequest()
+            self?.callRequests()
         }
     }
     
-    private func callRequest() {
-        UnSplashAPIManager.shared.unSplashRequest(api: .TopicPhotoAPI(topicID: TopicIDQuery.goldenHour.rawValue), model: [TopicPhoto].self) { [weak self] result in
-            switch result {
-            case .success(let data):
-                print(data)
-                self?.outputData.value = data
-            case .failure(let error):
-                print("Error: \(error)")
+    private func callRequests() {
+        let topicIDsArray = [TopicIDQuery.goldenHour, TopicIDQuery.architectureInterior, TopicIDQuery.businessWork]
+        var photosByTopicArray: [[String: [TopicPhoto]]] = []
+        let dispatchGroup = DispatchGroup()
+        
+        for topicID in topicIDsArray {
+            dispatchGroup.enter()
+            DispatchQueue.global().async(group: dispatchGroup) {
+                UnSplashAPIManager.shared.unSplashRequest(api: .TopicPhotoAPI(topicID: topicID.rawValue), model: [TopicPhoto].self) { result in
+                    switch result {
+                    case .success(let data):
+                        let fetchData: [String: [TopicPhoto]] = [topicID.displayTitle: data]
+                        photosByTopicArray.append(fetchData)
+                    case .failure(let error):
+                        print("Error: \(error)")
+                    }
+                    dispatchGroup.leave()
+                }
             }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            self.outputData.value = photosByTopicArray
         }
     }
 }

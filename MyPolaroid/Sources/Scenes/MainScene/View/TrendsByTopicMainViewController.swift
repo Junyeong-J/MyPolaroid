@@ -12,7 +12,7 @@ final class TrendsByTopicMainViewController: BaseViewController<TrendsByTopicMai
     private let myProfileImageView = ProfileImage(profile: "profile_1", corner: 20, border: 2)
     
     private let viewModel = TrendsByTopicViewModel()
-    private var data = [TopicPhoto]()
+    private var photoDataList = [[String : [TopicPhoto]]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ extension TrendsByTopicMainViewController {
         viewModel.inputViewDidLoadTrigger.value = ()
         
         viewModel.outputData.bind { [weak self] data in
-            self?.data = data
+            self?.photoDataList = data
             self?.rootView.tableView.reloadData()
         }
     }
@@ -58,12 +58,12 @@ extension TrendsByTopicMainViewController {
 
 extension TrendsByTopicMainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return photoDataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TrendsByTopicTableViewCell.identifier, for: indexPath) as! TrendsByTopicTableViewCell
-        cell.backgroundColor = .red
+        cell.configureData(title: Array(photoDataList[indexPath.row].keys).first ?? "")
         cell.collectionView.dataSource = self
         cell.collectionView.delegate = self
         cell.collectionView.tag = indexPath.row
@@ -75,12 +75,13 @@ extension TrendsByTopicMainViewController: UITableViewDelegate, UITableViewDataS
 
 extension TrendsByTopicMainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return Array(photoDataList[collectionView.tag].values).flatMap{$0}.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendsByTopicCollectionViewCell.identifier, for: indexPath) as! TrendsByTopicCollectionViewCell
-        cell.backgroundColor = .gray
+        let data = Array(photoDataList[collectionView.tag].values).flatMap{$0}[indexPath.item]
+        cell.configureData(imageData: data)
         return cell
     }
 }
