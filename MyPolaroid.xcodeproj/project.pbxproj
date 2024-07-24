@@ -52,6 +52,7 @@
 		724FC96F2C5146CE00CDA561 /* NicknameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC96E2C5146CE00CDA561 /* NicknameError.swift */; };
 		724FC9712C51480D00CDA561 /* TopicIDQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9702C51480D00CDA561 /* TopicIDQuery.swift */; };
 		724FC9742C5166EE00CDA561 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC9732C5166EE00CDA561 /* Kingfisher */; };
+		724FC9772C5170E700CDA561 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9762C5170E700CDA561 /* ScreenSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		724FC96C2C5146BA00CDA561 /* TextFieldPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceholder.swift; sourceTree = "<group>"; };
 		724FC96E2C5146CE00CDA561 /* NicknameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameError.swift; sourceTree = "<group>"; };
 		724FC9702C51480D00CDA561 /* TopicIDQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicIDQuery.swift; sourceTree = "<group>"; };
+		724FC9762C5170E700CDA561 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,10 +233,8 @@
 		724FC8D32C4E553D00CDA561 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				724FC96A2C5146A500CDA561 /* ButtonTitle.swift */,
-				724FC96C2C5146BA00CDA561 /* TextFieldPlaceholder.swift */,
-				724FC96E2C5146CE00CDA561 /* NicknameError.swift */,
-				724FC9702C51480D00CDA561 /* TopicIDQuery.swift */,
+				724FC9752C5170C200CDA561 /* Enums */,
+				724FC9762C5170E700CDA561 /* ScreenSize.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -373,6 +373,17 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		724FC9752C5170C200CDA561 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				724FC96A2C5146A500CDA561 /* ButtonTitle.swift */,
+				724FC96C2C5146BA00CDA561 /* TextFieldPlaceholder.swift */,
+				724FC96E2C5146CE00CDA561 /* NicknameError.swift */,
+				724FC9702C51480D00CDA561 /* TopicIDQuery.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -484,6 +495,7 @@
 				724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */,
 				724FC8DC2C4E89AD00CDA561 /* ProfileSettingViewController.swift in Sources */,
 				724FC9692C51434C00CDA561 /* TopicPhotoModel.swift in Sources */,
+				724FC9772C5170E700CDA561 /* ScreenSize.swift in Sources */,
 				724FC8FD2C4F6E1800CDA561 /* TabBarController.swift in Sources */,
 				724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */,
 				724FC8C72C4E481C00CDA561 /* BaseTableViewCell.swift in Sources */,
