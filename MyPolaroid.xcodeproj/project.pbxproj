@@ -31,8 +31,8 @@
 		724FC8E72C4E9BA600CDA561 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8E62C4E9BA600CDA561 /* UIButton+Extension.swift */; };
 		724FC8EA2C4EBF4300CDA561 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8E92C4EBF4300CDA561 /* Observable.swift */; };
 		724FC8ED2C4EBFA700CDA561 /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8EC2C4EBFA700CDA561 /* ProfileSettingViewModel.swift */; };
-		724FC8F12C4F36C800CDA561 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8F02C4F36C800CDA561 /* MainViewController.swift */; };
-		724FC8F32C4F36E600CDA561 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8F22C4F36E600CDA561 /* MainView.swift */; };
+		724FC8F12C4F36C800CDA561 /* TrendsByTopicMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8F02C4F36C800CDA561 /* TrendsByTopicMainViewController.swift */; };
+		724FC8F32C4F36E600CDA561 /* TrendsByTopicMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8F22C4F36E600CDA561 /* TrendsByTopicMainView.swift */; };
 		724FC8FD2C4F6E1800CDA561 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8FC2C4F6E1800CDA561 /* TabBarController.swift */; };
 		724FC9272C4F8B8000CDA561 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9262C4F8B8000CDA561 /* EditProfileViewController.swift */; };
 		724FC9292C4F8B8D00CDA561 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9282C4F8B8D00CDA561 /* EditProfileView.swift */; };
@@ -40,6 +40,8 @@
 		724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC92D2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift */; };
 		724FC9302C501E1300CDA561 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC92F2C501E1300CDA561 /* UIImage+Extension.swift */; };
 		724FC9542C50E3D000CDA561 /* ProfileSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9532C50E3D000CDA561 /* ProfileSetProtocol.swift */; };
+		724FC9562C51294700CDA561 /* TrendsByTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9552C51294700CDA561 /* TrendsByTopicTableViewCell.swift */; };
+		724FC9582C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9572C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,8 +70,8 @@
 		724FC8E62C4E9BA600CDA561 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		724FC8E92C4EBF4300CDA561 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		724FC8EC2C4EBFA700CDA561 /* ProfileSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewModel.swift; sourceTree = "<group>"; };
-		724FC8F02C4F36C800CDA561 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		724FC8F22C4F36E600CDA561 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		724FC8F02C4F36C800CDA561 /* TrendsByTopicMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsByTopicMainViewController.swift; sourceTree = "<group>"; };
+		724FC8F22C4F36E600CDA561 /* TrendsByTopicMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsByTopicMainView.swift; sourceTree = "<group>"; };
 		724FC8FC2C4F6E1800CDA561 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		724FC9262C4F8B8000CDA561 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		724FC9282C4F8B8D00CDA561 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,8 @@
 		724FC92D2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		724FC92F2C501E1300CDA561 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		724FC9532C50E3D000CDA561 /* ProfileSetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetProtocol.swift; sourceTree = "<group>"; };
+		724FC9552C51294700CDA561 /* TrendsByTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsByTopicTableViewCell.swift; sourceTree = "<group>"; };
+		724FC9572C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsByTopicCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,8 +270,10 @@
 		724FC8EF2C4F36A400CDA561 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				724FC8F02C4F36C800CDA561 /* MainViewController.swift */,
-				724FC8F22C4F36E600CDA561 /* MainView.swift */,
+				724FC8F02C4F36C800CDA561 /* TrendsByTopicMainViewController.swift */,
+				724FC8F22C4F36E600CDA561 /* TrendsByTopicMainView.swift */,
+				724FC9552C51294700CDA561 /* TrendsByTopicTableViewCell.swift */,
+				724FC9572C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -384,14 +390,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				724FC8F12C4F36C800CDA561 /* MainViewController.swift in Sources */,
+				724FC8F12C4F36C800CDA561 /* TrendsByTopicMainViewController.swift in Sources */,
 				724FC8EA2C4EBF4300CDA561 /* Observable.swift in Sources */,
 				724FC8E22C4E8E7D00CDA561 /* ProfileImageView.swift in Sources */,
 				724FC8C32C4E47D000CDA561 /* BaseViewController.swift in Sources */,
 				724FC8ED2C4EBFA700CDA561 /* ProfileSettingViewModel.swift in Sources */,
 				724FC8E02C4E8D7C00CDA561 /* CameraImage.swift in Sources */,
 				724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */,
-				724FC8F32C4F36E600CDA561 /* MainView.swift in Sources */,
+				724FC8F32C4F36E600CDA561 /* TrendsByTopicMainView.swift in Sources */,
 				724FC9272C4F8B8000CDA561 /* EditProfileViewController.swift in Sources */,
 				724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */,
 				724FC8E72C4E9BA600CDA561 /* UIButton+Extension.swift in Sources */,
@@ -400,7 +406,9 @@
 				724FC8CC2C4E4A7400CDA561 /* OnBoardingView.swift in Sources */,
 				724FC8C92C4E4A1800CDA561 /* OnBoardingViewController.swift in Sources */,
 				724FC8E42C4E91EE00CDA561 /* NicknameTextField.swift in Sources */,
+				724FC9562C51294700CDA561 /* TrendsByTopicTableViewCell.swift in Sources */,
 				724FC9302C501E1300CDA561 /* UIImage+Extension.swift in Sources */,
+				724FC9582C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift in Sources */,
 				724FC9292C4F8B8D00CDA561 /* EditProfileView.swift in Sources */,
 				724FC92B2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift in Sources */,
 				724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */,
