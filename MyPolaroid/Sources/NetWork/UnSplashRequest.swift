@@ -44,10 +44,11 @@ enum UnSplashRequest {
     
     var parameter: Parameters {
         switch self {
-        case .TopicPhotoAPI(let topicID):
+        case .TopicPhotoAPI(_):
             return [
                 "page" : 1,
-                "order_by" : "popular"
+                "order_by" : "popular",
+                "client_id": APIKey.unSplashClientID
             ]
         case .PhotoSearchAPI, .PhotoStatisticsAPI, .RandomPhotoAPI:
             return [:]

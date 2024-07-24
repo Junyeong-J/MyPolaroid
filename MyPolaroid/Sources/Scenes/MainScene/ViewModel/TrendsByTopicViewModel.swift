@@ -27,6 +27,7 @@ final class TrendsByTopicViewModel {
         UnSplashAPIManager.shared.unSplashRequest(api: .TopicPhotoAPI(topicID: TopicIDQuery.goldenHour.rawValue), model: [TopicPhoto].self) { [weak self] result in
             switch result {
             case .success(let data):
+                print(data)
                 self?.outputData.value = data
             case .failure(let error):
                 print("Error: \(error)")

@@ -9,7 +9,7 @@ import Foundation
 
 struct TopicPhoto: Decodable {
     let id: String
-    let created_at: Date
+    let created_at: String
     let width: Int
     let urls: TopicPhotoURLs
     let likes: Int
