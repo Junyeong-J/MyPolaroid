@@ -11,6 +11,8 @@ final class TrendsByTopicMainViewController: BaseViewController<TrendsByTopicMai
     
     private let myProfileImageView = ProfileImage(profile: "profile_1", corner: 20, border: 2)
     
+    private let viewModel = TrendsByTopicViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar(image: myProfileImageView)
