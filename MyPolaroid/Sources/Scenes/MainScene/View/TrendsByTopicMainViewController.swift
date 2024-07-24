@@ -12,11 +12,13 @@ final class TrendsByTopicMainViewController: BaseViewController<TrendsByTopicMai
     private let myProfileImageView = ProfileImage(profile: "profile_1", corner: 20, border: 2)
     
     private let viewModel = TrendsByTopicViewModel()
+    private var data = [TopicPhoto]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar(image: myProfileImageView)
         configureTableView()
+        bindData()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageViewClicked))
         myProfileImageView.addGestureRecognizer(tapGesture)
@@ -42,6 +44,15 @@ extension TrendsByTopicMainViewController {
         rootView.tableView.dataSource = self
         rootView.tableView.delegate = self
         rootView.tableView.reloadData()
+    }
+    
+    private func bindData() {
+        viewModel.inputViewDidLoadTrigger.value = ()
+        
+        viewModel.outputData.bind { [weak self] data in
+            self?.data = data
+            self?.rootView.tableView.reloadData()
+        }
     }
 }
 

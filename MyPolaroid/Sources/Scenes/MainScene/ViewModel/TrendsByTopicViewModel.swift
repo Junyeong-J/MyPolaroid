@@ -11,6 +11,7 @@ final class TrendsByTopicViewModel {
     
     var inputViewDidLoadTrigger: Observable<Void?> = Observable(nil)
     
+    var outputData: Observable<[TopicPhoto]> = Observable([])
     
     init(){
         transform()
@@ -23,7 +24,7 @@ final class TrendsByTopicViewModel {
     }
     
     private func callRequest() {
-        UnSplashAPIManager.shared.unSplashRequest(api: .TopicPhotoAPI(topicID: <#T##String#>), model: <#T##Decodable.Type#>) { result in
+        UnSplashAPIManager.shared.unSplashRequest(api: .TopicPhotoAPI(topicID: TopicIDQuery.goldenHour.rawValue), model: [TopicPhoto].self) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.outputData.value = data

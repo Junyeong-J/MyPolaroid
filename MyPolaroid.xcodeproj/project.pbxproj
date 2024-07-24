@@ -21,7 +21,6 @@
 		724FC8CC2C4E4A7400CDA561 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8CB2C4E4A7400CDA561 /* OnBoardingView.swift */; };
 		724FC8CF2C4E4B2700CDA561 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC8CE2C4E4B2700CDA561 /* SnapKit */; };
 		724FC8D22C4E51D400CDA561 /* MainPosterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8D12C4E51D400CDA561 /* MainPosterImageView.swift */; };
-		724FC8D52C4E555F00CDA561 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8D42C4E555F00CDA561 /* Enums.swift */; };
 		724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8D62C4E561600CDA561 /* PointButton.swift */; };
 		724FC8DC2C4E89AD00CDA561 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8DB2C4E89AD00CDA561 /* ProfileSettingViewController.swift */; };
 		724FC8DE2C4E89D700CDA561 /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC8DD2C4E89D700CDA561 /* ProfileSettingView.swift */; };
@@ -42,6 +41,16 @@
 		724FC9542C50E3D000CDA561 /* ProfileSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9532C50E3D000CDA561 /* ProfileSetProtocol.swift */; };
 		724FC9562C51294700CDA561 /* TrendsByTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9552C51294700CDA561 /* TrendsByTopicTableViewCell.swift */; };
 		724FC9582C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9572C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift */; };
+		724FC95C2C51375D00CDA561 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC95B2C51375D00CDA561 /* Alamofire */; };
+		724FC95E2C51378B00CDA561 /* UnSplashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC95D2C51378B00CDA561 /* UnSplashRequest.swift */; };
+		724FC9602C51383100CDA561 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC95F2C51383100CDA561 /* APIKey.swift */; };
+		724FC9622C513B8800CDA561 /* UnSplashAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9612C513B8800CDA561 /* UnSplashAPIManager.swift */; };
+		724FC9652C513D2E00CDA561 /* TrendsByTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9642C513D2E00CDA561 /* TrendsByTopicViewModel.swift */; };
+		724FC9692C51434C00CDA561 /* TopicPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9682C51434C00CDA561 /* TopicPhotoModel.swift */; };
+		724FC96B2C5146A500CDA561 /* ButtonTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC96A2C5146A500CDA561 /* ButtonTitle.swift */; };
+		724FC96D2C5146BB00CDA561 /* TextFieldPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC96C2C5146BA00CDA561 /* TextFieldPlaceholder.swift */; };
+		724FC96F2C5146CE00CDA561 /* NicknameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC96E2C5146CE00CDA561 /* NicknameError.swift */; };
+		724FC9712C51480D00CDA561 /* TopicIDQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9702C51480D00CDA561 /* TopicIDQuery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +69,6 @@
 		724FC8C82C4E4A1800CDA561 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		724FC8CB2C4E4A7400CDA561 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		724FC8D12C4E51D400CDA561 /* MainPosterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPosterImageView.swift; sourceTree = "<group>"; };
-		724FC8D42C4E555F00CDA561 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		724FC8D62C4E561600CDA561 /* PointButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointButton.swift; sourceTree = "<group>"; };
 		724FC8DB2C4E89AD00CDA561 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		724FC8DD2C4E89D700CDA561 /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
@@ -81,6 +89,15 @@
 		724FC9532C50E3D000CDA561 /* ProfileSetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetProtocol.swift; sourceTree = "<group>"; };
 		724FC9552C51294700CDA561 /* TrendsByTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsByTopicTableViewCell.swift; sourceTree = "<group>"; };
 		724FC9572C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsByTopicCollectionViewCell.swift; sourceTree = "<group>"; };
+		724FC95D2C51378B00CDA561 /* UnSplashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashRequest.swift; sourceTree = "<group>"; };
+		724FC95F2C51383100CDA561 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		724FC9612C513B8800CDA561 /* UnSplashAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashAPIManager.swift; sourceTree = "<group>"; };
+		724FC9642C513D2E00CDA561 /* TrendsByTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsByTopicViewModel.swift; sourceTree = "<group>"; };
+		724FC9682C51434C00CDA561 /* TopicPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPhotoModel.swift; sourceTree = "<group>"; };
+		724FC96A2C5146A500CDA561 /* ButtonTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTitle.swift; sourceTree = "<group>"; };
+		724FC96C2C5146BA00CDA561 /* TextFieldPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceholder.swift; sourceTree = "<group>"; };
+		724FC96E2C5146CE00CDA561 /* NicknameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameError.swift; sourceTree = "<group>"; };
+		724FC9702C51480D00CDA561 /* TopicIDQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicIDQuery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				724FC8CF2C4E4B2700CDA561 /* SnapKit in Frameworks */,
+				724FC95C2C51375D00CDA561 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +136,7 @@
 				724FC8B62C4E386600CDA561 /* Resources */,
 				724FC8B82C4E38C800CDA561 /* Sources */,
 				724FC8B02C4E36A200CDA561 /* Info.plist */,
+				724FC95F2C51383100CDA561 /* APIKey.swift */,
 			);
 			path = MyPolaroid;
 			sourceTree = "<group>";
@@ -148,14 +167,13 @@
 		724FC8B82C4E38C800CDA561 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				724FC9662C5142D800CDA561 /* Models */,
+				724FC9592C5136E200CDA561 /* NetWork */,
 				724FC92C2C4F8F1D00CDA561 /* Protocols */,
 				724FC8FB2C4F6E0600CDA561 /* TabBar */,
-				724FC8D02C4E519D00CDA561 /* Custom */,
+				724FC8D02C4E519D00CDA561 /* CustomView */,
 				724FC8BF2C4E478600CDA561 /* Base */,
-				724FC8BE2C4E468C00CDA561 /* OnBoardingScene */,
-				724FC8D92C4E896E00CDA561 /* ProfileSettingScene */,
-				724FC9242C4F8ADA00CDA561 /* EditProfileScene */,
-				724FC8EE2C4F363900CDA561 /* MainScene */,
+				724FC9672C5142DF00CDA561 /* Scenes */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -196,7 +214,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		724FC8D02C4E519D00CDA561 /* Custom */ = {
+		724FC8D02C4E519D00CDA561 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				724FC8D12C4E51D400CDA561 /* MainPosterImageView.swift */,
@@ -205,13 +223,16 @@
 				724FC8E12C4E8E7D00CDA561 /* ProfileImageView.swift */,
 				724FC8E32C4E91EE00CDA561 /* NicknameTextField.swift */,
 			);
-			path = Custom;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		724FC8D32C4E553D00CDA561 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				724FC8D42C4E555F00CDA561 /* Enums.swift */,
+				724FC96A2C5146A500CDA561 /* ButtonTitle.swift */,
+				724FC96C2C5146BA00CDA561 /* TextFieldPlaceholder.swift */,
+				724FC96E2C5146CE00CDA561 /* NicknameError.swift */,
+				724FC9702C51480D00CDA561 /* TopicIDQuery.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -262,6 +283,7 @@
 		724FC8EE2C4F363900CDA561 /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
+				724FC9632C513D0D00CDA561 /* ViewModel */,
 				724FC8EF2C4F36A400CDA561 /* View */,
 			);
 			path = MainScene;
@@ -313,6 +335,42 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		724FC9592C5136E200CDA561 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				724FC95D2C51378B00CDA561 /* UnSplashRequest.swift */,
+				724FC9612C513B8800CDA561 /* UnSplashAPIManager.swift */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		724FC9632C513D0D00CDA561 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				724FC9642C513D2E00CDA561 /* TrendsByTopicViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		724FC9662C5142D800CDA561 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				724FC9682C51434C00CDA561 /* TopicPhotoModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		724FC9672C5142DF00CDA561 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8BE2C4E468C00CDA561 /* OnBoardingScene */,
+				724FC8D92C4E896E00CDA561 /* ProfileSettingScene */,
+				724FC9242C4F8ADA00CDA561 /* EditProfileScene */,
+				724FC8EE2C4F363900CDA561 /* MainScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -331,6 +389,7 @@
 			name = MyPolaroid;
 			packageProductDependencies = (
 				724FC8CE2C4E4B2700CDA561 /* SnapKit */,
+				724FC95B2C51375D00CDA561 /* Alamofire */,
 			);
 			productName = MyPolaroid;
 			productReference = 724FC89F2C4E36A000CDA561 /* MyPolaroid.app */;
@@ -362,6 +421,7 @@
 			mainGroup = 724FC8962C4E36A000CDA561;
 			packageReferences = (
 				724FC8CD2C4E4B2700CDA561 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				724FC95A2C51375D00CDA561 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 724FC8A02C4E36A000CDA561 /* Products */;
 			projectDirPath = "";
@@ -390,6 +450,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724FC9622C513B8800CDA561 /* UnSplashAPIManager.swift in Sources */,
+				724FC9652C513D2E00CDA561 /* TrendsByTopicViewModel.swift in Sources */,
+				724FC96B2C5146A500CDA561 /* ButtonTitle.swift in Sources */,
 				724FC8F12C4F36C800CDA561 /* TrendsByTopicMainViewController.swift in Sources */,
 				724FC8EA2C4EBF4300CDA561 /* Observable.swift in Sources */,
 				724FC8E22C4E8E7D00CDA561 /* ProfileImageView.swift in Sources */,
@@ -397,6 +460,7 @@
 				724FC8ED2C4EBFA700CDA561 /* ProfileSettingViewModel.swift in Sources */,
 				724FC8E02C4E8D7C00CDA561 /* CameraImage.swift in Sources */,
 				724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */,
+				724FC95E2C51378B00CDA561 /* UnSplashRequest.swift in Sources */,
 				724FC8F32C4F36E600CDA561 /* TrendsByTopicMainView.swift in Sources */,
 				724FC9272C4F8B8000CDA561 /* EditProfileViewController.swift in Sources */,
 				724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */,
@@ -404,7 +468,9 @@
 				724FC9542C50E3D000CDA561 /* ProfileSetProtocol.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
 				724FC8CC2C4E4A7400CDA561 /* OnBoardingView.swift in Sources */,
+				724FC9712C51480D00CDA561 /* TopicIDQuery.swift in Sources */,
 				724FC8C92C4E4A1800CDA561 /* OnBoardingViewController.swift in Sources */,
+				724FC96D2C5146BB00CDA561 /* TextFieldPlaceholder.swift in Sources */,
 				724FC8E42C4E91EE00CDA561 /* NicknameTextField.swift in Sources */,
 				724FC9562C51294700CDA561 /* TrendsByTopicTableViewCell.swift in Sources */,
 				724FC9302C501E1300CDA561 /* UIImage+Extension.swift in Sources */,
@@ -413,14 +479,16 @@
 				724FC92B2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift in Sources */,
 				724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */,
 				724FC8DC2C4E89AD00CDA561 /* ProfileSettingViewController.swift in Sources */,
+				724FC9692C51434C00CDA561 /* TopicPhotoModel.swift in Sources */,
 				724FC8FD2C4F6E1800CDA561 /* TabBarController.swift in Sources */,
 				724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */,
 				724FC8C72C4E481C00CDA561 /* BaseTableViewCell.swift in Sources */,
+				724FC96F2C5146CE00CDA561 /* NicknameError.swift in Sources */,
 				724FC8DE2C4E89D700CDA561 /* ProfileSettingView.swift in Sources */,
+				724FC9602C51383100CDA561 /* APIKey.swift in Sources */,
 				724FC8C12C4E47AB00CDA561 /* BaseView.swift in Sources */,
 				724FC8D22C4E51D400CDA561 /* MainPosterImageView.swift in Sources */,
 				724FC8C52C4E47FB00CDA561 /* BaseCollectionViewCell.swift in Sources */,
-				724FC8D52C4E555F00CDA561 /* Enums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +723,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		724FC95A2C51375D00CDA561 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -662,6 +738,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 724FC8CD2C4E4B2700CDA561 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		724FC95B2C51375D00CDA561 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 724FC95A2C51375D00CDA561 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
