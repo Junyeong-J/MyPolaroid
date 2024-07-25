@@ -10,4 +10,5 @@ import Foundation
 //MARK: - TextFieldPlaceholder
 enum TextFieldPlaceholder: String {
     case nickname = "닉네임을 입력해주세요 :)"
+    case searchPhoto = "키워드 검색"
 }
