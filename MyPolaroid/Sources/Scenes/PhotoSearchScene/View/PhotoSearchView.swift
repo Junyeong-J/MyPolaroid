@@ -9,4 +9,12 @@ import UIKit
 
 final class PhotoSearchView: BaseView {
     
+    
+    
+}
+
+extension PhotoSearchView: NaviProtocol {
+    var navigationTitle: String {
+        return NavigationTitle.searchPhoto.title
+    }
 }

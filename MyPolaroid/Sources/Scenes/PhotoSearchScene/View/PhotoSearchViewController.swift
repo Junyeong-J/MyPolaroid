@@ -11,6 +11,8 @@ final class PhotoSearchViewController: BaseViewController<PhotoSearchView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
     }
     
+        
 }
