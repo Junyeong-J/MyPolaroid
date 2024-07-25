@@ -120,3 +120,9 @@ final class ProfileSettingView: BaseView {
     }
     
 }
+
+extension ProfileSettingView: NaviProtocol {
+    var navigationTitle: String {
+        return NavigationTitle.profileSetting.title
+    }
+}

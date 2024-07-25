@@ -56,6 +56,10 @@
 		724FC9912C520C7900CDA561 /* PhotoSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9902C520C7900CDA561 /* PhotoSearchModel.swift */; };
 		724FC9932C520E5D00CDA561 /* PhotoStatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9922C520E5D00CDA561 /* PhotoStatisticsModel.swift */; };
 		724FC9952C52119900CDA561 /* RandomPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9942C52119900CDA561 /* RandomPhotoModel.swift */; };
+		724FC99C2C528B7D00CDA561 /* PhotoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC99B2C528B7D00CDA561 /* PhotoSearchView.swift */; };
+		724FC99E2C528B8C00CDA561 /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC99D2C528B8C00CDA561 /* PhotoSearchViewController.swift */; };
+		724FC9A22C529D7F00CDA561 /* NaviProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9A12C529D7F00CDA561 /* NaviProtocol.swift */; };
+		724FC9A42C52A1AB00CDA561 /* NavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9A32C52A1AB00CDA561 /* NavigationTitle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +111,10 @@
 		724FC9902C520C7900CDA561 /* PhotoSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchModel.swift; sourceTree = "<group>"; };
 		724FC9922C520E5D00CDA561 /* PhotoStatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStatisticsModel.swift; sourceTree = "<group>"; };
 		724FC9942C52119900CDA561 /* RandomPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoModel.swift; sourceTree = "<group>"; };
+		724FC99B2C528B7D00CDA561 /* PhotoSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchView.swift; sourceTree = "<group>"; };
+		724FC99D2C528B8C00CDA561 /* PhotoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewController.swift; sourceTree = "<group>"; };
+		724FC9A12C529D7F00CDA561 /* NaviProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviProtocol.swift; sourceTree = "<group>"; };
+		724FC9A32C52A1AB00CDA561 /* NavigationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +219,7 @@
 				724FC8C22C4E47D000CDA561 /* BaseViewController.swift */,
 				724FC8C42C4E47FB00CDA561 /* BaseCollectionViewCell.swift */,
 				724FC8C62C4E481C00CDA561 /* BaseTableViewCell.swift */,
+				724FC9A12C529D7F00CDA561 /* NaviProtocol.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -288,13 +297,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		724FC8EE2C4F363900CDA561 /* MainScene */ = {
+		724FC8EE2C4F363900CDA561 /* TrendsByTopicMainScene */ = {
 			isa = PBXGroup;
 			children = (
 				724FC9632C513D0D00CDA561 /* ViewModel */,
 				724FC8EF2C4F36A400CDA561 /* View */,
 			);
-			path = MainScene;
+			path = TrendsByTopicMainScene;
 			sourceTree = "<group>";
 		};
 		724FC8EF2C4F36A400CDA561 /* View */ = {
@@ -377,7 +386,8 @@
 				724FC8BE2C4E468C00CDA561 /* OnBoardingScene */,
 				724FC8D92C4E896E00CDA561 /* ProfileSettingScene */,
 				724FC9242C4F8ADA00CDA561 /* EditProfileScene */,
-				724FC8EE2C4F363900CDA561 /* MainScene */,
+				724FC8EE2C4F363900CDA561 /* TrendsByTopicMainScene */,
+				724FC9992C528B4400CDA561 /* PhotoSearchScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -389,8 +399,26 @@
 				724FC96C2C5146BA00CDA561 /* TextFieldPlaceholder.swift */,
 				724FC96E2C5146CE00CDA561 /* NicknameError.swift */,
 				724FC9702C51480D00CDA561 /* TopicIDQuery.swift */,
+				724FC9A32C52A1AB00CDA561 /* NavigationTitle.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		724FC9992C528B4400CDA561 /* PhotoSearchScene */ = {
+			isa = PBXGroup;
+			children = (
+				724FC99A2C528B5F00CDA561 /* View */,
+			);
+			path = PhotoSearchScene;
+			sourceTree = "<group>";
+		};
+		724FC99A2C528B5F00CDA561 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				724FC99B2C528B7D00CDA561 /* PhotoSearchView.swift */,
+				724FC99D2C528B8C00CDA561 /* PhotoSearchViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +509,7 @@
 				724FC8F12C4F36C800CDA561 /* TrendsByTopicMainViewController.swift in Sources */,
 				724FC8EA2C4EBF4300CDA561 /* Observable.swift in Sources */,
 				724FC8E22C4E8E7D00CDA561 /* ProfileImageView.swift in Sources */,
+				724FC99C2C528B7D00CDA561 /* PhotoSearchView.swift in Sources */,
 				724FC8C32C4E47D000CDA561 /* BaseViewController.swift in Sources */,
 				724FC8ED2C4EBFA700CDA561 /* ProfileSettingViewModel.swift in Sources */,
 				724FC8E02C4E8D7C00CDA561 /* CameraImage.swift in Sources */,
@@ -498,6 +527,7 @@
 				724FC8C92C4E4A1800CDA561 /* OnBoardingViewController.swift in Sources */,
 				724FC96D2C5146BB00CDA561 /* TextFieldPlaceholder.swift in Sources */,
 				724FC8E42C4E91EE00CDA561 /* NicknameTextField.swift in Sources */,
+				724FC99E2C528B8C00CDA561 /* PhotoSearchViewController.swift in Sources */,
 				724FC9562C51294700CDA561 /* TrendsByTopicTableViewCell.swift in Sources */,
 				724FC9302C501E1300CDA561 /* UIImage+Extension.swift in Sources */,
 				724FC9582C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift in Sources */,
@@ -511,11 +541,13 @@
 				724FC8FD2C4F6E1800CDA561 /* TabBarController.swift in Sources */,
 				724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */,
 				724FC8C72C4E481C00CDA561 /* BaseTableViewCell.swift in Sources */,
+				724FC9A22C529D7F00CDA561 /* NaviProtocol.swift in Sources */,
 				724FC96F2C5146CE00CDA561 /* NicknameError.swift in Sources */,
 				724FC8DE2C4E89D700CDA561 /* ProfileSettingView.swift in Sources */,
 				724FC9602C51383100CDA561 /* APIKey.swift in Sources */,
 				724FC8C12C4E47AB00CDA561 /* BaseView.swift in Sources */,
 				724FC8D22C4E51D400CDA561 /* MainPosterImageView.swift in Sources */,
+				724FC9A42C52A1AB00CDA561 /* NavigationTitle.swift in Sources */,
 				724FC8C52C4E47FB00CDA561 /* BaseCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

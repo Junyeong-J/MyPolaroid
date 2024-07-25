@@ -30,6 +30,7 @@ class BaseViewController<RootView: UIView>: UIViewController {
         configureHierarchy()
         configureView()
         configureConstraints()
+        configureNavigationBar()
     }
     
     func configureHierarchy() {
@@ -42,6 +43,21 @@ class BaseViewController<RootView: UIView>: UIViewController {
     
     func configureConstraints() {
         
+    }
+    
+    @objc private func backButtonClicked() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+extension BaseViewController {
+    func configureNavigationBar() {
+        configureNavBarAppearance()
+        if let nc = self.navigationController, nc.viewControllers.count > 1 {
+            configureNavBarLeftBarButtonItem()
+        }
+        configureNavBarTitle()
     }
     
     func setNavigationBar(image: UIImageView? = nil) {
@@ -57,9 +73,7 @@ class BaseViewController<RootView: UIView>: UIViewController {
         image.clipsToBounds = true
     }
     
-    func makeNavigationUI() {
-        navigationController?.isNavigationBarHidden = false
-        navigationController?.navigationBar.prefersLargeTitles = false
+    private func configureNavBarAppearance() {
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.configureWithOpaqueBackground()
         
@@ -71,15 +85,18 @@ class BaseViewController<RootView: UIView>: UIViewController {
         navigationController?.navigationBar.compactAppearance = navigationBarAppearance
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = .myAppBlack
-        
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backButtonClicked))
+    }
+    
+    private func configureNavBarLeftBarButtonItem() {
+        let backButtonImage = UIImage(systemName: "chevron.left")
+        let backButton = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(backButtonClicked))
         navigationItem.leftBarButtonItem = backButton
-        
-        navigationItem.title = "TEST"
     }
     
-    @objc private func backButtonClicked() {
-        navigationController?.popViewController(animated: true)
+    private func configureNavBarTitle() {
+        guard let navBarInfo = self.rootView as? NaviProtocol else {
+            return
+        }
+        navigationItem.title = navBarInfo.navigationTitle
     }
-    
 }

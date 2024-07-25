@@ -13,7 +13,7 @@ final class ProfileSettingViewController: BaseViewController<ProfileSettingView>
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeNavigationUI()
+        configureNavigationBar()
         configureTextField()
         bindData()
         tapGesture()
