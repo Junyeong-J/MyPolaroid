@@ -1,38 +1,39 @@
 //
-//  TopicPhotoModel.swift
+//  RandomPhotoModel.swift
 //  MyPolaroid
 //
-//  Created by 전준영 on 7/24/24.
+//  Created by 전준영 on 7/25/24.
 //
 
 import Foundation
 
-struct TopicPhoto: Decodable {
+struct RandomPhoto: Decodable {
     let id: String
     let created: String
     let width: Int
-    let urls: TopicPhotoURLs
+    let height: Int
+    let urls: RandomPhotoURLs
     let likes: Int
-    let user: TopicPhotoUser
+    let user: RandomPhotoUser
     
     enum CodingKeys: String, CodingKey {
         case id
         case created = "created_at"
         case width
+        case height
         case urls
         case likes
         case user
     }
 }
 
-struct TopicPhotoURLs: Decodable {
-    let raw: String
-    let small: String
+struct RandomPhotoURLs: Decodable {
+    let row: String
 }
 
-struct TopicPhotoUser: Decodable {
+struct RandomPhotoUser: Decodable {
     let name: String
-    let profileImage: TopicPhotoUserProfile
+    let profileImage: RandomPhotoUserProfile
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -40,6 +41,6 @@ struct TopicPhotoUser: Decodable {
     }
 }
 
-struct TopicPhotoUserProfile: Decodable {
+struct RandomPhotoUserProfile: Decodable {
     let medium: String
 }

@@ -1,38 +1,40 @@
 //
-//  TopicPhotoModel.swift
+//  PhotoSearchModel.swift
 //  MyPolaroid
 //
-//  Created by 전준영 on 7/24/24.
+//  Created by 전준영 on 7/25/24.
 //
 
 import Foundation
 
-struct TopicPhoto: Decodable {
+struct PhotoSearch: Decodable {
     let id: String
     let created: String
     let width: Int
-    let urls: TopicPhotoURLs
+    let height: Int
+    let urls: PhotoSearchURLs
     let likes: Int
-    let user: TopicPhotoUser
+    let user: PhotoSearchUser
     
     enum CodingKeys: String, CodingKey {
         case id
         case created = "created_at"
         case width
+        case height
         case urls
         case likes
         case user
     }
 }
 
-struct TopicPhotoURLs: Decodable {
-    let raw: String
+struct PhotoSearchURLs: Decodable {
+    let row: String
     let small: String
 }
 
-struct TopicPhotoUser: Decodable {
+struct PhotoSearchUser: Decodable {
     let name: String
-    let profileImage: TopicPhotoUserProfile
+    let profileImage: PhotoSearchUserProfile
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -40,6 +42,6 @@ struct TopicPhotoUser: Decodable {
     }
 }
 
-struct TopicPhotoUserProfile: Decodable {
+struct PhotoSearchUserProfile: Decodable {
     let medium: String
 }

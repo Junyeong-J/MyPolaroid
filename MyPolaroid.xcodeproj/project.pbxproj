@@ -53,6 +53,9 @@
 		724FC9712C51480D00CDA561 /* TopicIDQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9702C51480D00CDA561 /* TopicIDQuery.swift */; };
 		724FC9742C5166EE00CDA561 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC9732C5166EE00CDA561 /* Kingfisher */; };
 		724FC9772C5170E700CDA561 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9762C5170E700CDA561 /* ScreenSize.swift */; };
+		724FC9912C520C7900CDA561 /* PhotoSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9902C520C7900CDA561 /* PhotoSearchModel.swift */; };
+		724FC9932C520E5D00CDA561 /* PhotoStatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9922C520E5D00CDA561 /* PhotoStatisticsModel.swift */; };
+		724FC9952C52119900CDA561 /* RandomPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9942C52119900CDA561 /* RandomPhotoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +104,9 @@
 		724FC96E2C5146CE00CDA561 /* NicknameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameError.swift; sourceTree = "<group>"; };
 		724FC9702C51480D00CDA561 /* TopicIDQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicIDQuery.swift; sourceTree = "<group>"; };
 		724FC9762C5170E700CDA561 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
+		724FC9902C520C7900CDA561 /* PhotoSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchModel.swift; sourceTree = "<group>"; };
+		724FC9922C520E5D00CDA561 /* PhotoStatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStatisticsModel.swift; sourceTree = "<group>"; };
+		724FC9942C52119900CDA561 /* RandomPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +364,9 @@
 			isa = PBXGroup;
 			children = (
 				724FC9682C51434C00CDA561 /* TopicPhotoModel.swift */,
+				724FC9902C520C7900CDA561 /* PhotoSearchModel.swift */,
+				724FC9922C520E5D00CDA561 /* PhotoStatisticsModel.swift */,
+				724FC9942C52119900CDA561 /* RandomPhotoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -468,6 +477,7 @@
 				724FC9622C513B8800CDA561 /* UnSplashAPIManager.swift in Sources */,
 				724FC9652C513D2E00CDA561 /* TrendsByTopicViewModel.swift in Sources */,
 				724FC96B2C5146A500CDA561 /* ButtonTitle.swift in Sources */,
+				724FC9932C520E5D00CDA561 /* PhotoStatisticsModel.swift in Sources */,
 				724FC8F12C4F36C800CDA561 /* TrendsByTopicMainViewController.swift in Sources */,
 				724FC8EA2C4EBF4300CDA561 /* Observable.swift in Sources */,
 				724FC8E22C4E8E7D00CDA561 /* ProfileImageView.swift in Sources */,
@@ -475,6 +485,7 @@
 				724FC8ED2C4EBFA700CDA561 /* ProfileSettingViewModel.swift in Sources */,
 				724FC8E02C4E8D7C00CDA561 /* CameraImage.swift in Sources */,
 				724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */,
+				724FC9912C520C7900CDA561 /* PhotoSearchModel.swift in Sources */,
 				724FC95E2C51378B00CDA561 /* UnSplashRequest.swift in Sources */,
 				724FC8F32C4F36E600CDA561 /* TrendsByTopicMainView.swift in Sources */,
 				724FC9272C4F8B8000CDA561 /* EditProfileViewController.swift in Sources */,
@@ -491,6 +502,7 @@
 				724FC9302C501E1300CDA561 /* UIImage+Extension.swift in Sources */,
 				724FC9582C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift in Sources */,
 				724FC9292C4F8B8D00CDA561 /* EditProfileView.swift in Sources */,
+				724FC9952C52119900CDA561 /* RandomPhotoModel.swift in Sources */,
 				724FC92B2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift in Sources */,
 				724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */,
 				724FC8DC2C4E89AD00CDA561 /* ProfileSettingViewController.swift in Sources */,
