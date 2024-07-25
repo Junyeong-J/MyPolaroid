@@ -16,21 +16,23 @@ final class UnSplashAPIManager {
     
     typealias UnSplashHandler<T: Decodable> = (Result<T, Error>) -> Void
     
-    func unSplashRequest<T: Decodable>(api: UnSplashRequest, model: T.Type, completionHandler: @escaping UnSplashHandler<T>) {
-        AF.request(api.endPoint, method: api.method,
-                   parameters: api.parameter,
-                   encoding: URLEncoding(destination: .queryString)
-        )
-        .validate(statusCode: 200..<500)
-        .responseDecodable(of: model) { response in
-            switch response.result {
-            case .success(let value):
-                completionHandler(.success(value))
-            case .failure(let error):
-                completionHandler(.failure(error))
-                print(error)
-            }
+    func unSplashRequest<T: Decodable>(api: UnSplashRouter, model: T.Type, completionHandler: @escaping UnSplashHandler<T>) {
+        do {
+            let request = try api.asURLRequest()
+            AF.request(request)
+                .validate(statusCode: 200..<500)
+                .responseDecodable(of: model) { response in
+                    switch response.result {
+                    case .success(let value):
+                        completionHandler(.success(value))
+                    case .failure(let error):
+                        completionHandler(.failure(error))
+                        print(error)
+                    }
+                }
+        } catch {
+            print(error)
+            completionHandler(.failure(error))
         }
     }
-    
 }

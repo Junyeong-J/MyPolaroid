@@ -42,7 +42,7 @@
 		724FC9562C51294700CDA561 /* TrendsByTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9552C51294700CDA561 /* TrendsByTopicTableViewCell.swift */; };
 		724FC9582C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9572C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift */; };
 		724FC95C2C51375D00CDA561 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC95B2C51375D00CDA561 /* Alamofire */; };
-		724FC95E2C51378B00CDA561 /* UnSplashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC95D2C51378B00CDA561 /* UnSplashRequest.swift */; };
+		724FC95E2C51378B00CDA561 /* UnSplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC95D2C51378B00CDA561 /* UnSplashRouter.swift */; };
 		724FC9602C51383100CDA561 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC95F2C51383100CDA561 /* APIKey.swift */; };
 		724FC9622C513B8800CDA561 /* UnSplashAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9612C513B8800CDA561 /* UnSplashAPIManager.swift */; };
 		724FC9652C513D2E00CDA561 /* TrendsByTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9642C513D2E00CDA561 /* TrendsByTopicViewModel.swift */; };
@@ -60,6 +60,9 @@
 		724FC99E2C528B8C00CDA561 /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC99D2C528B8C00CDA561 /* PhotoSearchViewController.swift */; };
 		724FC9A22C529D7F00CDA561 /* NaviProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9A12C529D7F00CDA561 /* NaviProtocol.swift */; };
 		724FC9A42C52A1AB00CDA561 /* NavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9A32C52A1AB00CDA561 /* NavigationTitle.swift */; };
+		724FC9A62C52A7DE00CDA561 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9A52C52A7DE00CDA561 /* TargetType.swift */; };
+		724FC9A82C52BBA900CDA561 /* UnSplashHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9A72C52BBA900CDA561 /* UnSplashHeader.swift */; };
+		724FC9AA2C52BF9300CDA561 /* UnSplashBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9A92C52BF9300CDA561 /* UnSplashBody.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,7 +101,7 @@
 		724FC9532C50E3D000CDA561 /* ProfileSetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetProtocol.swift; sourceTree = "<group>"; };
 		724FC9552C51294700CDA561 /* TrendsByTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsByTopicTableViewCell.swift; sourceTree = "<group>"; };
 		724FC9572C512B2600CDA561 /* TrendsByTopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsByTopicCollectionViewCell.swift; sourceTree = "<group>"; };
-		724FC95D2C51378B00CDA561 /* UnSplashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashRequest.swift; sourceTree = "<group>"; };
+		724FC95D2C51378B00CDA561 /* UnSplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashRouter.swift; sourceTree = "<group>"; };
 		724FC95F2C51383100CDA561 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		724FC9612C513B8800CDA561 /* UnSplashAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashAPIManager.swift; sourceTree = "<group>"; };
 		724FC9642C513D2E00CDA561 /* TrendsByTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsByTopicViewModel.swift; sourceTree = "<group>"; };
@@ -115,6 +118,9 @@
 		724FC99D2C528B8C00CDA561 /* PhotoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewController.swift; sourceTree = "<group>"; };
 		724FC9A12C529D7F00CDA561 /* NaviProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviProtocol.swift; sourceTree = "<group>"; };
 		724FC9A32C52A1AB00CDA561 /* NavigationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitle.swift; sourceTree = "<group>"; };
+		724FC9A52C52A7DE00CDA561 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		724FC9A72C52BBA900CDA561 /* UnSplashHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashHeader.swift; sourceTree = "<group>"; };
+		724FC9A92C52BF9300CDA561 /* UnSplashBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashBody.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,8 +361,11 @@
 		724FC9592C5136E200CDA561 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
-				724FC95D2C51378B00CDA561 /* UnSplashRequest.swift */,
+				724FC95D2C51378B00CDA561 /* UnSplashRouter.swift */,
 				724FC9612C513B8800CDA561 /* UnSplashAPIManager.swift */,
+				724FC9A52C52A7DE00CDA561 /* TargetType.swift */,
+				724FC9A72C52BBA900CDA561 /* UnSplashHeader.swift */,
+				724FC9A92C52BF9300CDA561 /* UnSplashBody.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -511,14 +520,16 @@
 				724FC8E22C4E8E7D00CDA561 /* ProfileImageView.swift in Sources */,
 				724FC99C2C528B7D00CDA561 /* PhotoSearchView.swift in Sources */,
 				724FC8C32C4E47D000CDA561 /* BaseViewController.swift in Sources */,
+				724FC9AA2C52BF9300CDA561 /* UnSplashBody.swift in Sources */,
 				724FC8ED2C4EBFA700CDA561 /* ProfileSettingViewModel.swift in Sources */,
 				724FC8E02C4E8D7C00CDA561 /* CameraImage.swift in Sources */,
 				724FC8BB2C4E40F400CDA561 /* ResourceFont.swift in Sources */,
 				724FC9912C520C7900CDA561 /* PhotoSearchModel.swift in Sources */,
-				724FC95E2C51378B00CDA561 /* UnSplashRequest.swift in Sources */,
+				724FC95E2C51378B00CDA561 /* UnSplashRouter.swift in Sources */,
 				724FC8F32C4F36E600CDA561 /* TrendsByTopicMainView.swift in Sources */,
 				724FC9272C4F8B8000CDA561 /* EditProfileViewController.swift in Sources */,
 				724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */,
+				724FC9A82C52BBA900CDA561 /* UnSplashHeader.swift in Sources */,
 				724FC8E72C4E9BA600CDA561 /* UIButton+Extension.swift in Sources */,
 				724FC9542C50E3D000CDA561 /* ProfileSetProtocol.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
@@ -538,6 +549,7 @@
 				724FC8DC2C4E89AD00CDA561 /* ProfileSettingViewController.swift in Sources */,
 				724FC9692C51434C00CDA561 /* TopicPhotoModel.swift in Sources */,
 				724FC9772C5170E700CDA561 /* ScreenSize.swift in Sources */,
+				724FC9A62C52A7DE00CDA561 /* TargetType.swift in Sources */,
 				724FC8FD2C4F6E1800CDA561 /* TabBarController.swift in Sources */,
 				724FC8A52C4E36A000CDA561 /* SceneDelegate.swift in Sources */,
 				724FC8C72C4E481C00CDA561 /* BaseTableViewCell.swift in Sources */,
