@@ -26,7 +26,7 @@ extension UnSplashRouter: TargetType {
         switch self {
         case .TopicPhotoAPI(let topicID):
             return APIURL.topicPhoto + topicID + APIURL.topicPhotoEndPointURL
-        case .PhotoSearchAPI:
+        case .PhotoSearchAPI(_):
             return APIURL.photoSearch
         case .PhotoStatisticsAPI(let photoID):
             return APIURL.photoStatistics + photoID + APIURL.photoStatisticsEndPointURL
@@ -36,24 +36,8 @@ extension UnSplashRouter: TargetType {
     }
     
     var parameters: Alamofire.Parameters? {
-        switch self {
-        case .TopicPhotoAPI:
-            return [
-                UnSplashBody.page.rawValue: 1,
-                UnSplashBody.orderBy.rawValue: "popular"
-            ]
-        case .PhotoSearchAPI(let query):
-            return [
-                UnSplashBody.page.rawValue: 1,
-                UnSplashBody.perPage.rawValue: 20,
-                UnSplashBody.orderBy.rawValue: "popular",
-                UnSplashBody.color.rawValue: "yellow",
-                UnSplashBody.lang.rawValue: "ko",
-                UnSplashBody.query.rawValue: query
-            ]
-        case .PhotoStatisticsAPI, .RandomPhotoAPI:
-            return nil
-        }
+        return nil
+        
     }
     
     var method: HTTPMethod {
@@ -65,11 +49,32 @@ extension UnSplashRouter: TargetType {
     }
     
     var queryItems: [URLQueryItem]? {
-        return nil
+        
+        switch self {
+        case .TopicPhotoAPI(_):
+            return [
+                URLQueryItem(name: UnSplashBody.page.rawValue, value: "1"),
+                URLQueryItem(name: UnSplashBody.orderBy.rawValue, value: "popular")
+            ]
+        case .PhotoSearchAPI(let query):
+            return [
+                URLQueryItem(name: UnSplashBody.page.rawValue, value: "1"),
+                URLQueryItem(name: UnSplashBody.perPage.rawValue, value: "20"),
+                URLQueryItem(name: UnSplashBody.orderBy.rawValue, value: "latest"),
+                URLQueryItem(name: UnSplashBody.color.rawValue, value: "yellow"),
+                URLQueryItem(name: UnSplashBody.lang.rawValue, value: "ko"),
+                URLQueryItem(name: UnSplashBody.query.rawValue, value: query)
+            ]
+        case .PhotoStatisticsAPI(_):
+            return nil
+        case .RandomPhotoAPI:
+            return nil
+        }
+        
+        
     }
     
     var body: Data? {
         return nil
     }
 }
-

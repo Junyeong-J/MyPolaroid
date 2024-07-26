@@ -19,8 +19,8 @@ final class UnSplashAPIManager {
     func unSplashRequest<T: Decodable>(api: UnSplashRouter, model: T.Type, completionHandler: @escaping UnSplashHandler<T>) {
         do {
             let request = try api.asURLRequest()
+//            print("URL: \(request.url?.absoluteString ?? "")")
             AF.request(request)
-                .validate(statusCode: 200..<500)
                 .responseDecodable(of: model) { response in
                     switch response.result {
                     case .success(let value):
