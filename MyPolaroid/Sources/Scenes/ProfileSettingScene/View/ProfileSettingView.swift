@@ -15,9 +15,18 @@ final class ProfileSettingView: BaseView {
     
     private let cameraImageView = CameraImage()
     lazy var profileImageView: ProfileImage = {
-        let index = Int.random(in: 0..<UIImage.profileImage.count)
-        profileImageName = UIImage.profileImage[index]
-        return ProfileImage(profile: profileImageName, corner: 50, border: 3)
+        
+        if let profileName = UserDefaultsManager.shared.profileName, !profileName.isEmpty {
+            print(profileName)
+            profileImageName = profileName
+            return ProfileImage(profile: profileImageName, corner: 50, border: 3)
+        } else {
+            let index = Int.random(in: 0..<UIImage.profileImage.count)
+            profileImageName = UIImage.profileImage[index]
+            return ProfileImage(profile: profileImageName, corner: 50, border: 3)
+        }
+        
+        
     }()
     
     let nicknameTextField = NicknameTextField(style: .nickname)

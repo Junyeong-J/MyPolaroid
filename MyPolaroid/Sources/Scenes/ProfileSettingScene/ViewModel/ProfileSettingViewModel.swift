@@ -11,11 +11,14 @@ final class ProfileSettingViewModel {
     
     var inputNickname: Observable<String?> = Observable(nil)
     var inputMbtiButtonTitle: Observable<String?> = Observable(nil)
+    var inputSuccessButtonClicked: Observable<String?> = Observable(nil)
     
     var outputValidationText = Observable("")
     var outputButtonValid = Observable(false)
     var outputNicknameValid = Observable(false)
     var outputMbtiButtonBool: Observable<[String: Bool]?> = Observable(nil)
+    
+    private let ud = UserDefaultsManager.shared
     
     private let mbtiSet: [String: String] = ["E": "I", "S": "N", "T": "F", "J": "P"]
     private var mbtiButtonBool: [String: Bool] = ["E": false, "I": false, "S": false, "N": false, "T": false, "F": false, "J": false, "P": false]
@@ -27,6 +30,10 @@ final class ProfileSettingViewModel {
         
         inputMbtiButtonTitle.bind { [weak self] buttonTitle in
             self?.mbtiButtonCheck(buttonTitle)
+        }
+        
+        inputSuccessButtonClicked.bind { [weak self] profileText in
+            self?.successButtonClicked(profileText ?? "")
         }
     }
     
@@ -94,5 +101,13 @@ final class ProfileSettingViewModel {
     private func updateOutputValid() {
         let trueCount = mbtiButtonBool.values.filter { $0 }.count
         outputButtonValid.value = (trueCount == 4) && outputNicknameValid.value
+    }
+    
+    //MARK: - 버튼 성공시
+    private func successButtonClicked(_ profileText: String) {
+        ud.nickname = inputNickname.value ?? "고래밥"
+        ud.profileName = profileText
+        ud.mbti = outputMbtiButtonBool.value ?? [:]
+        ud.isUser = true
     }
 }

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum ValidationError: Error {
+    case emptyString
+    case trimmingCharacters
+}

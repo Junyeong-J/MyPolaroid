@@ -16,8 +16,9 @@ final class PhotoSearchViewController: BaseViewController<PhotoSearchView> {
         super.viewDidLoad()
         configureNavigationBar()
         configureSearchBar()
+        configureCollectionView()
+        bindData()
     }
-    
     
 }
 
@@ -30,6 +31,35 @@ extension PhotoSearchViewController {
         searchController.obscuresBackgroundDuringPresentation = true
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    private func configureCollectionView() {
+        rootView.collectionView.delegate = self
+        rootView.collectionView.dataSource = self
+        rootView.collectionView.prefetchDataSource = self
+        rootView.collectionView.register(PhotoSearchCollectionView.self, forCellWithReuseIdentifier: PhotoSearchCollectionView.identifier)
+    }
+    
+    private func bindData() {
+        viewModel.outputData.bind { [weak self] data in
+            if data.count == 0 {
+                self?.rootView.stateLabel.isHidden = false
+                self?.rootView.stateLabel.text = "검색 결과가 없어요."
+                self?.rootView.collectionView.isHidden = true
+            } else {
+                self?.rootView.collectionView.isHidden = false
+                self?.rootView.stateLabel.isHidden = true
+                self?.rootView.collectionView.reloadData()
+                if self?.viewModel.outputCurrentPage.value == 1 {
+                    self?.rootView.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                }
+                
+            }
+        }
+        
+        rootView.stateLabel.isHidden = false
+        rootView.stateLabel.text = "사진을 검색해보세요."
+        rootView.collectionView.isHidden = true
     }
 }
 
@@ -53,12 +83,10 @@ extension PhotoSearchViewController: UISearchBarDelegate {
             return
         }
         
-        print(searchText)
-        
         viewModel.inputSearchButtonClicked.value = searchText
     }
     
-    func validateUserInput(text: String) throws -> Bool {
+    private func validateUserInput(text: String) throws -> Bool {
         guard !text.isEmpty else {
             throw ValidationError.emptyString
         }
@@ -70,7 +98,31 @@ extension PhotoSearchViewController: UISearchBarDelegate {
         return true
     }
     
-    func isOnlyWhitespace(text: String) -> Bool {
+    private func isOnlyWhitespace(text: String) -> Bool {
         return text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+}
+
+extension PhotoSearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.outputData.value.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoSearchCollectionView.identifier, for: indexPath) as! PhotoSearchCollectionView
+        cell.configureData(data: viewModel.outputData.value[indexPath.item])
+        return cell
+    }
+    
+}
+
+extension PhotoSearchViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for item in indexPaths {
+            if item.item == viewModel.outputData.value.count - 6 {
+                viewModel.inputReCallPage.value = ()
+            }
+        }
     }
 }

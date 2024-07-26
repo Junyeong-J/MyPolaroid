@@ -10,8 +10,12 @@ import Foundation
 final class PhotoSearchViewModel {
     
     var inputSearchButtonClicked: Observable<String?> = Observable(nil)
+    var inputReCallPage: Observable<Void?> = Observable(nil)
     
     var outputData: Observable<[PhotoSearch]> = Observable([])
+    var outputCurrentPage = Observable(1)
+    private var currentPage = 1
+    private var currentQuery: String?
     
     init() {
         transform()
@@ -19,17 +23,26 @@ final class PhotoSearchViewModel {
     
     private func transform() {
         inputSearchButtonClicked.bind { [weak self] word in
-            self?.callRequest(word)
+            guard let word = word else { return }
+            self?.currentQuery = word
+            self?.currentPage = 1
+            self?.outputData.value = []
+            self?.callRequest(word, page: self?.currentPage ?? 1)
+        }
+        
+        inputReCallPage.bind { [weak self] _ in
+            self?.currentPage += 1
+            self?.callRequest(self?.currentQuery ?? "", page: self?.currentPage ?? 1)
         }
     }
     
-    private func callRequest(_ query: String?) {
-        guard let query = query else { return }
-        UnSplashAPIManager.shared.unSplashRequest(api: .PhotoSearchAPI(query: query), model: PhotoSearchResponse.self) { [weak self] result in
+    private func callRequest(_ query: String, page: Int) {
+        UnSplashAPIManager.shared.unSplashRequest(api: .PhotoSearchAPI(query: query, page: page), model: PhotoSearchResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
-                print("응답 데이터: \(data)")
-                self?.outputData.value = data.results
+//                self?.outputData.value = data.results
+                self?.outputData.value.append(contentsOf: data.results)
+                self?.outputCurrentPage.value = page
             case .failure(let error):
                 print("오류: \(error.localizedDescription)")
             }

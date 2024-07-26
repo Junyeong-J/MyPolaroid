@@ -10,6 +10,7 @@ import UIKit
 final class ProfileSettingViewController: BaseViewController<ProfileSettingView> {
     
     private let viewModel = ProfileSettingViewModel()
+    var viewType: NavigationTitle = .profileSetting
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ final class ProfileSettingViewController: BaseViewController<ProfileSettingView>
         bindData()
         tapGesture()
         addTargets()
+        setUI()
     }
     
     override func configureView() {
@@ -64,6 +66,17 @@ extension ProfileSettingViewController {
         rootView.successButton.addTarget(self, action: #selector(successButtonClicked), for: .touchUpInside)
     }
     
+    private func setUI() {
+        if viewType == .profileSetting {
+            rootView.successButton.isHidden = false
+        } else {
+            guard let nickname = UserDefaultsManager.shared.nickname else { return }
+            rootView.nicknameTextField.text = nickname
+            rootView.successButton.isHidden = true
+            tabBarController?.tabBar.isHidden = true
+        }
+    }
+    
     private func selectedMbtiButton(_ mbtiButtonValue: [String: Bool]?) {
         for button in rootView.mbtiButtons {
             guard let title = button.configuration?.title else { return }
@@ -89,6 +102,7 @@ extension ProfileSettingViewController {
     }
     
     @objc private func successButtonClicked() {
+        viewModel.inputSuccessButtonClicked.value = rootView.profileImageName
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
         
