@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct PhotoSearchResponse: Decodable {
+    let total: Int
+    let total_pages: Int
+    let results: [PhotoSearch]
+}
+
 struct PhotoSearch: Decodable {
     let id: String
     let created: String
@@ -28,7 +34,7 @@ struct PhotoSearch: Decodable {
 }
 
 struct PhotoSearchURLs: Decodable {
-    let row: String
+    let raw: String
     let small: String
 }
 
