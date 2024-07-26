@@ -11,13 +11,14 @@ import SnapKit
 final class PhotoDetailView: BaseView {
     
     private let photoUserView = UIView()
-    private let userImageView: UIImageView = {
+    let userImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 30
         imageView.backgroundColor = .black
+        imageView.clipsToBounds = true
         return imageView
     }()
-    private let userNameLabel: UILabel = {
+    let userNameLabel: UILabel = {
         let label = UILabel()
         label.font = Font.regular15
         label.textColor = .myAppBlack
