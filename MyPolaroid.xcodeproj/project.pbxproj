@@ -73,7 +73,23 @@
 		724FC9C22C53F4CB00CDA561 /* MyPolaroidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9C12C53F4CB00CDA561 /* MyPolaroidViewController.swift */; };
 		724FC9C42C53F4E000CDA561 /* MyPolaroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9C32C53F4E000CDA561 /* MyPolaroidView.swift */; };
 		724FC9C62C53FEB000CDA561 /* MyPolaroidCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9C52C53FEB000CDA561 /* MyPolaroidCollectionViewCell.swift */; };
+		724FC9C92C54000C00CDA561 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC9C82C54000C00CDA561 /* RealmSwift */; };
+		724FC9CA2C54002000CDA561 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 724FC9C82C54000C00CDA561 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		724FC9CB2C54002000CDA561 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				724FC9CA2C54002000CDA561 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		724FC89F2C4E36A000CDA561 /* MyPolaroid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPolaroid.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +166,7 @@
 				724FC9B22C52C44600CDA561 /* Toast in Frameworks */,
 				724FC9742C5166EE00CDA561 /* Kingfisher in Frameworks */,
 				724FC8CF2C4E4B2700CDA561 /* SnapKit in Frameworks */,
+				724FC9C92C54000C00CDA561 /* RealmSwift in Frameworks */,
 				724FC95C2C51375D00CDA561 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +542,7 @@
 				724FC89B2C4E36A000CDA561 /* Sources */,
 				724FC89C2C4E36A000CDA561 /* Frameworks */,
 				724FC89D2C4E36A000CDA561 /* Resources */,
+				724FC9CB2C54002000CDA561 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -536,6 +554,7 @@
 				724FC95B2C51375D00CDA561 /* Alamofire */,
 				724FC9732C5166EE00CDA561 /* Kingfisher */,
 				724FC9B12C52C44600CDA561 /* Toast */,
+				724FC9C82C54000C00CDA561 /* RealmSwift */,
 			);
 			productName = MyPolaroid;
 			productReference = 724FC89F2C4E36A000CDA561 /* MyPolaroid.app */;
@@ -570,6 +589,7 @@
 				724FC95A2C51375D00CDA561 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				724FC9722C5166EE00CDA561 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				724FC9B02C52C44600CDA561 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				724FC9C72C54000C00CDA561 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 724FC8A02C4E36A000CDA561 /* Products */;
 			projectDirPath = "";
@@ -915,6 +935,14 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		724FC9C72C54000C00CDA561 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.52.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -937,6 +965,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 724FC9B02C52C44600CDA561 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		724FC9C82C54000C00CDA561 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 724FC9C72C54000C00CDA561 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
