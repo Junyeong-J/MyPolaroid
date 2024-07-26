@@ -12,12 +12,12 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tabBar.tintColor = .myAppMain
+        tabBar.tintColor = .myAppBlack
         tabBar.unselectedItemTintColor = .myAppGray
         
         let trend = TrendsByTopicMainViewController()
         let nav1 = UINavigationController(rootViewController: trend)
-        nav1.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "sort"), tag: 0)
+        nav1.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tab_trend"), tag: 0)
         
 //        let like = LikeListViewController()
 //        let nav2 = UINavigationController(rootViewController: like)
@@ -25,9 +25,14 @@ class TabBarController: UITabBarController {
 //        
         let search = PhotoSearchViewController()
         let nav3 = UINavigationController(rootViewController: search)
-        nav3.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "magnifyingglass"), tag: 2)
+        nav3.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tab_search"), tag: 2)
         
-        setViewControllers([nav1, nav3], animated: true)
+        let like = MyPolaroidViewController()
+        let nav4 = UINavigationController(rootViewController: like)
+        nav4.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tab_like"), tag: 3)
+        
+        
+        setViewControllers([nav1, nav3, nav4], animated: true)
     }
     
 }
