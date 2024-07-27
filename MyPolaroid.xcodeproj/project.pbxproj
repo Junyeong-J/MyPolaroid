@@ -83,6 +83,7 @@
 		724FC9DB2C55193B00CDA561 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DA2C55193B00CDA561 /* PhotoDetailViewModel.swift */; };
 		724FC9DD2C551AD100CDA561 /* PhotoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DC2C551AD100CDA561 /* PhotoDetailModel.swift */; };
 		724FC9DF2C554B4900CDA561 /* LikeImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DE2C554B4900CDA561 /* LikeImageName.swift */; };
+		724FC9E12C55661D00CDA561 /* FormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9E02C55661D00CDA561 /* FormatterManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -172,6 +173,7 @@
 		724FC9DA2C55193B00CDA561 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
 		724FC9DC2C551AD100CDA561 /* PhotoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailModel.swift; sourceTree = "<group>"; };
 		724FC9DE2C554B4900CDA561 /* LikeImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeImageName.swift; sourceTree = "<group>"; };
+		724FC9E02C55661D00CDA561 /* FormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				724FC9B42C536A7B00CDA561 /* UserDefaultsManager.swift */,
+				724FC9E02C55661D00CDA561 /* FormatterManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -726,6 +729,7 @@
 				724FC8DC2C4E89AD00CDA561 /* ProfileSettingViewController.swift in Sources */,
 				724FC9D42C541A7500CDA561 /* LikeButton.swift in Sources */,
 				724FC9C22C53F4CB00CDA561 /* MyPolaroidViewController.swift in Sources */,
+				724FC9E12C55661D00CDA561 /* FormatterManager.swift in Sources */,
 				724FC9692C51434C00CDA561 /* TopicPhotoModel.swift in Sources */,
 				724FC9772C5170E700CDA561 /* ScreenSize.swift in Sources */,
 				724FC9A62C52A7DE00CDA561 /* TargetType.swift in Sources */,
