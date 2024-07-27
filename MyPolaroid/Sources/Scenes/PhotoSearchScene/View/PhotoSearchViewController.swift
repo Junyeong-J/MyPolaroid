@@ -20,6 +20,11 @@ final class PhotoSearchViewController: BaseViewController<PhotoSearchView> {
         bindData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        rootView.collectionView.reloadData()
+    }
+    
 }
 
 extension PhotoSearchViewController {
@@ -28,7 +33,6 @@ extension PhotoSearchViewController {
         searchController.searchBar.placeholder = TextFieldPlaceholder.searchPhoto.rawValue
         searchController.searchBar.delegate = self
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.obscuresBackgroundDuringPresentation = true
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
@@ -115,6 +119,7 @@ extension PhotoSearchViewController: UICollectionViewDataSource, UICollectionVie
         let data = viewModel.outputData.value[indexPath.item]
         cell.configureData(data: data)
         cell.likeButton.tag = indexPath.item
+        cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         return cell
     }
     
@@ -123,6 +128,12 @@ extension PhotoSearchViewController: UICollectionViewDataSource, UICollectionVie
         let data = viewModel.outputData.value[indexPath.item].id
         vc.photoID = data
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func likeButtonClicked(sender: UIButton) {
+        let photoID = viewModel.outputData.value[sender.tag].id
+        viewModel.inputLikeButtonClicked.value = photoID
+        rootView.collectionView.reloadItems(at: [IndexPath(row: sender.tag, section: 0)])
     }
 }
 

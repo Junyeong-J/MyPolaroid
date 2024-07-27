@@ -74,36 +74,12 @@ final class PhotoSearchCollectionView: BaseCollectionViewCell {
         }
     }
     
-    override func configureView() {
-        likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
-        
-    }
-    
     func configureData(data: PhotoSearch) {
         let url = URL(string: data.urls.raw)
         photoImageView.kf.setImage(with: url)
         likeCountLabel.text = ("\(data.likes.formatted())")
         photoID = data.id
         updateLikeButtonImage()
-    }
-    
-    @objc private func likeButtonClicked() {
-        guard let photoID = photoID else { return }
-        
-        let existingItem = LikeListRepository.shared.fetchItem(photoID)
-        
-        if existingItem != nil {
-            ImageManager.shared.removeImageFromDocument(filename: photoID)
-            LikeListRepository.shared.deleteIdItem(existingItem!)
-            likeButton.setImage(UIImage(named: LikeImageName.like_circle_inactive.rawValue), for: .normal)
-        } else {
-            if let image = photoImageView.image {
-                ImageManager.shared.saveImageToDocument(image: image, filename: photoID)
-            }
-            let likeItem = LikeListTable(photoID: photoID)
-            LikeListRepository.shared.createItem(likeItem)
-            likeButton.setImage(UIImage(named: LikeImageName.like_circle.rawValue), for: .normal)
-        }
     }
     
     private func updateLikeButtonImage() {

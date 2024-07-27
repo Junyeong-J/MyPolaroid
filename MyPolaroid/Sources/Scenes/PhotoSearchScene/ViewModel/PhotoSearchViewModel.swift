@@ -15,8 +15,9 @@ final class PhotoSearchViewModel {
     
     var outputData: Observable<[PhotoSearch]> = Observable([])
     var outputCurrentPage = Observable(1)
-    
+    var outputIsLiked: Observable<Bool> = Observable(false)
     private let repository = LikeListRepository.shared
+    private let fileManager = ImageManager.shared
     private var currentPage = 1
     private var currentQuery: String?
     
@@ -40,8 +41,8 @@ final class PhotoSearchViewModel {
         }
         
         inputLikeButtonClicked.bind { [weak self] photoID in
-            guard let photoID = photoID else { return }
-            self?.savePhotoItem(photoID: photoID)
+            guard let photoID = photoID else {return}
+            self?.toggleLikeStatus(photoID)
         }
     }
     
@@ -57,13 +58,23 @@ final class PhotoSearchViewModel {
         }
     }
     
-    private func savePhotoItem(photoID: String) {
-        repository.detectRealmURL()
+    private func checkExistingItem(photoID: String) {
+        let existingItem = repository.fetchItem(photoID)
+        outputIsLiked.value = existingItem != nil
+    }
+    
+    private func toggleLikeStatus(_ photoID: String) {
+        guard let photoData = outputData.value.first(where: { $0.id == photoID }) else { return }
+        let imageUrl = photoData.urls.small
         if let existingItem = repository.fetchItem(photoID) {
+            fileManager.removeImageFromDocument(filename: photoID)
             repository.deleteIdItem(existingItem)
+            outputIsLiked.value = false
         } else {
+            fileManager.saveImageFromURLToDocument(imageURL: imageUrl, filename: photoID)
             let likeItem = LikeListTable(photoID: photoID)
             repository.createItem(likeItem)
+            outputIsLiked.value = true
         }
     }
     
