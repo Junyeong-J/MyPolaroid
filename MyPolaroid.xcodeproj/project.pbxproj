@@ -82,6 +82,7 @@
 		724FC9D92C54EDA800CDA561 /* MyPolaroidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D82C54EDA800CDA561 /* MyPolaroidViewModel.swift */; };
 		724FC9DB2C55193B00CDA561 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DA2C55193B00CDA561 /* PhotoDetailViewModel.swift */; };
 		724FC9DD2C551AD100CDA561 /* PhotoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DC2C551AD100CDA561 /* PhotoDetailModel.swift */; };
+		724FC9DF2C554B4900CDA561 /* LikeImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DE2C554B4900CDA561 /* LikeImageName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -170,6 +171,7 @@
 		724FC9D82C54EDA800CDA561 /* MyPolaroidViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolaroidViewModel.swift; sourceTree = "<group>"; };
 		724FC9DA2C55193B00CDA561 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
 		724FC9DC2C551AD100CDA561 /* PhotoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailModel.swift; sourceTree = "<group>"; };
+		724FC9DE2C554B4900CDA561 /* LikeImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeImageName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -453,8 +455,8 @@
 				724FC9242C4F8ADA00CDA561 /* EditProfileScene */,
 				724FC8EE2C4F363900CDA561 /* TrendsByTopicMainScene */,
 				724FC9992C528B4400CDA561 /* PhotoSearchScene */,
-				724FC9B62C53822600CDA561 /* PhotoDetailScene */,
 				724FC9BF2C53F4A200CDA561 /* MyPolaroidScene */,
+				724FC9B62C53822600CDA561 /* PhotoDetailScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -468,6 +470,7 @@
 				724FC9702C51480D00CDA561 /* TopicIDQuery.swift */,
 				724FC9A32C52A1AB00CDA561 /* NavigationTitle.swift */,
 				724FC9AE2C52C42C00CDA561 /* ValidationError.swift */,
+				724FC9DE2C554B4900CDA561 /* LikeImageName.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				724FC8D22C4E51D400CDA561 /* MainPosterImageView.swift in Sources */,
 				724FC9A42C52A1AB00CDA561 /* NavigationTitle.swift in Sources */,
 				724FC8C52C4E47FB00CDA561 /* BaseCollectionViewCell.swift in Sources */,
+				724FC9DF2C554B4900CDA561 /* LikeImageName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

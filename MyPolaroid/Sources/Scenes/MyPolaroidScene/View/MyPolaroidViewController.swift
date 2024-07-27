@@ -57,7 +57,7 @@ extension MyPolaroidViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPolaroidCollectionViewCell.identifier, for: indexPath) as? MyPolaroidCollectionViewCell else { return UICollectionViewCell() }
         let photoData = viewModel.outputPhotoData.value[indexPath.item]
-        let image = ImageManager.loadImageToDocument(filename: photoData.photoID)
+        let image = ImageManager.shared.loadImageToDocument(filename: photoData.photoID)
         cell.delegate = self
         cell.configureData(data: photoData.photoID, image: image)
         return cell

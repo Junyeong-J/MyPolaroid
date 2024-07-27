@@ -9,10 +9,10 @@ import UIKit
 
 class LikeButton: UIButton {
     
-    init(backColor: UIColor, tint: UIColor) {
+    init(buttonImage: LikeImageName, backColor: UIColor, tint: UIColor) {
         super.init(frame: .zero)
         
-        let bagImage = UIImage(named: "like_circle_inactive")
+        let bagImage = UIImage(named: buttonImage.rawValue)?.withRenderingMode(.alwaysTemplate)
         backgroundColor = backColor
         setImage(bagImage, for: .normal)
         tintColor = tint

@@ -32,11 +32,7 @@ final class PhotoDetailView: BaseView {
         label.text = "afasdfads"
         return label
     }()
-    private let heartButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "heart"), for: .normal)
-        return button
-    }()
+    var heartButton = LikeButton(buttonImage: .like_inactive, backColor: .clear, tint: .myAppMain)
     let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .green

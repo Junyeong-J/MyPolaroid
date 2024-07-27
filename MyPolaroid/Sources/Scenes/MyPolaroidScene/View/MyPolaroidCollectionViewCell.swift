@@ -24,7 +24,7 @@ final class MyPolaroidCollectionViewCell: BaseCollectionViewCell {
         return imageView
     }()
     
-    var likeButton = LikeButton(backColor: .clear, tint: .myAppWhiteSmoke)
+    let likeButton = LikeButton(buttonImage: .like_circle, backColor: .clear, tint: .myAppMain)
     
     override func configureHierarchy() {
         addSubview(photoImageView)
@@ -44,7 +44,6 @@ final class MyPolaroidCollectionViewCell: BaseCollectionViewCell {
     
     override func configureView() {
         likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
-        likeButton.setImage(UIImage(named: "like_circle"), for: .normal)
     }
     
     func configureData(data: String,image: UIImage?) {
@@ -54,7 +53,7 @@ final class MyPolaroidCollectionViewCell: BaseCollectionViewCell {
     
     @objc private func likeButtonClicked() {
         guard let photoID = photoID else {return}
-        ImageManager.removeImageFromDocument(filename: photoID)
+        ImageManager.shared.removeImageFromDocument(filename: photoID)
         if let photoItem = LikeListRepository.shared.fetchItem(photoID) {
             LikeListRepository.shared.deleteIdItem(photoItem)
         } else {

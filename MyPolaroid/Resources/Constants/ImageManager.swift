@@ -6,12 +6,28 @@
 //
 
 import UIKit
+import Kingfisher
 
-import UIKit
-
-class ImageManager {
+final class ImageManager {
     
-    static func saveImageToDocument(image: UIImage, filename: String) {
+    static let shared = ImageManager()
+    private init() { }
+    
+    func saveImageFromURLToDocument(imageURL: String, filename: String) {
+        guard let url = URL(string: imageURL) else { return }
+        
+        //Kingfisher의 downloadImage로 URL이미지를 UIImage로 변환시키기위해 사용
+        ImageDownloader.default.downloadImage(with: url) { result in
+            switch result {
+            case .success(let value):
+                self.saveImageToDocument(image: value.image, filename: filename)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func saveImageToDocument(image: UIImage, filename: String) {
         guard let documentDirectory = FileManager.default.urls(
             for: .documentDirectory,
             in: .userDomainMask).first else { return }
@@ -27,7 +43,7 @@ class ImageManager {
         }
     }
     
-    static func loadImageToDocument(filename: String) -> UIImage? {
+    func loadImageToDocument(filename: String) -> UIImage? {
         guard let documentDirectory = FileManager.default.urls(
             for: .documentDirectory,
             in: .userDomainMask).first else { return nil }
@@ -41,7 +57,7 @@ class ImageManager {
         }
     }
     
-    static func removeImageFromDocument(filename: String) {
+    func removeImageFromDocument(filename: String) {
         guard let documentDirectory = FileManager.default.urls(
             for: .documentDirectory,
             in: .userDomainMask).first else { return }

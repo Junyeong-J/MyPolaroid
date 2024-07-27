@@ -35,7 +35,7 @@ final class PhotoSearchCollectionView: BaseCollectionViewCell {
         label.textColor = .myAppWhite
         return label
     }()
-    var likeButton = LikeButton(backColor: .clear, tint: .myAppWhiteSmoke)
+    var likeButton = LikeButton(buttonImage: .like_circle_inactive, backColor: .clear, tint: .myAppWhiteSmoke)
     private var photoID: String?
     
     override func configureHierarchy() {
@@ -93,23 +93,23 @@ final class PhotoSearchCollectionView: BaseCollectionViewCell {
         let existingItem = LikeListRepository.shared.fetchItem(photoID)
         
         if existingItem != nil {
-            ImageManager.removeImageFromDocument(filename: photoID)
+            ImageManager.shared.removeImageFromDocument(filename: photoID)
             LikeListRepository.shared.deleteIdItem(existingItem!)
-            likeButton.setImage(UIImage(named: "like_circle_inactive"), for: .normal)
+            likeButton.setImage(UIImage(named: LikeImageName.like_circle_inactive.rawValue), for: .normal)
         } else {
             if let image = photoImageView.image {
-                ImageManager.saveImageToDocument(image: image, filename: photoID)
+                ImageManager.shared.saveImageToDocument(image: image, filename: photoID)
             }
             let likeItem = LikeListTable(photoID: photoID)
             LikeListRepository.shared.createItem(likeItem)
-            likeButton.setImage(UIImage(named: "like_circle"), for: .normal)
+            likeButton.setImage(UIImage(named: LikeImageName.like_circle.rawValue), for: .normal)
         }
     }
     
     private func updateLikeButtonImage() {
         guard let photoID = photoID else { return }
         let existingItem = LikeListRepository.shared.fetchItem(photoID)
-        let imageName = existingItem != nil ? "like_circle" : "like_circle_inactive"
+        let imageName = existingItem != nil ? LikeImageName.like_circle.rawValue : LikeImageName.like_circle_inactive.rawValue
         likeButton.setImage(UIImage(named: imageName), for: .normal)
     }
 }
