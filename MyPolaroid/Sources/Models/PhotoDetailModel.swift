@@ -29,6 +29,11 @@ struct PhotoDetail: Decodable {
         case views
         case downloads
     }
+    
+    var imageSizeLabel: String {
+        return "\(width) x \(height)"
+    }
+
 }
 
 struct PhotoDetailURLs: Decodable {

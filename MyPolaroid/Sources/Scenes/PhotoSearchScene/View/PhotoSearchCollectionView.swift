@@ -77,7 +77,7 @@ final class PhotoSearchCollectionView: BaseCollectionViewCell {
     func configureData(data: PhotoSearch) {
         let url = URL(string: data.urls.raw)
         photoImageView.kf.setImage(with: url)
-        likeCountLabel.text = ("\(data.likes.formatted())")
+        likeCountLabel.text = FormatterManager.shared.numberFormatter(data.likes)
         photoID = data.id
         updateLikeButtonImage()
     }

@@ -19,10 +19,13 @@ class FormatterManager {
         return format.string(from: NSNumber(value: data)) ?? "\(data)"
     }
     
-    lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return formatter
-    }()
+    func formatDateString(_ dateString: String) -> String? {
+        let isoFormatter = ISO8601DateFormatter()
+        guard let date = isoFormatter.date(from: dateString) else { return nil }
+        
+        let displayFormatter = DateFormatter()
+        displayFormatter.dateFormat = "yyyy년 M월 d일"
+        return displayFormatter.string(from: date) + " 게시됨"
+    }
     
 }

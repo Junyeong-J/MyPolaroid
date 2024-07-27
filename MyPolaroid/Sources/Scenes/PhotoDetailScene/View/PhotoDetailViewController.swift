@@ -36,11 +36,11 @@ extension PhotoDetailViewController {
             rootView.photoImageView.kf.setImage(with: URL(string: data.urls.small))
             
             rootView.userNameLabel.text = data.user.name
-            rootView.postDateLabel.text = data.created
+            rootView.postDateLabel.text = FormatterManager.shared.formatDateString(data.created)
             
-            rootView.infoSizeResultLabel.text = "\(data.width) x \(data.height)"
-            rootView.infoViewsResultLabel.text = "\(data.views)"
-            rootView.infoDownloadResultLabel.text = "\(data.downloads)"
+            rootView.infoSizeResultLabel.text = data.imageSizeLabel
+            rootView.infoViewsResultLabel.text = FormatterManager.shared.numberFormatter(data.views)
+            rootView.infoDownloadResultLabel.text = FormatterManager.shared.numberFormatter(data.downloads)
         }
         
         viewModel.outputIsLiked.bind { [weak self] isLiked in
