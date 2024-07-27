@@ -23,7 +23,7 @@ final class MyPolaroidView: BaseView {
     
     let stateLabel: UILabel = {
         let label = UILabel()
-        label.text = "사진을 검색해보세요."
+        label.text = "저장된 사진이 없어요."
         label.font = Font.bold20
         label.textColor = .myAppBlack
         return label

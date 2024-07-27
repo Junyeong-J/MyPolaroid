@@ -47,9 +47,12 @@ extension TrendsByTopicMainViewController {
         viewModel.inputViewDidLoadTrigger.value = ()
         
         viewModel.outputData.bind { [weak self] data in
+            print(data)
             self?.rootView.tableView.reloadData()
         }
     }
+    
+   
 }
 
 extension TrendsByTopicMainViewController: UITableViewDelegate, UITableViewDataSource {
