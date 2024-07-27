@@ -9,9 +9,16 @@ import UIKit
 
 final class MyPolaroidViewController: BaseViewController<MyPolaroidView> {
     
+    private let viewModel = MyPolaroidViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        bindData()
     }
     
     override func configureView() {
@@ -26,17 +33,40 @@ extension MyPolaroidViewController {
         rootView.collectionView.dataSource = self
         rootView.collectionView.register(MyPolaroidCollectionViewCell.self, forCellWithReuseIdentifier: MyPolaroidCollectionViewCell.identifier)
     }
+    
+    private func bindData() {
+        viewModel.inputTriggerViewWillAppear.value = ()
+        viewModel.outputPhotoData.bind { [weak self] data in
+            guard let self = self else { return }
+            if data.isEmpty {
+                rootView.collectionView.isHidden = true
+            } else {
+                rootView.collectionView.isHidden = false
+                rootView.collectionView.reloadData()
+            }
+        }
+    }
 }
 
 extension MyPolaroidViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.outputPhotoData.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPolaroidCollectionViewCell.identifier, for: indexPath) as! MyPolaroidCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPolaroidCollectionViewCell.identifier, for: indexPath) as? MyPolaroidCollectionViewCell else { return UICollectionViewCell() }
+        let photoData = viewModel.outputPhotoData.value[indexPath.item]
+        let image = ImageManager.loadImageToDocument(filename: photoData.photoID)
+        cell.delegate = self
+        cell.configureData(data: photoData.photoID, image: image)
         return cell
     }
     
+}
+
+extension MyPolaroidViewController: MyPolaroidCollectionViewCellDelegate {
+    func didClickedLikeButton() {
+        viewModel.inputTriggerViewWillAppear.value = ()
+    }
 }

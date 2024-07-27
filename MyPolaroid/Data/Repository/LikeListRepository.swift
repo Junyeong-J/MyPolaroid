@@ -23,6 +23,10 @@ final class LikeListRepository {
         return realm.objects(LikeListTable.self).filter("photoID == %@", photoID).first
     }
     
+    func fetchAll() -> Results<LikeListTable> {
+        return realm.objects(LikeListTable.self).sorted(byKeyPath: "regdate", ascending: false)
+    }
+    
     func createItem(_ data: LikeListTable) {
         do {
             try realm.write {

@@ -9,31 +9,26 @@ import UIKit
 import SnapKit
 import Kingfisher
 
+protocol MyPolaroidCollectionViewCellDelegate: AnyObject {
+    func didClickedLikeButton()
+}
+
 final class MyPolaroidCollectionViewCell: BaseCollectionViewCell {
+    
+    var photoID: String?
+    weak var delegate: MyPolaroidCollectionViewCellDelegate?
     
     private let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         return imageView
     }()
-    private let likeButtonView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .myAppWhiteSmoke.withAlphaComponent(0.5)
-        view.layer.cornerRadius = 20
-        view.clipsToBounds = true
-        return view
-    }()
-    private let likeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        button.tintColor = UIColor.myAppWhiteSmoke.withAlphaComponent(0.2)
-        return button
-    }()
+    
+    var likeButton = LikeButton(backColor: .clear, tint: .myAppWhiteSmoke)
     
     override func configureHierarchy() {
         addSubview(photoImageView)
-        photoImageView.addSubview(likeButtonView)
-        likeButtonView.addSubview(likeButton)
+        addSubview(likeButton)
     }
     
     override func configureLayout() {
@@ -41,15 +36,31 @@ final class MyPolaroidCollectionViewCell: BaseCollectionViewCell {
             make.edges.equalTo(safeAreaLayoutGuide)
         }
         
-        likeButtonView.snp.makeConstraints { make in
-            make.bottom.trailing.equalTo(safeAreaLayoutGuide).inset(10)
-            make.size.equalTo(40)
-        }
-        
         likeButton.snp.makeConstraints { make in
-            make.size.equalTo(50)
-            make.center.equalTo(likeButtonView)
+            make.bottom.trailing.equalTo(photoImageView).inset(10)
+            make.size.equalTo(30)
         }
+    }
+    
+    override func configureView() {
+        likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
+        likeButton.setImage(UIImage(named: "like_circle"), for: .normal)
+    }
+    
+    func configureData(data: String,image: UIImage?) {
+        self.photoID = data
+        photoImageView.image = image
+    }
+    
+    @objc private func likeButtonClicked() {
+        guard let photoID = photoID else {return}
+        ImageManager.removeImageFromDocument(filename: photoID)
+        if let photoItem = LikeListRepository.shared.fetchItem(photoID) {
+            LikeListRepository.shared.deleteIdItem(photoItem)
+        } else {
+            print("No Data")
+        }
+        delegate?.didClickedLikeButton()
     }
     
 }

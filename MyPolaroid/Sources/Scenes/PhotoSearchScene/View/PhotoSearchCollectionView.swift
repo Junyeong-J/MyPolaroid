@@ -11,7 +11,7 @@ import Kingfisher
 
 final class PhotoSearchCollectionView: BaseCollectionViewCell {
     
-    let photoImageView: UIImageView = {
+    private let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         return imageView

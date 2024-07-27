@@ -79,6 +79,7 @@
 		724FC9D12C54038600CDA561 /* LikeListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D02C54038600CDA561 /* LikeListRepository.swift */; };
 		724FC9D42C541A7500CDA561 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D32C541A7500CDA561 /* LikeButton.swift */; };
 		724FC9D62C54C5A900CDA561 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D52C54C5A900CDA561 /* ImageManager.swift */; };
+		724FC9D92C54EDA800CDA561 /* MyPolaroidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D82C54EDA800CDA561 /* MyPolaroidViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -164,6 +165,7 @@
 		724FC9D02C54038600CDA561 /* LikeListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListRepository.swift; sourceTree = "<group>"; };
 		724FC9D32C541A7500CDA561 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		724FC9D52C54C5A900CDA561 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		724FC9D82C54EDA800CDA561 /* MyPolaroidViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolaroidViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -528,6 +530,7 @@
 		724FC9BF2C53F4A200CDA561 /* MyPolaroidScene */ = {
 			isa = PBXGroup;
 			children = (
+				724FC9D72C54ED9400CDA561 /* ViewModel */,
 				724FC9C02C53F4B900CDA561 /* View */,
 			);
 			path = MyPolaroidScene;
@@ -566,6 +569,14 @@
 				724FC9D02C54038600CDA561 /* LikeListRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		724FC9D72C54ED9400CDA561 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				724FC9D82C54EDA800CDA561 /* MyPolaroidViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -654,6 +665,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724FC9D92C54EDA800CDA561 /* MyPolaroidViewModel.swift in Sources */,
 				724FC9622C513B8800CDA561 /* UnSplashAPIManager.swift in Sources */,
 				724FC9652C513D2E00CDA561 /* TrendsByTopicViewModel.swift in Sources */,
 				724FC96B2C5146A500CDA561 /* ButtonTitle.swift in Sources */,

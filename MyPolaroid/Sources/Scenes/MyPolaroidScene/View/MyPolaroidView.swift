@@ -30,17 +30,17 @@ final class MyPolaroidView: BaseView {
     }()
     
     override func configureHierarchy() {
-        addSubview(collectionView)
         addSubview(stateLabel)
+        addSubview(collectionView)
     }
     
     override func configureLayout() {
-        collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
-        }
-        
         stateLabel.snp.makeConstraints { make in
             make.center.equalTo(safeAreaLayoutGuide)
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalTo(safeAreaLayoutGuide)
         }
     }
 }
