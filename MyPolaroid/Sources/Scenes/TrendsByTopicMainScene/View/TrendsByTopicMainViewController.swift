@@ -9,7 +9,7 @@ import UIKit
 
 final class TrendsByTopicMainViewController: BaseViewController<TrendsByTopicMainView> {
     
-    private let myProfileImageView = ProfileImage(profile: "profile_1", corner: 20, border: 2)
+    private let myProfileImageView = UIImage(named: "profile_1")
     
     private let viewModel = TrendsByTopicViewModel()
     
@@ -20,9 +20,9 @@ final class TrendsByTopicMainViewController: BaseViewController<TrendsByTopicMai
         configureTableView()
         bindData()
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageViewClicked))
-        myProfileImageView.addGestureRecognizer(tapGesture)
-        myProfileImageView.isUserInteractionEnabled = true
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageViewClicked))
+//        myProfileImageView.addGestureRecognizer(tapGesture)
+//        myProfileImageView.isUserInteractionEnabled = true
     }
     
     @objc private func profileImageViewClicked() {

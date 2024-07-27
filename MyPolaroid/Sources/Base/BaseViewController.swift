@@ -45,14 +45,8 @@ class BaseViewController<RootView: UIView>: UIViewController {
         
     }
     
-    @objc private func backButtonClicked() {
-        navigationController?.popViewController(animated: true)
-    }
-    
-}
-
-extension BaseViewController {
     func configureNavigationBar() {
+        navigationItem.largeTitleDisplayMode = .never
         configureNavBarAppearance()
         if let nc = self.navigationController, nc.viewControllers.count > 1 {
             configureNavBarLeftBarButtonItem()
@@ -60,17 +54,32 @@ extension BaseViewController {
         configureNavBarTitle()
     }
     
-    func setNavigationBar(image: UIImageView? = nil) {
+    @objc private func backButtonClicked() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+extension BaseViewController {
+    
+    func setNavigationBar(image: UIImage?) {
+        navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "OUR TOPIC"
-        guard let navigationBar = self.navigationController?.navigationBar, let image = image else { return }
-        navigationBar.addSubview(image)
-        image.snp.makeConstraints { make in
-            make.size.equalTo(40)
-            make.top.trailing.equalTo(navigationBar).inset(15)
+        
+        guard let image = image else { return }
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 18
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 3
+        imageView.layer.borderColor = UIColor.myAppMain.cgColor
+        imageView.snp.makeConstraints { make in
+            make.size.equalTo(36)
         }
-        image.layer.cornerRadius = 20
-        image.clipsToBounds = true
+        
+        let barButtonItem = UIBarButtonItem(customView: imageView)
+        navigationItem.rightBarButtonItem = barButtonItem
     }
     
     private func configureNavBarAppearance() {
