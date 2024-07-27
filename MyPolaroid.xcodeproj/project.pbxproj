@@ -80,6 +80,8 @@
 		724FC9D42C541A7500CDA561 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D32C541A7500CDA561 /* LikeButton.swift */; };
 		724FC9D62C54C5A900CDA561 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D52C54C5A900CDA561 /* ImageManager.swift */; };
 		724FC9D92C54EDA800CDA561 /* MyPolaroidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D82C54EDA800CDA561 /* MyPolaroidViewModel.swift */; };
+		724FC9DB2C55193B00CDA561 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DA2C55193B00CDA561 /* PhotoDetailViewModel.swift */; };
+		724FC9DD2C551AD100CDA561 /* PhotoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DC2C551AD100CDA561 /* PhotoDetailModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -166,6 +168,8 @@
 		724FC9D32C541A7500CDA561 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		724FC9D52C54C5A900CDA561 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		724FC9D82C54EDA800CDA561 /* MyPolaroidViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolaroidViewModel.swift; sourceTree = "<group>"; };
+		724FC9DA2C55193B00CDA561 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
+		724FC9DC2C551AD100CDA561 /* PhotoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,6 +438,7 @@
 			children = (
 				724FC9682C51434C00CDA561 /* TopicPhotoModel.swift */,
 				724FC9902C520C7900CDA561 /* PhotoSearchModel.swift */,
+				724FC9DC2C551AD100CDA561 /* PhotoDetailModel.swift */,
 				724FC9922C520E5D00CDA561 /* PhotoStatisticsModel.swift */,
 				724FC9942C52119900CDA561 /* RandomPhotoModel.swift */,
 			);
@@ -523,6 +528,7 @@
 		724FC9B82C53825900CDA561 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				724FC9DA2C55193B00CDA561 /* PhotoDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -689,6 +695,7 @@
 				724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */,
 				724FC9A82C52BBA900CDA561 /* UnSplashHeader.swift in Sources */,
 				724FC9AD2C52C0C900CDA561 /* PhotoSearchViewModel.swift in Sources */,
+				724FC9DB2C55193B00CDA561 /* PhotoDetailViewModel.swift in Sources */,
 				724FC8E72C4E9BA600CDA561 /* UIButton+Extension.swift in Sources */,
 				724FC9542C50E3D000CDA561 /* ProfileSetProtocol.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
@@ -711,6 +718,7 @@
 				724FC9952C52119900CDA561 /* RandomPhotoModel.swift in Sources */,
 				724FC92B2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift in Sources */,
 				724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */,
+				724FC9DD2C551AD100CDA561 /* PhotoDetailModel.swift in Sources */,
 				724FC9CF2C54011800CDA561 /* LikeListTable.swift in Sources */,
 				724FC8DC2C4E89AD00CDA561 /* ProfileSettingViewController.swift in Sources */,
 				724FC9D42C541A7500CDA561 /* LikeButton.swift in Sources */,

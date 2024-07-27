@@ -87,7 +87,7 @@ extension TrendsByTopicMainViewController: UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = PhotoDetailViewController()
         let data = Array(viewModel.outputData.value[collectionView.tag].values).flatMap{$0}[indexPath.item]
-        vc.photoData = data
+        vc.photoID = data.id
         navigationController?.pushViewController(vc, animated: true)
     }
 }

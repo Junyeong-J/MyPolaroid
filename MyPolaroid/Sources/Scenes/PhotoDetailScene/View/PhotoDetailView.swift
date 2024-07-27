@@ -25,7 +25,7 @@ final class PhotoDetailView: BaseView {
         label.text = "afasdfads"
         return label
     }()
-    private let postDateLabel: UILabel = {
+    let postDateLabel: UILabel = {
         let label = UILabel()
         label.font = Font.bold13
         label.textColor = .myAppBlack
@@ -37,7 +37,7 @@ final class PhotoDetailView: BaseView {
         button.setImage(UIImage(systemName: "heart"), for: .normal)
         return button
     }()
-    private let photoImageView: UIImageView = {
+    let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .green
         return imageView
@@ -57,7 +57,7 @@ final class PhotoDetailView: BaseView {
         label.text = "크기"
         return label
     }()
-    private let infoSizeResultLabel: UILabel = {
+    let infoSizeResultLabel: UILabel = {
         let label = UILabel()
         label.font = Font.regular15
         label.textColor = .myAppBlack
@@ -71,7 +71,7 @@ final class PhotoDetailView: BaseView {
         label.text = "조회수"
         return label
     }()
-    private let infoViewsResultLabel: UILabel = {
+    let infoViewsResultLabel: UILabel = {
         let label = UILabel()
         label.font = Font.regular15
         label.textColor = .myAppBlack
@@ -85,7 +85,7 @@ final class PhotoDetailView: BaseView {
         label.text = "다운로드"
         return label
     }()
-    private let infoDownloadResultLabel: UILabel = {
+    let infoDownloadResultLabel: UILabel = {
         let label = UILabel()
         label.font = Font.regular15
         label.textColor = .myAppBlack

@@ -10,22 +10,36 @@ import Kingfisher
 
 final class PhotoDetailViewController: BaseViewController<PhotoDetailView> {
     
-    var photoData: TopicPhoto?
+    private let viewModel = PhotoDetailViewModel()
+    var photoID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        bindData()
     }
- 
     
     override func configureView() {
         super.configureView()
     }
     
-    func setUI() {
-        guard let data = photoData else {return}
-        let url = URL(string: data.user.profileImage.medium)
-        rootView.userImageView.kf.setImage(with: url)
-        rootView.userNameLabel.text = data.user.name
+}
+
+extension PhotoDetailViewController {
+    private func bindData() {
+        viewModel.inputViewDidLoadTrigger.value = photoID
+        
+        viewModel.outputData.bind { [weak self] data in
+            guard let self = self, let data = data else { return }
+
+            rootView.userImageView.kf.setImage(with: URL(string: data.user.profileImage.medium))
+            rootView.photoImageView.kf.setImage(with: URL(string: data.urls.small))
+            
+            rootView.userNameLabel.text = data.user.name
+            rootView.postDateLabel.text = data.created
+            
+            rootView.infoSizeResultLabel.text = "\(data.width) x \(data.height)"
+            rootView.infoViewsResultLabel.text = "\(data.views)"
+            rootView.infoDownloadResultLabel.text = "\(data.downloads)"
+        }
     }
 }

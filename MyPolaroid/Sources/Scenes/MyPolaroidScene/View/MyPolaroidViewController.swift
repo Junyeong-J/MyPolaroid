@@ -63,6 +63,13 @@ extension MyPolaroidViewController: UICollectionViewDataSource, UICollectionView
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = PhotoDetailViewController()
+        let data = viewModel.outputPhotoData.value[indexPath.item].photoID
+        vc.photoID = data
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension MyPolaroidViewController: MyPolaroidCollectionViewCellDelegate {

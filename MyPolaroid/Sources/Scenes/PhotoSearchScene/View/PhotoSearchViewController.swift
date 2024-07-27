@@ -120,6 +120,8 @@ extension PhotoSearchViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = PhotoDetailViewController()
+        let data = viewModel.outputData.value[indexPath.item].id
+        vc.photoID = data
         navigationController?.pushViewController(vc, animated: true)
     }
 }

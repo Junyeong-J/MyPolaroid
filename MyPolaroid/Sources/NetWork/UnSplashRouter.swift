@@ -12,6 +12,7 @@ enum UnSplashRouter {
     
     case TopicPhotoAPI(topicID: String)
     case PhotoSearchAPI(query: String, page: Int)
+    case PhotoDetailAPI(id: String)
     case PhotoStatisticsAPI(photoID: String)
     case RandomPhotoAPI
 }
@@ -28,6 +29,8 @@ extension UnSplashRouter: TargetType {
             return APIURL.topicPhoto + topicID + APIURL.topicPhotoEndPointURL
         case .PhotoSearchAPI:
             return APIURL.photoSearch
+        case .PhotoDetailAPI(let id):
+            return APIURL.photoStatistics + id
         case .PhotoStatisticsAPI(let photoID):
             return APIURL.photoStatistics + photoID + APIURL.photoStatisticsEndPointURL
         case .RandomPhotoAPI:
@@ -65,9 +68,7 @@ extension UnSplashRouter: TargetType {
                 URLQueryItem(name: UnSplashBody.lang.rawValue, value: "ko"),
                 URLQueryItem(name: UnSplashBody.query.rawValue, value: query)
             ]
-        case .PhotoStatisticsAPI(_):
-            return nil
-        case .RandomPhotoAPI:
+        case .PhotoDetailAPI, .PhotoStatisticsAPI, .RandomPhotoAPI:
             return nil
         }
         
