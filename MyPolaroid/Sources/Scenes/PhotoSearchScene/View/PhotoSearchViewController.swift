@@ -61,6 +61,7 @@ extension PhotoSearchViewController {
         rootView.stateLabel.text = "사진을 검색해보세요."
         rootView.collectionView.isHidden = true
     }
+    
 }
 
 extension PhotoSearchViewController: UISearchBarDelegate {
@@ -110,11 +111,17 @@ extension PhotoSearchViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoSearchCollectionView.identifier, for: indexPath) as! PhotoSearchCollectionView
-        cell.configureData(data: viewModel.outputData.value[indexPath.item])
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoSearchCollectionView.identifier, for: indexPath) as? PhotoSearchCollectionView else { return UICollectionViewCell() }
+        let data = viewModel.outputData.value[indexPath.item]
+        cell.configureData(data: data)
+        cell.likeButton.tag = indexPath.item
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = PhotoDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension PhotoSearchViewController: UICollectionViewDataSourcePrefetching {

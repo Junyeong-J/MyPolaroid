@@ -75,6 +75,10 @@
 		724FC9C62C53FEB000CDA561 /* MyPolaroidCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9C52C53FEB000CDA561 /* MyPolaroidCollectionViewCell.swift */; };
 		724FC9C92C54000C00CDA561 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC9C82C54000C00CDA561 /* RealmSwift */; };
 		724FC9CA2C54002000CDA561 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 724FC9C82C54000C00CDA561 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		724FC9CF2C54011800CDA561 /* LikeListTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9CE2C54011800CDA561 /* LikeListTable.swift */; };
+		724FC9D12C54038600CDA561 /* LikeListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D02C54038600CDA561 /* LikeListRepository.swift */; };
+		724FC9D42C541A7500CDA561 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D32C541A7500CDA561 /* LikeButton.swift */; };
+		724FC9D62C54C5A900CDA561 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9D52C54C5A900CDA561 /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -156,6 +160,10 @@
 		724FC9C12C53F4CB00CDA561 /* MyPolaroidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolaroidViewController.swift; sourceTree = "<group>"; };
 		724FC9C32C53F4E000CDA561 /* MyPolaroidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolaroidView.swift; sourceTree = "<group>"; };
 		724FC9C52C53FEB000CDA561 /* MyPolaroidCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolaroidCollectionViewCell.swift; sourceTree = "<group>"; };
+		724FC9CE2C54011800CDA561 /* LikeListTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListTable.swift; sourceTree = "<group>"; };
+		724FC9D02C54038600CDA561 /* LikeListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListRepository.swift; sourceTree = "<group>"; };
+		724FC9D32C541A7500CDA561 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		724FC9D52C54C5A900CDA561 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +202,7 @@
 		724FC8A12C4E36A000CDA561 /* MyPolaroid */ = {
 			isa = PBXGroup;
 			children = (
+				724FC9CC2C5400B700CDA561 /* Data */,
 				724FC8B62C4E386600CDA561 /* Resources */,
 				724FC8B82C4E38C800CDA561 /* Sources */,
 				724FC8B02C4E36A200CDA561 /* Info.plist */,
@@ -285,6 +294,7 @@
 				724FC8DF2C4E8D7C00CDA561 /* CameraImage.swift */,
 				724FC8E12C4E8E7D00CDA561 /* ProfileImageView.swift */,
 				724FC8E32C4E91EE00CDA561 /* NicknameTextField.swift */,
+				724FC9D32C541A7500CDA561 /* LikeButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -294,6 +304,7 @@
 			children = (
 				724FC9752C5170C200CDA561 /* Enums */,
 				724FC9762C5170E700CDA561 /* ScreenSize.swift */,
+				724FC9D52C54C5A900CDA561 /* ImageManager.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -532,6 +543,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		724FC9CC2C5400B700CDA561 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				724FC9CD2C5400C700CDA561 /* RealmModel */,
+				724FC9D22C54038A00CDA561 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		724FC9CD2C5400C700CDA561 /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+				724FC9CE2C54011800CDA561 /* LikeListTable.swift */,
+			);
+			path = RealmModel;
+			sourceTree = "<group>";
+		};
+		724FC9D22C54038A00CDA561 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				724FC9D02C54038600CDA561 /* LikeListRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -636,6 +672,7 @@
 				724FC95E2C51378B00CDA561 /* UnSplashRouter.swift in Sources */,
 				724FC8F32C4F36E600CDA561 /* TrendsByTopicMainView.swift in Sources */,
 				724FC9BE2C53C50F00CDA561 /* PhotoSearchCollectionView.swift in Sources */,
+				724FC9D62C54C5A900CDA561 /* ImageManager.swift in Sources */,
 				724FC9272C4F8B8000CDA561 /* EditProfileViewController.swift in Sources */,
 				724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */,
 				724FC9A82C52BBA900CDA561 /* UnSplashHeader.swift in Sources */,
@@ -643,6 +680,7 @@
 				724FC8E72C4E9BA600CDA561 /* UIButton+Extension.swift in Sources */,
 				724FC9542C50E3D000CDA561 /* ProfileSetProtocol.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
+				724FC9D12C54038600CDA561 /* LikeListRepository.swift in Sources */,
 				724FC8CC2C4E4A7400CDA561 /* OnBoardingView.swift in Sources */,
 				724FC9BA2C5382B100CDA561 /* PhotoDetailViewController.swift in Sources */,
 				724FC9B52C536A7B00CDA561 /* UserDefaultsManager.swift in Sources */,
@@ -661,7 +699,9 @@
 				724FC9952C52119900CDA561 /* RandomPhotoModel.swift in Sources */,
 				724FC92B2C4F8EBE00CDA561 /* EditProfileCollectionViewCell.swift in Sources */,
 				724FC92E2C4F8F3300CDA561 /* ReuseIdentifierProtocol.swift in Sources */,
+				724FC9CF2C54011800CDA561 /* LikeListTable.swift in Sources */,
 				724FC8DC2C4E89AD00CDA561 /* ProfileSettingViewController.swift in Sources */,
+				724FC9D42C541A7500CDA561 /* LikeButton.swift in Sources */,
 				724FC9C22C53F4CB00CDA561 /* MyPolaroidViewController.swift in Sources */,
 				724FC9692C51434C00CDA561 /* TopicPhotoModel.swift in Sources */,
 				724FC9772C5170E700CDA561 /* ScreenSize.swift in Sources */,

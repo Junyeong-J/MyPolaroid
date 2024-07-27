@@ -11,7 +11,7 @@ import Kingfisher
 
 final class PhotoSearchCollectionView: BaseCollectionViewCell {
     
-    private let photoImageView: UIImageView = {
+    let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         return imageView
@@ -35,27 +35,15 @@ final class PhotoSearchCollectionView: BaseCollectionViewCell {
         label.textColor = .myAppWhite
         return label
     }()
-    private let likeButtonView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .myAppWhiteSmoke.withAlphaComponent(0.5)
-        view.layer.cornerRadius = 20
-        view.clipsToBounds = true
-        return view
-    }()
-    private let likeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        button.tintColor = UIColor.myAppWhiteSmoke.withAlphaComponent(0.2)
-        return button
-    }()
+    var likeButton = LikeButton(backColor: .clear, tint: .myAppWhiteSmoke)
+    private var photoID: String?
     
     override func configureHierarchy() {
         addSubview(photoImageView)
         photoImageView.addSubview(likeCountView)
         likeCountView.addSubview(starImageView)
         likeCountView.addSubview(likeCountLabel)
-        photoImageView.addSubview(likeButtonView)
-        likeButtonView.addSubview(likeButton)
+        addSubview(likeButton)
     }
     
     override func configureLayout() {
@@ -80,21 +68,48 @@ final class PhotoSearchCollectionView: BaseCollectionViewCell {
             make.centerY.equalTo(likeCountView)
         }
         
-        likeButtonView.snp.makeConstraints { make in
-            make.bottom.trailing.equalTo(safeAreaLayoutGuide).inset(10)
-            make.size.equalTo(40)
-        }
-        
         likeButton.snp.makeConstraints { make in
-            make.size.equalTo(50)
-            make.center.equalTo(likeButtonView)
+            make.bottom.trailing.equalTo(photoImageView).inset(10)
+            make.size.equalTo(30)
         }
+    }
+    
+    override func configureView() {
+        likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
+        
     }
     
     func configureData(data: PhotoSearch) {
         let url = URL(string: data.urls.raw)
         photoImageView.kf.setImage(with: url)
         likeCountLabel.text = ("\(data.likes.formatted())")
+        photoID = data.id
+        updateLikeButtonImage()
     }
     
+    @objc private func likeButtonClicked() {
+        guard let photoID = photoID else { return }
+        
+        let existingItem = LikeListRepository.shared.fetchItem(photoID)
+        
+        if existingItem != nil {
+            ImageManager.removeImageFromDocument(filename: photoID)
+            LikeListRepository.shared.deleteIdItem(existingItem!)
+            likeButton.setImage(UIImage(named: "like_circle_inactive"), for: .normal)
+        } else {
+            if let image = photoImageView.image {
+                ImageManager.saveImageToDocument(image: image, filename: photoID)
+            }
+            let likeItem = LikeListTable(photoID: photoID)
+            LikeListRepository.shared.createItem(likeItem)
+            likeButton.setImage(UIImage(named: "like_circle"), for: .normal)
+        }
+    }
+    
+    private func updateLikeButtonImage() {
+        guard let photoID = photoID else { return }
+        let existingItem = LikeListRepository.shared.fetchItem(photoID)
+        let imageName = existingItem != nil ? "like_circle" : "like_circle_inactive"
+        likeButton.setImage(UIImage(named: imageName), for: .normal)
+    }
 }
