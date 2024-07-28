@@ -14,7 +14,6 @@ final class ProfileSettingViewController: BaseViewController<ProfileSettingView>
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar()
         configureTextField()
         bindData()
         tapGesture()
@@ -34,6 +33,12 @@ extension ProfileSettingViewController {
     }
     
     private func bindData() {
+        viewModel.inputViewDidLoadTrigger.value = ()
+        
+        viewModel.outputUserDefaultsData.bind { [weak self] data in
+            self?.updateSetUI(data)
+        }
+        
         viewModel.outputValidationText.bind { [weak self] value in
             self?.rootView.stateLabel.text = value
         }
@@ -52,6 +57,11 @@ extension ProfileSettingViewController {
         }
     }
     
+    private func updateSetUI(_ data: (nickname: String?, profileName: String?, mbti: [String: Bool]?, isUser: Bool)) {
+        rootView.nicknameTextField.text = data.nickname
+        selectedMbtiButton(data.mbti)
+    }
+    
     private func tapGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageViewClicked))
         rootView.profileImageView.addGestureRecognizer(tapGesture)
@@ -64,14 +74,15 @@ extension ProfileSettingViewController {
         }
         
         rootView.successButton.addTarget(self, action: #selector(successButtonClicked), for: .touchUpInside)
+        rootView.withdrawal.addTarget(self, action: #selector(withdrawalClicked), for: .touchUpInside)
     }
     
     private func setUI() {
         if viewType == .profileSetting {
             rootView.successButton.isHidden = false
+            rootView.withdrawal.isHidden = true
         } else {
-            guard let nickname = UserDefaultsManager.shared.nickname else { return }
-            rootView.nicknameTextField.text = nickname
+            rootView.withdrawal.isHidden = false
             rootView.successButton.isHidden = true
             tabBarController?.tabBar.isHidden = true
         }
@@ -109,6 +120,20 @@ extension ProfileSettingViewController {
         let rootViewController = TabBarController()
         sceneDelegate?.window?.rootViewController = rootViewController
         sceneDelegate?.window?.makeKeyAndVisible()
+    }
+    
+    @objc private func withdrawalClicked() {
+        showAlert(title: "탈퇴하기", message: "탈퇴를 하면 데이터가 모두 초기화됩니다.", ok: "확인") {
+            UserDefaultsManager.shared.clearAllData()
+//            self.repository.deleteAll()
+            
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let sceneDelegate = windowScene?.delegate as? SceneDelegate
+            
+            let rootViewController = UINavigationController(rootViewController: OnBoardingViewController())
+            sceneDelegate?.window?.rootViewController = rootViewController
+            sceneDelegate?.window?.makeKeyAndVisible()
+        }
     }
 }
 

@@ -17,7 +17,6 @@ final class ProfileSettingView: BaseView {
     lazy var profileImageView: ProfileImage = {
         
         if let profileName = UserDefaultsManager.shared.profileName, !profileName.isEmpty {
-            print(profileName)
             profileImageName = profileName
             return ProfileImage(profile: profileImageName, corner: 50, border: 3)
         } else {
@@ -54,18 +53,19 @@ final class ProfileSettingView: BaseView {
         }
     }()
     let successButton = PointButton(title: .complete)
+    let withdrawal: UIButton = {
+        let button = UIButton()
+        button.setTitle("회원탈퇴", for: .normal)
+        button.setTitleColor(.myAppMain, for: .normal)
+        button.titleLabel?.font = Font.bold20
+        return button
+    }()
     
     override func configureHierarchy() {
-        addSubview(profileImageView)
-        addSubview(cameraImageView)
-        addSubview(nicknameTextField)
-        addSubview(stateLabel)
-        addSubview(mbtiLabel)
-        addSubview(mbtiView)
+        [profileImageView, cameraImageView, nicknameTextField, stateLabel, mbtiLabel, mbtiView, successButton, withdrawal].forEach{ addSubview($0) }
         mbtiButtons.forEach { button in
             mbtiView.addSubview(button)
         }
-        addSubview(successButton)
     }
     
     override func configureLayout() {
@@ -122,10 +122,11 @@ final class ProfileSettingView: BaseView {
             make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide).inset(20)
             make.height.equalTo(50)
         }
-    }
-    
-    override func configureView() {
         
+        withdrawal.snp.makeConstraints { make in
+            make.bottom.equalTo(safeAreaLayoutGuide).inset(30)
+            make.centerX.equalTo(safeAreaLayoutGuide)
+        }
     }
     
 }

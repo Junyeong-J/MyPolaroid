@@ -9,10 +9,12 @@ import Foundation
 
 final class ProfileSettingViewModel {
     
+    var inputViewDidLoadTrigger: Observable<Void?> = Observable(nil)
     var inputNickname: Observable<String?> = Observable(nil)
     var inputMbtiButtonTitle: Observable<String?> = Observable(nil)
     var inputSuccessButtonClicked: Observable<String?> = Observable(nil)
     
+    var outputUserDefaultsData: Observable<(nickname: String?, profileName: String?, mbti: [String: Bool]?, isUser: Bool)> = Observable((nil, nil, nil, false))
     var outputValidationText = Observable("")
     var outputButtonValid = Observable(false)
     var outputNicknameValid = Observable(false)
@@ -24,17 +26,43 @@ final class ProfileSettingViewModel {
     private var mbtiButtonBool: [String: Bool] = ["E": false, "I": false, "S": false, "N": false, "T": false, "F": false, "J": false, "P": false]
     
     init() {
+        transform()
+    }
+    
+    private func transform() {
+        inputViewDidLoadTrigger.bind { [weak self] _ in
+            self?.setUserDefaultsData()
+        }
+        
         inputNickname.bind { [weak self] nickname in
+//            guard let nickname = nickname else {return}
             self?.validateNickname(nickname)
         }
         
         inputMbtiButtonTitle.bind { [weak self] buttonTitle in
+//            guard let buttonTitle = buttonTitle else {return}
             self?.mbtiButtonCheck(buttonTitle)
         }
         
         inputSuccessButtonClicked.bind { [weak self] profileText in
-            self?.successButtonClicked(profileText ?? "")
+            guard let profileText = profileText else {return}
+            self?.successButtonClicked(profileText)
         }
+    }
+    
+}
+extension ProfileSettingViewModel{
+    //MARK: - UserDefaults값 가져오기
+    private func setUserDefaultsData() {
+        let nickname = ud.nickname
+        let profileName = ud.profileName
+        let mbti = ud.mbti
+        let isUser = ud.isUser
+        mbtiButtonBool = mbti ?? mbtiButtonBool
+        outputUserDefaultsData.value = (nickname, profileName, mbti, isUser)
+        validateNickname(nickname)
+        outputMbtiButtonBool.value = mbti
+        updateOutputValid()
     }
     
     //MARK: - mbti버튼 처리
