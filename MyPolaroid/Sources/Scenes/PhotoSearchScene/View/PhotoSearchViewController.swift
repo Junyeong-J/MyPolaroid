@@ -18,6 +18,7 @@ final class PhotoSearchViewController: BaseViewController<PhotoSearchView> {
         configureSearchBar()
         configureCollectionView()
         bindData()
+        addTarget()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +67,19 @@ extension PhotoSearchViewController {
         rootView.collectionView.isHidden = true
     }
     
+    private func addTarget() {
+        rootView.sortButton.addTarget(self, action: #selector(sortButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc private func sortButtonClicked() {
+        if rootView.sortButton.configuration?.title == "관련순" {
+            rootView.sortButton.configuration?.title = "최신순"
+            viewModel.inputSortButtonClicked.value = true
+        } else {
+            rootView.sortButton.configuration?.title = "관련순"
+            viewModel.inputSortButtonClicked.value = false
+        }
+    }
 }
 
 extension PhotoSearchViewController: UISearchBarDelegate {

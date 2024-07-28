@@ -480,8 +480,8 @@
 		724FC9992C528B4400CDA561 /* PhotoSearchScene */ = {
 			isa = PBXGroup;
 			children = (
-				724FC9AB2C52C0B700CDA561 /* ViewModel */,
 				724FC99A2C528B5F00CDA561 /* View */,
+				724FC9AB2C52C0B700CDA561 /* ViewModel */,
 			);
 			path = PhotoSearchScene;
 			sourceTree = "<group>";

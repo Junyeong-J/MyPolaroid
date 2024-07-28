@@ -12,6 +12,7 @@ final class PhotoSearchViewModel {
     var inputSearchButtonClicked: Observable<String?> = Observable(nil)
     var inputReCallPage: Observable<Void?> = Observable(nil)
     var inputLikeButtonClicked: Observable<String?> = Observable(nil)
+    var inputSortButtonClicked: Observable<Bool> = Observable(false)
     
     var outputData: Observable<[PhotoSearch]> = Observable([])
     var outputCurrentPage = Observable(1)
@@ -20,7 +21,7 @@ final class PhotoSearchViewModel {
     private let fileManager = ImageManager.shared
     private var currentPage = 1
     private var currentQuery: String?
-    
+    private var orderBy: String = "relevant"
     
     init() {
         transform()
@@ -32,12 +33,20 @@ final class PhotoSearchViewModel {
             self?.currentQuery = word
             self?.currentPage = 1
             self?.outputData.value = []
-            self?.callRequest(word, page: self?.currentPage ?? 1)
+            self?.callRequest(word, page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "relevant")
         }
         
         inputReCallPage.bind { [weak self] _ in
             self?.currentPage += 1
-            self?.callRequest(self?.currentQuery ?? "", page: self?.currentPage ?? 1)
+            self?.callRequest(self?.currentQuery ?? "", page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "relevant")
+        }
+        
+        inputSortButtonClicked.bind { [weak self] value in
+            self?.orderBy = value ? "latest" : "relevant"
+            guard let query = self?.currentQuery else { return }
+            self?.outputData.value = []
+            self?.currentPage = 1
+            self?.callRequest(query, page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "latest")
         }
         
         inputLikeButtonClicked.bind { [weak self] photoID in
@@ -46,8 +55,8 @@ final class PhotoSearchViewModel {
         }
     }
     
-    private func callRequest(_ query: String, page: Int) {
-        UnSplashAPIManager.shared.unSplashRequest(api: .PhotoSearchAPI(query: query, page: page), model: PhotoSearchResponse.self) { [weak self] result in
+    private func callRequest(_ query: String, page: Int, orderBy: String) {
+        UnSplashAPIManager.shared.unSplashRequest(api: .PhotoSearchAPI(query: query, page: page, orderBy: orderBy), model: PhotoSearchResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.outputData.value.append(contentsOf: data.results)
@@ -56,11 +65,6 @@ final class PhotoSearchViewModel {
                 print("오류: \(error.localizedDescription)")
             }
         }
-    }
-    
-    private func checkExistingItem(photoID: String) {
-        let existingItem = repository.fetchItem(photoID)
-        outputIsLiked.value = existingItem != nil
     }
     
     private func toggleLikeStatus(_ photoID: String) {
