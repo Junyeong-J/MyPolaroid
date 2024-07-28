@@ -16,7 +16,6 @@ final class ProfileSettingView: BaseView {
     
     private let cameraImageView = CameraImage()
     lazy var profileImageView: ProfileImage = {
-        
         if let profileName = UserDefaultsManager.shared.profileName, !profileName.isEmpty {
             profileImageName = profileName
             return ProfileImage(profile: profileImageName, corner: 50, border: 3)
@@ -25,8 +24,6 @@ final class ProfileSettingView: BaseView {
             profileImageName = UIImage.profileImage[index]
             return ProfileImage(profile: profileImageName, corner: 50, border: 3)
         }
-        
-        
     }()
     
     let nicknameTextField = NicknameTextField(style: .nickname)
