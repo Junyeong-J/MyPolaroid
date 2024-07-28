@@ -9,16 +9,19 @@ import UIKit
 
 final class TrendsByTopicMainViewController: BaseViewController<TrendsByTopicMainView> {
     
-    private let myProfileImageView = UIImage(named: "profile_1")
-    
+    private var myProfileImageView = UIImage(named: "profile_1")
     private let viewModel = TrendsByTopicViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationBar(image: myProfileImageView)
         configureTableView()
         bindData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.inputViewWillAppearTrigger.value = ()
     }
     
     override func configureView() {
@@ -36,13 +39,21 @@ extension TrendsByTopicMainViewController {
     private func bindData() {
         viewModel.inputViewDidLoadTrigger.value = ()
         
-        viewModel.outputData.bind { [weak self] data in
-            print(data)
-            self?.rootView.tableView.reloadData()
+        viewModel.outputData.bind { [weak self] _ in
+            guard let self = self else {return}
+            rootView.tableView.reloadData()
+        }
+        
+        viewModel.outputProfile.bind { [weak self] value in
+            self?.updateProfile(title: value)
         }
     }
     
-   
+    private func updateProfile(title: String?) {
+        guard let title = title else { return }
+        myProfileImageView = UIImage(named: title)
+        setNavigationBar(image: myProfileImageView)
+    }
 }
 
 extension TrendsByTopicMainViewController: UITableViewDelegate, UITableViewDataSource {

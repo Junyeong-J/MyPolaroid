@@ -10,8 +10,11 @@ import Foundation
 final class TrendsByTopicViewModel {
     
     var inputViewDidLoadTrigger: Observable<Void?> = Observable(nil)
+    var inputViewWillAppearTrigger: Observable<Void?> = Observable(nil)
     
     var outputData: Observable<[[String:[TopicPhoto]]]> = Observable([])
+    var outputProfile: Observable<String?> = Observable(nil)
+    private let ud = UserDefaultsManager.shared
     
     init(){
         transform()
@@ -20,6 +23,10 @@ final class TrendsByTopicViewModel {
     private func transform() {
         inputViewDidLoadTrigger.bind { [weak self] _ in
             self?.callRequests()
+        }
+        
+        inputViewWillAppearTrigger.bind { [weak self] _ in
+            self?.setProfile()
         }
     }
     
@@ -45,5 +52,10 @@ final class TrendsByTopicViewModel {
         dispatchGroup.notify(queue: .main) {
             self.outputData.value = photosByTopicArray
         }
+    }
+    
+    private func setProfile() {
+        let profileName = ud.profileName
+        outputProfile.value = profileName
     }
 }
