@@ -23,10 +23,7 @@ final class UserDefaultsManager {
     //MARK: - 프로필
     var profileName: String? {
         get {
-            guard let profileName = UserDefaults.standard.string(forKey: UserDefaultsKey.profileForKey.rawValue) else {
-                return nil
-            }
-            return profileName
+            return UserDefaults.standard.string(forKey: UserDefaultsKey.profileForKey.rawValue)
         }
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.profileForKey.rawValue)
@@ -36,10 +33,7 @@ final class UserDefaultsManager {
     //MARK: - 닉네임
     var nickname: String? {
         get {
-            guard let nickname = UserDefaults.standard.string(forKey: UserDefaultsKey.nicknameForKey.rawValue) else {
-                return nil
-            }
-            return nickname
+            return UserDefaults.standard.string(forKey: UserDefaultsKey.nicknameForKey.rawValue)
         }
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.nicknameForKey.rawValue)
@@ -47,12 +41,9 @@ final class UserDefaultsManager {
     }
     
     //MARK: - MBTI
-    var mbti: [String: Any]? {
+    var mbti: [String: Bool]? {
         get {
-            guard let mbti = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.mbtiForKey.rawValue) else {
-                return nil
-            }
-            return mbti
+            return UserDefaults.standard.dictionary(forKey: UserDefaultsKey.mbtiForKey.rawValue) as? [String: Bool]
         } set {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.mbtiForKey.rawValue)
         }
@@ -66,6 +57,13 @@ final class UserDefaultsManager {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.user.rawValue)
+        }
+    }
+    
+    //MARK: - UserDefaults값 모두 삭제
+    func clearAllData() {
+        for key in UserDefaults.standard.dictionaryRepresentation().keys {
+            UserDefaults.standard.removeObject(forKey: key.description)
         }
     }
 }
