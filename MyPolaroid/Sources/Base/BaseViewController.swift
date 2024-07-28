@@ -58,6 +58,11 @@ class BaseViewController<RootView: UIView>: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc private func naviProfileClicked() {
+        let vc = ProfileSettingViewController()
+        vc.viewType = .editProfile
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension BaseViewController {
@@ -77,6 +82,10 @@ extension BaseViewController {
         imageView.snp.makeConstraints { make in
             make.size.equalTo(36)
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(naviProfileClicked))
+        imageView.addGestureRecognizer(tapGesture)
+        imageView.isUserInteractionEnabled = true
         
         let barButtonItem = UIBarButtonItem(customView: imageView)
         navigationItem.rightBarButtonItem = barButtonItem
@@ -107,5 +116,14 @@ extension BaseViewController {
             return
         }
         navigationItem.title = navBarInfo.navigationTitle
+    }
+    
+    func showAlert(title: String, message: String, ok: String, completionHandler: @escaping () -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: ok, style: .default) { _ in
+            completionHandler()
+        })
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        present(alert, animated: true)
     }
 }
