@@ -62,6 +62,11 @@ extension PhotoSearchViewController {
             }
         }
         
+        viewModel.outputTostMessage.bind { [weak self] message in
+            guard let message = message else { return }
+            self?.toastMessage(message: message)
+        }
+        
         rootView.stateLabel.isHidden = false
         rootView.stateLabel.text = "사진을 검색해보세요."
         rootView.collectionView.isHidden = true

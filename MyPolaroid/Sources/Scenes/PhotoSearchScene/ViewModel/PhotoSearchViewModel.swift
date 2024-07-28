@@ -17,6 +17,7 @@ final class PhotoSearchViewModel {
     var outputData: Observable<[PhotoSearch]> = Observable([])
     var outputCurrentPage = Observable(1)
     var outputIsLiked: Observable<Bool> = Observable(false)
+    var outputTostMessage: Observable<String?> = Observable(nil)
     private let repository = LikeListRepository.shared
     private let fileManager = ImageManager.shared
     private var currentPage = 1
@@ -74,11 +75,13 @@ final class PhotoSearchViewModel {
             fileManager.removeImageFromDocument(filename: photoID)
             repository.deleteIdItem(existingItem)
             outputIsLiked.value = false
+            outputTostMessage.value = TostMessage.likeCancel.message
         } else {
             fileManager.saveImageFromURLToDocument(imageURL: imageUrl, filename: photoID)
             let likeItem = LikeListTable(photoID: photoID)
             repository.createItem(likeItem)
             outputIsLiked.value = true
+            outputTostMessage.value = TostMessage.likeSuccess.message
         }
     }
     

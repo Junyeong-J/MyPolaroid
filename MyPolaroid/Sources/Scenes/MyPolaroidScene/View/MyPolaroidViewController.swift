@@ -90,5 +90,6 @@ extension MyPolaroidViewController: UICollectionViewDataSource, UICollectionView
     @objc private func likeButtonClicked(_ sender: UIButton) {
         let photoID = viewModel.outputPhotoData.value[sender.tag].photoID
         viewModel.inputLikeButtonClicked.value = photoID
+        self.toastMessage(message: TostMessage.likeCancel.message)
     }
 }
