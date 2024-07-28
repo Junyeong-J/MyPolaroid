@@ -12,7 +12,7 @@ final class ProfileSettingViewModel {
     var inputViewDidLoadTrigger: Observable<Void?> = Observable(nil)
     var inputNickname: Observable<String?> = Observable(nil)
     var inputMbtiButtonTitle: Observable<String?> = Observable(nil)
-    var inputSuccessButtonClicked: Observable<String?> = Observable(nil)
+    var inputSuccessOrStoreButtonClicked: Observable<String?> = Observable(nil)
     
     var outputUserDefaultsData: Observable<(nickname: String?, profileName: String?, mbti: [String: Bool]?, isUser: Bool)> = Observable((nil, nil, nil, false))
     var outputValidationText = Observable("")
@@ -35,16 +35,14 @@ final class ProfileSettingViewModel {
         }
         
         inputNickname.bind { [weak self] nickname in
-//            guard let nickname = nickname else {return}
             self?.validateNickname(nickname)
         }
         
         inputMbtiButtonTitle.bind { [weak self] buttonTitle in
-//            guard let buttonTitle = buttonTitle else {return}
             self?.mbtiButtonCheck(buttonTitle)
         }
         
-        inputSuccessButtonClicked.bind { [weak self] profileText in
+        inputSuccessOrStoreButtonClicked.bind { [weak self] profileText in
             guard let profileText = profileText else {return}
             self?.successButtonClicked(profileText)
         }

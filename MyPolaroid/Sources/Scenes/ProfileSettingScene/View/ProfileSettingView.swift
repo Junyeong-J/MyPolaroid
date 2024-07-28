@@ -10,6 +10,7 @@ import SnapKit
 
 final class ProfileSettingView: BaseView {
     
+    var viewType: NavigationTitle = .profileSetting
     var profileImageName: String = ""
     private let mbtiButtonTitles = ["E", "S", "T", "J", "I", "N", "F", "P"]
     
@@ -133,6 +134,6 @@ final class ProfileSettingView: BaseView {
 
 extension ProfileSettingView: NaviProtocol {
     var navigationTitle: String {
-        return NavigationTitle.profileSetting.title
+        return viewType.title
     }
 }

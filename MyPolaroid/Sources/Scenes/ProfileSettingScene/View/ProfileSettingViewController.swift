@@ -10,10 +10,15 @@ import UIKit
 final class ProfileSettingViewController: BaseViewController<ProfileSettingView> {
     
     private let viewModel = ProfileSettingViewModel()
-    var viewType: NavigationTitle = .profileSetting
+    var viewType: NavigationTitle = .profileSetting {
+        didSet {
+            rootView.viewType = viewType
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavBarRightBarButtonItem()
         configureTextField()
         bindData()
         tapGesture()
@@ -28,6 +33,13 @@ final class ProfileSettingViewController: BaseViewController<ProfileSettingView>
 }
 
 extension ProfileSettingViewController {
+    private func configureNavBarRightBarButtonItem() {
+        if viewType == .editProfile {
+            let store = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(storeButtonClicked))
+            navigationItem.rightBarButtonItem = store
+        }
+    }
+    
     private func configureTextField() {
         rootView.nicknameTextField.delegate = self
     }
@@ -54,6 +66,7 @@ extension ProfileSettingViewController {
         viewModel.outputButtonValid.bind { [weak self] value in
             self?.rootView.successButton.backgroundColor = value ? .myAppMain : .myAppGray
             self?.rootView.successButton.isEnabled = value
+            self?.navigationItem.rightBarButtonItem?.isEnabled = value
         }
     }
     
@@ -113,7 +126,7 @@ extension ProfileSettingViewController {
     }
     
     @objc private func successButtonClicked() {
-        viewModel.inputSuccessButtonClicked.value = rootView.profileImageName
+        viewModel.inputSuccessOrStoreButtonClicked.value = rootView.profileImageName
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
         
@@ -122,10 +135,15 @@ extension ProfileSettingViewController {
         sceneDelegate?.window?.makeKeyAndVisible()
     }
     
+    @objc private func storeButtonClicked() {
+        viewModel.inputSuccessOrStoreButtonClicked.value = rootView.profileImageName
+        navigationController?.popViewController(animated: true)
+    }
+    
     @objc private func withdrawalClicked() {
         showAlert(title: "탈퇴하기", message: "탈퇴를 하면 데이터가 모두 초기화됩니다.", ok: "확인") {
             UserDefaultsManager.shared.clearAllData()
-//            self.repository.deleteAll()
+            //            self.repository.deleteAll()
             
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let sceneDelegate = windowScene?.delegate as? SceneDelegate
