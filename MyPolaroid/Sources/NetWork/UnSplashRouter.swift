@@ -11,7 +11,7 @@ import Alamofire
 enum UnSplashRouter {
     
     case TopicPhotoAPI(topicID: String)
-    case PhotoSearchAPI(query: String, page: Int)
+    case PhotoSearchAPI(query: String, page: Int, orderBy: String)
     case PhotoDetailAPI(id: String)
     case PhotoStatisticsAPI(photoID: String)
     case RandomPhotoAPI
@@ -59,11 +59,11 @@ extension UnSplashRouter: TargetType {
                 URLQueryItem(name: UnSplashBody.page.rawValue, value: "1"),
                 URLQueryItem(name: UnSplashBody.orderBy.rawValue, value: "popular")
             ]
-        case .PhotoSearchAPI(let query, let page):
+        case .PhotoSearchAPI(let query, let page, let orderBy):
             return [
                 URLQueryItem(name: UnSplashBody.page.rawValue, value: "\(page)"),
                 URLQueryItem(name: UnSplashBody.perPage.rawValue, value: "20"),
-                URLQueryItem(name: UnSplashBody.orderBy.rawValue, value: "latest"),
+                URLQueryItem(name: UnSplashBody.orderBy.rawValue, value: orderBy),
                 URLQueryItem(name: UnSplashBody.color.rawValue, value: "yellow"),
                 URLQueryItem(name: UnSplashBody.lang.rawValue, value: "ko"),
                 URLQueryItem(name: UnSplashBody.query.rawValue, value: query)
