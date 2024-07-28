@@ -21,8 +21,12 @@ class Observable<T> {
         self.value = value
     }
     
-    func bind(closure: @escaping (T) -> Void) {
+    func bindAndFire(closure: @escaping (T) -> Void) {
         closure(value)
+        self.closure = closure
+    }
+    
+    func bind(closure: @escaping (T) -> Void) {
         self.closure = closure
     }
 }
