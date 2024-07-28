@@ -33,24 +33,24 @@ final class ProfileSettingViewModel {
     }
     
     private func transform() {
-        inputViewDidLoadTrigger.bind { [weak self] _ in
+        inputViewDidLoadTrigger.bindAndFire { [weak self] _ in
             self?.setUserDefaultsData()
         }
         
-        inputNickname.bind { [weak self] nickname in
+        inputNickname.bindAndFire { [weak self] nickname in
             self?.validateNickname(nickname)
         }
         
-        inputMbtiButtonTitle.bind { [weak self] buttonTitle in
+        inputMbtiButtonTitle.bindAndFire { [weak self] buttonTitle in
             self?.mbtiButtonCheck(buttonTitle)
         }
         
-        inputSuccessOrStoreButtonClicked.bind { [weak self] profileText in
+        inputSuccessOrStoreButtonClicked.bindAndFire { [weak self] profileText in
             guard let profileText = profileText else {return}
             self?.successButtonClicked(profileText)
         }
         
-        inputWithdrawalClicked.bind { [weak self] value in
+        inputWithdrawalClicked.bindAndFire { [weak self] value in
             guard let _ = value else {return}
             self?.deleteAllData()
         }

@@ -39,12 +39,12 @@ extension TrendsByTopicMainViewController {
     private func bindData() {
         viewModel.inputViewDidLoadTrigger.value = ()
         
-        viewModel.outputData.bind { [weak self] _ in
+        viewModel.outputData.bindAndFire { [weak self] _ in
             guard let self = self else {return}
             rootView.tableView.reloadData()
         }
         
-        viewModel.outputProfile.bind { [weak self] value in
+        viewModel.outputProfile.bindAndFire { [weak self] value in
             self?.updateProfile(title: value)
         }
     }

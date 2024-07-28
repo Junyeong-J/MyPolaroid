@@ -46,7 +46,7 @@ extension PhotoSearchViewController {
     }
     
     private func bindData() {
-        viewModel.outputData.bind { [weak self] data in
+        viewModel.outputData.bindAndFire { [weak self] data in
             if data.count == 0 {
                 self?.rootView.stateLabel.isHidden = false
                 self?.rootView.stateLabel.text = "검색 결과가 없어요."

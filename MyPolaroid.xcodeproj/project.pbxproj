@@ -84,6 +84,7 @@
 		724FC9DD2C551AD100CDA561 /* PhotoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DC2C551AD100CDA561 /* PhotoDetailModel.swift */; };
 		724FC9DF2C554B4900CDA561 /* LikeImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DE2C554B4900CDA561 /* LikeImageName.swift */; };
 		724FC9E12C55661D00CDA561 /* FormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9E02C55661D00CDA561 /* FormatterManager.swift */; };
+		724FC9E52C56ADA700CDA561 /* TostMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9E42C56ADA700CDA561 /* TostMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -174,6 +175,7 @@
 		724FC9DC2C551AD100CDA561 /* PhotoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailModel.swift; sourceTree = "<group>"; };
 		724FC9DE2C554B4900CDA561 /* LikeImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeImageName.swift; sourceTree = "<group>"; };
 		724FC9E02C55661D00CDA561 /* FormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterManager.swift; sourceTree = "<group>"; };
+		724FC9E42C56ADA700CDA561 /* TostMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TostMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -473,6 +475,7 @@
 				724FC9A32C52A1AB00CDA561 /* NavigationTitle.swift */,
 				724FC9AE2C52C42C00CDA561 /* ValidationError.swift */,
 				724FC9DE2C554B4900CDA561 /* LikeImageName.swift */,
+				724FC9E42C56ADA700CDA561 /* TostMessage.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				724FC9AD2C52C0C900CDA561 /* PhotoSearchViewModel.swift in Sources */,
 				724FC9DB2C55193B00CDA561 /* PhotoDetailViewModel.swift in Sources */,
 				724FC8E72C4E9BA600CDA561 /* UIButton+Extension.swift in Sources */,
+				724FC9E52C56ADA700CDA561 /* TostMessage.swift in Sources */,
 				724FC9542C50E3D000CDA561 /* ProfileSetProtocol.swift in Sources */,
 				724FC8A32C4E36A000CDA561 /* AppDelegate.swift in Sources */,
 				724FC9D12C54038600CDA561 /* LikeListRepository.swift in Sources */,

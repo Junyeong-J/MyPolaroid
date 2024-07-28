@@ -37,7 +37,7 @@ extension MyPolaroidViewController {
     }
     
     private func bindData() {
-        viewModel.outputPhotoData.bind { [weak self] data in
+        viewModel.outputPhotoData.bindAndFire { [weak self] data in
             guard let self = self else { return }
             if data.isEmpty {
                 rootView.collectionView.isHidden = true

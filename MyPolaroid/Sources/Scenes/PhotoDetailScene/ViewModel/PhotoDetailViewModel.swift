@@ -22,12 +22,12 @@ final class PhotoDetailViewModel {
     }
     
     private func transform() {
-        inputViewDidLoadTrigger.bind { [weak self] id in
+        inputViewDidLoadTrigger.bindAndFire { [weak self] id in
             guard let id = id else {return}
             self?.callRequset(id)
         }
         
-        inputHeartButtonClicked.bind { [weak self] _ in
+        inputHeartButtonClicked.bindAndFire { [weak self] _ in
             self?.toggleLikeStatus()
         }
     }

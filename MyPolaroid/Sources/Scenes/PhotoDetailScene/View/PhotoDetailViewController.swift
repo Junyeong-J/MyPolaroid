@@ -7,10 +7,12 @@
 
 import UIKit
 import Kingfisher
+import Toast
 
 final class PhotoDetailViewController: BaseViewController<PhotoDetailView> {
     
     private let viewModel = PhotoDetailViewModel()
+    private var isLoad = true
     var photoID: String?
     
     override func viewDidLoad() {
@@ -29,7 +31,7 @@ extension PhotoDetailViewController {
     private func bindData() {
         viewModel.inputViewDidLoadTrigger.value = photoID
         
-        viewModel.outputData.bind { [weak self] data in
+        viewModel.outputData.bindAndFire { [weak self] data in
             guard let self = self, let data = data else { return }
             
             rootView.userImageView.kf.setImage(with: URL(string: data.user.profileImage.medium))
@@ -47,6 +49,13 @@ extension PhotoDetailViewController {
             let imageName = isLiked ? LikeImageName.like.rawValue : LikeImageName.like_inactive.rawValue
             let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
             self?.rootView.heartButton.setImage(image, for: .normal)
+            
+            if self?.isLoad == true {
+                self?.isLoad = false
+            } else {
+                let message = isLiked ? TostMessage.likeSuccess : TostMessage.likeCancel
+                self?.toastMessage(message: message.message)
+            }
         }
         
     }

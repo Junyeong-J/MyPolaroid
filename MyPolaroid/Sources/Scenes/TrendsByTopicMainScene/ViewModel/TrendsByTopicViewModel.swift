@@ -21,11 +21,11 @@ final class TrendsByTopicViewModel {
     }
     
     private func transform() {
-        inputViewDidLoadTrigger.bind { [weak self] _ in
+        inputViewDidLoadTrigger.bindAndFire { [weak self] _ in
             self?.callRequests()
         }
         
-        inputViewWillAppearTrigger.bind { [weak self] _ in
+        inputViewWillAppearTrigger.bindAndFire { [weak self] _ in
             self?.setProfile()
         }
     }

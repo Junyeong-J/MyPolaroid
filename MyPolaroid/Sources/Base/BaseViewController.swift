@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Toast
 
 class BaseViewController<RootView: UIView>: UIViewController {
     
@@ -125,5 +126,9 @@ extension BaseViewController {
         })
         alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         present(alert, animated: true)
+    }
+    
+    func toastMessage(message: String) {
+        self.view.makeToast(message)
     }
 }

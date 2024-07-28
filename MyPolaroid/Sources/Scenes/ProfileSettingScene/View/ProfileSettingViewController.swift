@@ -47,23 +47,23 @@ extension ProfileSettingViewController {
     private func bindData() {
         viewModel.inputViewDidLoadTrigger.value = ()
         
-        viewModel.outputUserDefaultsData.bind { [weak self] data in
+        viewModel.outputUserDefaultsData.bindAndFire { [weak self] data in
             self?.updateSetUI(data)
         }
         
-        viewModel.outputValidationText.bind { [weak self] value in
+        viewModel.outputValidationText.bindAndFire { [weak self] value in
             self?.rootView.stateLabel.text = value
         }
         
-        viewModel.outputNicknameValid.bind { [weak self] value in
+        viewModel.outputNicknameValid.bindAndFire { [weak self] value in
             self?.rootView.stateLabel.textColor = value ? .myAppMain : .myAppLightRed
         }
         
-        viewModel.outputMbtiButtonBool.bind { [weak self] value in
+        viewModel.outputMbtiButtonBool.bindAndFire { [weak self] value in
             self?.selectedMbtiButton(value)
         }
         
-        viewModel.outputButtonValid.bind { [weak self] value in
+        viewModel.outputButtonValid.bindAndFire { [weak self] value in
             self?.rootView.successButton.backgroundColor = value ? .myAppMain : .myAppGray
             self?.rootView.successButton.isEnabled = value
             self?.navigationItem.rightBarButtonItem?.isEnabled = value

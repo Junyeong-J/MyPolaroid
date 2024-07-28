@@ -22,15 +22,15 @@ final class MyPolaroidViewModel {
     }
     
     private func transform() {
-        inputTriggerViewWillAppear.bind { [weak self] _ in
+        inputTriggerViewWillAppear.bindAndFire { [weak self] _ in
             self?.fetchPhotoData(value: false)
         }
         
-        inputSortButtonClicked.bind { [weak self] value in
+        inputSortButtonClicked.bindAndFire { [weak self] value in
             self?.fetchPhotoData(value: value)
         }
         
-        inputLikeButtonClicked.bind { [weak self] photoID in
+        inputLikeButtonClicked.bindAndFire { [weak self] photoID in
             guard let photoID = photoID else { return }
             self?.deleteData(photoID: photoID)
         }

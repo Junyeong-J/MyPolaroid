@@ -28,7 +28,7 @@ final class PhotoSearchViewModel {
     }
     
     private func transform() {
-        inputSearchButtonClicked.bind { [weak self] word in
+        inputSearchButtonClicked.bindAndFire { [weak self] word in
             guard let word = word else { return }
             self?.currentQuery = word
             self?.currentPage = 1
@@ -36,12 +36,12 @@ final class PhotoSearchViewModel {
             self?.callRequest(word, page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "relevant")
         }
         
-        inputReCallPage.bind { [weak self] _ in
+        inputReCallPage.bindAndFire { [weak self] _ in
             self?.currentPage += 1
             self?.callRequest(self?.currentQuery ?? "", page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "relevant")
         }
         
-        inputSortButtonClicked.bind { [weak self] value in
+        inputSortButtonClicked.bindAndFire { [weak self] value in
             self?.orderBy = value ? "latest" : "relevant"
             guard let query = self?.currentQuery else { return }
             self?.outputData.value = []
@@ -49,7 +49,7 @@ final class PhotoSearchViewModel {
             self?.callRequest(query, page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "latest")
         }
         
-        inputLikeButtonClicked.bind { [weak self] photoID in
+        inputLikeButtonClicked.bindAndFire { [weak self] photoID in
             guard let photoID = photoID else {return}
             self?.toggleLikeStatus(photoID)
         }
