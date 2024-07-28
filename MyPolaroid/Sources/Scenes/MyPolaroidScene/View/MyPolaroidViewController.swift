@@ -14,11 +14,13 @@ final class MyPolaroidViewController: BaseViewController<MyPolaroidView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        bindData()
+        addTarget()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        bindData()
+        viewModel.inputTriggerViewWillAppear.value = ()
     }
     
     override func configureView() {
@@ -35,7 +37,6 @@ extension MyPolaroidViewController {
     }
     
     private func bindData() {
-        viewModel.inputTriggerViewWillAppear.value = ()
         viewModel.outputPhotoData.bind { [weak self] data in
             guard let self = self else { return }
             if data.isEmpty {
@@ -45,6 +46,21 @@ extension MyPolaroidViewController {
                 rootView.collectionView.reloadData()
             }
         }
+    }
+    
+    private func addTarget() {
+        rootView.sortButton.addTarget(self, action: #selector(sortButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc private func sortButtonClicked() {
+        if rootView.sortButton.configuration?.title == "최신순" {
+            rootView.sortButton.configuration?.title = "과거순"
+            viewModel.inputSortButtonClicked.value = true
+        } else {
+            rootView.sortButton.configuration?.title = "최신순"
+            viewModel.inputSortButtonClicked.value = false
+        }
+        
     }
 }
 

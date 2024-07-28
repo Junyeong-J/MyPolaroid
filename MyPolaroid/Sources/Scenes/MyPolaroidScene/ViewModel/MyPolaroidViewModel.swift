@@ -10,6 +10,7 @@ import Foundation
 final class MyPolaroidViewModel {
     
     var inputTriggerViewWillAppear: Observable<Void?> = Observable(nil)
+    var inputSortButtonClicked: Observable<Bool> = Observable(true)
     
     var outputPhotoData: Observable<[LikeListTable]> = Observable([])
     private let repository = LikeListRepository.shared
@@ -20,12 +21,16 @@ final class MyPolaroidViewModel {
     
     private func transform() {
         inputTriggerViewWillAppear.bind { [weak self] _ in
-            self?.fetchPhotoData()
+            self?.fetchPhotoData(value: false)
+        }
+        
+        inputSortButtonClicked.bind { [weak self] value in
+            self?.fetchPhotoData(value: value)
         }
     }
     
-    private func fetchPhotoData() {
-        let value = repository.fetchAll()
+    private func fetchPhotoData(value: Bool) {
+        let value = repository.fetchAll(value: value)
         outputPhotoData.value = Array(value)
     }
     

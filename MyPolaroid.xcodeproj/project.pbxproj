@@ -542,8 +542,8 @@
 		724FC9BF2C53F4A200CDA561 /* MyPolaroidScene */ = {
 			isa = PBXGroup;
 			children = (
-				724FC9D72C54ED9400CDA561 /* ViewModel */,
 				724FC9C02C53F4B900CDA561 /* View */,
+				724FC9D72C54ED9400CDA561 /* ViewModel */,
 			);
 			path = MyPolaroidScene;
 			sourceTree = "<group>";

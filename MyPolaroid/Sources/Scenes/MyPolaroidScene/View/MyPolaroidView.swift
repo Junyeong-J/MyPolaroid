@@ -10,6 +10,9 @@ import SnapKit
 
 final class MyPolaroidView: BaseView {
     
+    private let buttonsView = UIView()
+    let sortButton = UIButton(configuration: .sortButtonStyle(title: "최신순"))
+    
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
     static private func collectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
@@ -21,7 +24,7 @@ final class MyPolaroidView: BaseView {
         return layout
     }
     
-    let stateLabel: UILabel = {
+    private let stateLabel: UILabel = {
         let label = UILabel()
         label.text = "저장된 사진이 없어요."
         label.font = Font.bold20
@@ -30,8 +33,8 @@ final class MyPolaroidView: BaseView {
     }()
     
     override func configureHierarchy() {
-        addSubview(stateLabel)
-        addSubview(collectionView)
+        [stateLabel, buttonsView, collectionView].forEach{ addSubview($0) }
+        buttonsView.addSubview(sortButton)
     }
     
     override func configureLayout() {
@@ -39,8 +42,20 @@ final class MyPolaroidView: BaseView {
             make.center.equalTo(safeAreaLayoutGuide)
         }
         
+        buttonsView.snp.makeConstraints { make in
+            make.horizontalEdges.top.equalTo(safeAreaLayoutGuide)
+            make.height.equalTo(40)
+        }
+        
+        sortButton.snp.makeConstraints { make in
+            make.centerY.equalTo(buttonsView)
+            make.trailing.equalTo(buttonsView).inset(10)
+            make.height.equalTo(30)
+        }
+        
         collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
+            make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(buttonsView.snp.bottom)
         }
     }
 }
