@@ -10,6 +10,11 @@ import SnapKit
 
 final class EditProfileViewController: BaseViewController<EditProfileView> {
     
+    var viewType: NavigationTitle = .profileSetting {
+        didSet {
+            rootView.viewType = viewType
+        }
+    }
     weak var delegate: ProfileSetProtocol?
     var profileImage: String? {
         didSet{

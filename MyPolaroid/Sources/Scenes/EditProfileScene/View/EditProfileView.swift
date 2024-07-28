@@ -10,6 +10,7 @@ import SnapKit
 
 final class EditProfileView: BaseView {
     
+    var viewType: NavigationTitle = .profileSetting
     private let cameraImage = CameraImage()
     lazy var profileImageView = ProfileImage(profile: "profile_0", corner: 50, border: 3)
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
@@ -51,9 +52,10 @@ final class EditProfileView: BaseView {
         }
     }
     
-    override func configureView() {
-        
+}
+
+extension EditProfileView: NaviProtocol {
+    var navigationTitle: String {
+        return viewType.title
     }
-    
-    
 }
