@@ -74,8 +74,9 @@ extension MyPolaroidViewController: UICollectionViewDataSource, UICollectionView
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPolaroidCollectionViewCell.identifier, for: indexPath) as? MyPolaroidCollectionViewCell else { return UICollectionViewCell() }
         let photoData = viewModel.outputPhotoData.value[indexPath.item]
         let image = ImageManager.shared.loadImageToDocument(filename: photoData.photoID)
-        cell.delegate = self
         cell.configureData(data: photoData.photoID, image: image)
+        cell.likeButton.tag = indexPath.item
+        cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         return cell
     }
     
@@ -86,10 +87,8 @@ extension MyPolaroidViewController: UICollectionViewDataSource, UICollectionView
         navigationController?.pushViewController(vc, animated: true)
     }
     
-}
-
-extension MyPolaroidViewController: MyPolaroidCollectionViewCellDelegate {
-    func didClickedLikeButton() {
-        viewModel.inputTriggerViewWillAppear.value = ()
+    @objc private func likeButtonClicked(_ sender: UIButton) {
+        let photoID = viewModel.outputPhotoData.value[sender.tag].photoID
+        viewModel.inputLikeButtonClicked.value = photoID
     }
 }

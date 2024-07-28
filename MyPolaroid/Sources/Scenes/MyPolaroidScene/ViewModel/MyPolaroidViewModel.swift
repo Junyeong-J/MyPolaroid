@@ -11,9 +11,11 @@ final class MyPolaroidViewModel {
     
     var inputTriggerViewWillAppear: Observable<Void?> = Observable(nil)
     var inputSortButtonClicked: Observable<Bool> = Observable(true)
+    var inputLikeButtonClicked: Observable<String?> = Observable(nil)
     
     var outputPhotoData: Observable<[LikeListTable]> = Observable([])
     private let repository = LikeListRepository.shared
+    private let fileManager = ImageManager.shared
     
     init() {
         transform()
@@ -27,6 +29,11 @@ final class MyPolaroidViewModel {
         inputSortButtonClicked.bind { [weak self] value in
             self?.fetchPhotoData(value: value)
         }
+        
+        inputLikeButtonClicked.bind { [weak self] photoID in
+            guard let photoID = photoID else { return }
+            self?.deleteData(photoID: photoID)
+        }
     }
     
     private func fetchPhotoData(value: Bool) {
@@ -34,4 +41,11 @@ final class MyPolaroidViewModel {
         outputPhotoData.value = Array(value)
     }
     
+    private func deleteData(photoID: String) {
+        if let existingItem = repository.fetchItem(photoID) {
+            fileManager.removeImageFromDocument(filename: photoID)
+            repository.deleteIdItem(existingItem)
+            fetchPhotoData(value: inputSortButtonClicked.value)
+        }
+    }
 }

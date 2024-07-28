@@ -9,14 +9,9 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-protocol MyPolaroidCollectionViewCellDelegate: AnyObject {
-    func didClickedLikeButton()
-}
-
 final class MyPolaroidCollectionViewCell: BaseCollectionViewCell {
     
     var photoID: String?
-    weak var delegate: MyPolaroidCollectionViewCellDelegate?
     
     private let photoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -42,24 +37,9 @@ final class MyPolaroidCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    override func configureView() {
-        likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
-    }
-    
     func configureData(data: String,image: UIImage?) {
         self.photoID = data
         photoImageView.image = image
-    }
-    
-    @objc private func likeButtonClicked() {
-        guard let photoID = photoID else {return}
-        ImageManager.shared.removeImageFromDocument(filename: photoID)
-        if let photoItem = LikeListRepository.shared.fetchItem(photoID) {
-            LikeListRepository.shared.deleteIdItem(photoItem)
-        } else {
-            print("No Data")
-        }
-        delegate?.didClickedLikeButton()
     }
     
 }
