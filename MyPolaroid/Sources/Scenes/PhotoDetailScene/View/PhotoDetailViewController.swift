@@ -21,6 +21,11 @@ final class PhotoDetailViewController: BaseViewController<PhotoDetailView> {
         addTargets()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func configureView() {
         super.configureView()
     }

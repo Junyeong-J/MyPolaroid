@@ -27,6 +27,11 @@ final class EditProfileViewController: BaseViewController<EditProfileView> {
         configureCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if let profileImage = profileImage, let index = UIImage.profileImage.firstIndex(of: profileImage) {

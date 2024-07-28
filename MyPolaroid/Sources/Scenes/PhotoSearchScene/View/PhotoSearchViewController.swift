@@ -146,6 +146,7 @@ extension PhotoSearchViewController: UICollectionViewDataSource, UICollectionVie
         let vc = PhotoDetailViewController()
         let data = viewModel.outputData.value[indexPath.item].id
         vc.photoID = data
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -84,6 +84,7 @@ extension MyPolaroidViewController: UICollectionViewDataSource, UICollectionView
         let vc = PhotoDetailViewController()
         let data = viewModel.outputPhotoData.value[indexPath.item].photoID
         vc.photoID = data
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     
