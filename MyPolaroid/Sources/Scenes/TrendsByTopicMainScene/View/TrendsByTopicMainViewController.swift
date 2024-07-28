@@ -19,16 +19,6 @@ final class TrendsByTopicMainViewController: BaseViewController<TrendsByTopicMai
         setNavigationBar(image: myProfileImageView)
         configureTableView()
         bindData()
-        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageViewClicked))
-//        myProfileImageView.addGestureRecognizer(tapGesture)
-//        myProfileImageView.isUserInteractionEnabled = true
-    }
-    
-    @objc private func profileImageViewClicked() {
-        let vc = ProfileSettingViewController()
-        vc.viewType = .editProfile
-        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func configureView() {
