@@ -18,6 +18,7 @@ final class ProfileSettingViewController: BaseViewController<ProfileSettingView>
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureKeyboardTapGesture()
         configureNavBarRightBarButtonItem()
         configureTextField()
         bindData()

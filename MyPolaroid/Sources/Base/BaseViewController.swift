@@ -55,6 +55,15 @@ class BaseViewController<RootView: UIView>: UIViewController {
         configureNavBarTitle()
     }
     
+    func configureKeyboardTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        rootView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        rootView.endEditing(true)
+    }
+    
     @objc private func backButtonClicked() {
         navigationController?.popViewController(animated: true)
     }
