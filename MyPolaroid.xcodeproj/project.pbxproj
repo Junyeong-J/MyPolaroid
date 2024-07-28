@@ -85,6 +85,7 @@
 		724FC9DF2C554B4900CDA561 /* LikeImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9DE2C554B4900CDA561 /* LikeImageName.swift */; };
 		724FC9E12C55661D00CDA561 /* FormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9E02C55661D00CDA561 /* FormatterManager.swift */; };
 		724FC9E52C56ADA700CDA561 /* TostMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9E42C56ADA700CDA561 /* TostMessage.swift */; };
+		724FC9E82C56BC9900CDA561 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC9E72C56BC9900CDA561 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -188,6 +189,7 @@
 				724FC8CF2C4E4B2700CDA561 /* SnapKit in Frameworks */,
 				724FC9C92C54000C00CDA561 /* RealmSwift in Frameworks */,
 				724FC95C2C51375D00CDA561 /* Alamofire in Frameworks */,
+				724FC9E82C56BC9900CDA561 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +619,7 @@
 				724FC9732C5166EE00CDA561 /* Kingfisher */,
 				724FC9B12C52C44600CDA561 /* Toast */,
 				724FC9C82C54000C00CDA561 /* RealmSwift */,
+				724FC9E72C56BC9900CDA561 /* IQKeyboardManagerSwift */,
 			);
 			productName = MyPolaroid;
 			productReference = 724FC89F2C4E36A000CDA561 /* MyPolaroid.app */;
@@ -652,6 +655,7 @@
 				724FC9722C5166EE00CDA561 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				724FC9B02C52C44600CDA561 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				724FC9C72C54000C00CDA561 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				724FC9E62C56BC9900CDA561 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 724FC8A02C4E36A000CDA561 /* Products */;
 			projectDirPath = "";
@@ -1015,6 +1019,14 @@
 				version = 10.52.2;
 			};
 		};
+		724FC9E62C56BC9900CDA561 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1042,6 +1054,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 724FC9C72C54000C00CDA561 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		724FC9E72C56BC9900CDA561 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 724FC9E62C56BC9900CDA561 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
