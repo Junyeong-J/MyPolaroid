@@ -13,6 +13,7 @@ final class ProfileSettingViewModel {
     var inputNickname: Observable<String?> = Observable(nil)
     var inputMbtiButtonTitle: Observable<String?> = Observable(nil)
     var inputSuccessOrStoreButtonClicked: Observable<String?> = Observable(nil)
+    var inputWithdrawalClicked: Observable<Void?> = Observable(nil)
     
     var outputUserDefaultsData: Observable<(nickname: String?, profileName: String?, mbti: [String: Bool]?, isUser: Bool)> = Observable((nil, nil, nil, false))
     var outputValidationText = Observable("")
@@ -21,6 +22,8 @@ final class ProfileSettingViewModel {
     var outputMbtiButtonBool: Observable<[String: Bool]?> = Observable(nil)
     
     private let ud = UserDefaultsManager.shared
+    private let repository = LikeListRepository.shared
+    private let fileManager = ImageManager.shared
     
     private let mbtiSet: [String: String] = ["E": "I", "S": "N", "T": "F", "J": "P"]
     private var mbtiButtonBool: [String: Bool] = ["E": false, "I": false, "S": false, "N": false, "T": false, "F": false, "J": false, "P": false]
@@ -45,6 +48,10 @@ final class ProfileSettingViewModel {
         inputSuccessOrStoreButtonClicked.bind { [weak self] profileText in
             guard let profileText = profileText else {return}
             self?.successButtonClicked(profileText)
+        }
+        
+        inputWithdrawalClicked.bind { [weak self] _ in
+            self?.deleteAllData()
         }
     }
     
@@ -135,5 +142,17 @@ extension ProfileSettingViewModel{
         ud.profileName = profileText
         ud.mbti = outputMbtiButtonBool.value ?? [:]
         ud.isUser = true
+    }
+    
+    //MARK: - 회원탈퇴
+    private func deleteAllData() {
+        let allData = repository.fetchAll(value: true)
+        
+        for data in allData {
+            fileManager.removeImageFromDocument(filename: data.photoID)
+        }
+        repository.deleteAll()
+        
+        ud.clearAllData()
     }
 }

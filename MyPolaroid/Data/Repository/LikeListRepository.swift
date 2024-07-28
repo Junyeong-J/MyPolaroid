@@ -27,10 +27,6 @@ final class LikeListRepository {
         return realm.objects(LikeListTable.self).sorted(byKeyPath: "regdate", ascending: value)
     }
     
-//    func fetchPastAll() -> Results<LikeListTable> {
-//        return realm.objects(LikeListTable.self).sorted(byKeyPath: "regdate", ascending: true)
-//    }
-    
     func createItem(_ data: LikeListTable) {
         do {
             try realm.write {
@@ -54,6 +50,18 @@ final class LikeListRepository {
             }
         } else {
             print("Item not found")
+        }
+    }
+    
+    func deleteAll() {
+        do {
+            try realm.write {
+                let allItems = realm.objects(LikeListTable.self)
+                realm.delete(allItems)
+                print("Delete All Succeed")
+            }
+        } catch {
+            print("All Delete Error")
         }
     }
     
