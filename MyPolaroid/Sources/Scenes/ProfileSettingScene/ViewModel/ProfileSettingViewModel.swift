@@ -13,7 +13,7 @@ final class ProfileSettingViewModel {
     var inputNickname: Observable<String?> = Observable(nil)
     var inputMbtiButtonTitle: Observable<String?> = Observable(nil)
     var inputSuccessOrStoreButtonClicked: Observable<String?> = Observable(nil)
-    var inputWithdrawalClicked: Observable<Void?> = Observable(nil)
+    var inputWithdrawalClicked: Observable<String?> = Observable(nil)
     
     var outputUserDefaultsData: Observable<(nickname: String?, profileName: String?, mbti: [String: Bool]?, isUser: Bool)> = Observable((nil, nil, nil, false))
     var outputValidationText = Observable("")
@@ -50,7 +50,8 @@ final class ProfileSettingViewModel {
             self?.successButtonClicked(profileText)
         }
         
-        inputWithdrawalClicked.bind { [weak self] _ in
+        inputWithdrawalClicked.bind { [weak self] value in
+            guard let _ = value else {return}
             self?.deleteAllData()
         }
     }
@@ -152,7 +153,6 @@ extension ProfileSettingViewModel{
             fileManager.removeImageFromDocument(filename: data.photoID)
         }
         repository.deleteAll()
-        
         ud.clearAllData()
     }
 }

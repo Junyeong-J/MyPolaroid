@@ -143,9 +143,7 @@ extension ProfileSettingViewController {
     
     @objc private func withdrawalClicked() {
         showAlert(title: "탈퇴하기", message: "탈퇴를 하면 데이터가 모두 초기화됩니다.", ok: "확인") {
-            UserDefaultsManager.shared.clearAllData()
-            //            self.repository.deleteAll()
-            
+            self.viewModel.inputWithdrawalClicked.value = "withdrawal"
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let sceneDelegate = windowScene?.delegate as? SceneDelegate
             
