@@ -14,7 +14,7 @@ final class PhotoDetailView: BaseView {
     let userImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 30
-        imageView.backgroundColor = .black
+//        imageView.backgroundColor = .black
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -22,20 +22,20 @@ final class PhotoDetailView: BaseView {
         let label = UILabel()
         label.font = Font.regular15
         label.textColor = .myAppBlack
-        label.text = "afasdfads"
+        label.text = ""
         return label
     }()
     let postDateLabel: UILabel = {
         let label = UILabel()
         label.font = Font.bold13
         label.textColor = .myAppBlack
-        label.text = "afasdfads"
+        label.text = ""
         return label
     }()
     var heartButton = LikeButton(buttonImage: .like_inactive, backColor: .clear, tint: .myAppMain)
     let photoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .green
+//        imageView.backgroundColor = .green
         return imageView
     }()
     private let infoView = UIView()
