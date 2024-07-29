@@ -89,6 +89,7 @@
 		724FC9F12C57BC1000CDA561 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC9F02C57BC1000CDA561 /* SkeletonView */; };
 		724FC9F62C57BDD400CDA561 /* RandomPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9F52C57BDD400CDA561 /* RandomPhotoViewController.swift */; };
 		724FC9F82C57BDEF00CDA561 /* RandomPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9F72C57BDEF00CDA561 /* RandomPhotoView.swift */; };
+		724FC9FA2C57C23600CDA561 /* DetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9F92C57C23600CDA561 /* DetailLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -182,6 +183,7 @@
 		724FC9E42C56ADA700CDA561 /* TostMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TostMessage.swift; sourceTree = "<group>"; };
 		724FC9F52C57BDD400CDA561 /* RandomPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoViewController.swift; sourceTree = "<group>"; };
 		724FC9F72C57BDEF00CDA561 /* RandomPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoView.swift; sourceTree = "<group>"; };
+		724FC9F92C57C23600CDA561 /* DetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 				724FC8E12C4E8E7D00CDA561 /* ProfileImageView.swift */,
 				724FC8E32C4E91EE00CDA561 /* NicknameTextField.swift */,
 				724FC9D32C541A7500CDA561 /* LikeButton.swift */,
+				724FC9F92C57C23600CDA561 /* DetailLabel.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				724FC96B2C5146A500CDA561 /* ButtonTitle.swift in Sources */,
 				724FC9932C520E5D00CDA561 /* PhotoStatisticsModel.swift in Sources */,
 				724FC8F12C4F36C800CDA561 /* TrendsByTopicMainViewController.swift in Sources */,
+				724FC9FA2C57C23600CDA561 /* DetailLabel.swift in Sources */,
 				724FC9F62C57BDD400CDA561 /* RandomPhotoViewController.swift in Sources */,
 				724FC8EA2C4EBF4300CDA561 /* Observable.swift in Sources */,
 				724FC8E22C4E8E7D00CDA561 /* ProfileImageView.swift in Sources */,

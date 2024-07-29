@@ -14,7 +14,6 @@ final class PhotoDetailView: BaseView {
     let userImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 30
-//        imageView.backgroundColor = .black
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -35,60 +34,17 @@ final class PhotoDetailView: BaseView {
     var heartButton = LikeButton(buttonImage: .like_inactive, backColor: .clear, tint: .myAppMain)
     let photoImageView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.backgroundColor = .green
         return imageView
     }()
     private let infoView = UIView()
-    private let infoTitleLebel: UILabel = {
-        let label = UILabel()
-        label.font = Font.bold18
-        label.textColor = .myAppBlack
-        label.text = "정보"
-        return label
-    }()
-    private let infoSizeLabel: UILabel = {
-        let label = UILabel()
-        label.font = Font.bold16
-        label.textColor = .myAppBlack
-        label.text = "크기"
-        return label
-    }()
-    let infoSizeResultLabel: UILabel = {
-        let label = UILabel()
-        label.font = Font.regular15
-        label.textColor = .myAppBlack
-        label.text = "크기"
-        return label
-    }()
-    private let infoViewsLabel: UILabel = {
-        let label = UILabel()
-        label.font = Font.bold16
-        label.textColor = .myAppBlack
-        label.text = "조회수"
-        return label
-    }()
-    let infoViewsResultLabel: UILabel = {
-        let label = UILabel()
-        label.font = Font.regular15
-        label.textColor = .myAppBlack
-        label.text = "조회수"
-        return label
-    }()
-    private let infoDownloadLabel: UILabel = {
-        let label = UILabel()
-        label.font = Font.bold16
-        label.textColor = .myAppBlack
-        label.text = "다운로드"
-        return label
-    }()
-    let infoDownloadResultLabel: UILabel = {
-        let label = UILabel()
-        label.font = Font.regular15
-        label.textColor = .myAppBlack
-        label.text = "다운로드"
-        return label
-    }()
+    private let infoTitleLebel = DetailLabel(title: "정보", color: .myAppBlack, titleFont: Font.bold18)
+    private let infoSizeLabel = DetailLabel(title: "크기", color: .myAppBlack, titleFont: Font.bold16)
     
+    let infoSizeResultLabel = DetailLabel(title: "크기", color: .myAppBlack, titleFont: Font.regular15)
+    private let infoViewsLabel = DetailLabel(title: "조회수", color: .myAppBlack, titleFont: Font.bold16)
+    let infoViewsResultLabel = DetailLabel(title: "조회수", color: .myAppBlack, titleFont: Font.regular15)
+    private let infoDownloadLabel = DetailLabel(title: "다운로드", color: .myAppBlack, titleFont: Font.bold16)
+    let infoDownloadResultLabel = DetailLabel(title: "다운로드", color: .myAppBlack, titleFont: Font.regular15)
     
     override func configureHierarchy() {
         addSubview(photoUserView)
