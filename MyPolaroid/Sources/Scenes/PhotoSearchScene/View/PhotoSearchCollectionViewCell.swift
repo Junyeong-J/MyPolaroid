@@ -8,12 +8,14 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import SkeletonView
 
 final class PhotoSearchCollectionViewCell: BaseCollectionViewCell {
     
     private let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
+        imageView.isSkeletonable = true
         return imageView
     }()
     private let likeCountView: UIView = {
@@ -76,7 +78,17 @@ final class PhotoSearchCollectionViewCell: BaseCollectionViewCell {
     
     func configureData(data: PhotoSearch) {
         let url = URL(string: data.urls.raw)
-        photoImageView.kf.setImage(with: url)
+        photoImageView.showAnimatedSkeleton()
+
+        photoImageView.kf.setImage(with: url) { result in
+            self.photoImageView.hideSkeleton()
+            switch result {
+            case .success(let value):
+                self.photoImageView.image = value.image
+            case .failure(let error):
+                self.photoImageView.image = nil
+            }
+        }
         likeCountLabel.text = FormatterManager.shared.numberFormatter(data.likes)
         photoID = data.id
         updateLikeButtonImage()
