@@ -49,8 +49,9 @@ final class PhotoSearchViewModel {
         }
         
         inputReCallPage.bind { [weak self] _ in
+            guard let query = self?.currentQuery else { return }
             self?.currentPage += 1
-            self?.callRequest(self?.currentQuery ?? "", page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "relevant")
+            self?.callRequest(query, page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "relevant")
         }
         
         inputSortButtonClicked.bind { [weak self] value in
@@ -71,7 +72,11 @@ final class PhotoSearchViewModel {
         UnSplashAPIManager.shared.unSplashRequest(api: .PhotoSearchAPI(query: query, page: page, orderBy: orderBy), model: PhotoSearchResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.outputData.value.append(contentsOf: data.results)
+                if page == 1 {
+                    self?.outputData.value = data.results
+                } else {
+                    self?.outputData.value.append(contentsOf: data.results)
+                }
                 self?.outputCurrentPage.value = page
             case .failure(let error):
                 print("오류: \(error.localizedDescription)")

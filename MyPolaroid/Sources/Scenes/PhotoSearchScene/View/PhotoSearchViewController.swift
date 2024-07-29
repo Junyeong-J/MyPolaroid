@@ -46,7 +46,7 @@ extension PhotoSearchViewController {
     }
     
     private func bindData() {
-        viewModel.outputData.bindAndFire { [weak self] data in
+        viewModel.outputData.bind { [weak self] data in
             self?.updateUIData(data)
         }
         
