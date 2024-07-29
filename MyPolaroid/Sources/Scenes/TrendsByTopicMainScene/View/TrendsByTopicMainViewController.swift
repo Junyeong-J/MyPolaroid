@@ -9,12 +9,11 @@ import UIKit
 
 final class TrendsByTopicMainViewController: BaseViewController<TrendsByTopicMainView> {
     
-    private var myProfileImageView = UIImage(named: "profile_1")
+    private var myProfileImageView = UIImage(named: UIImage.profileImage[0])
     private let viewModel = TrendsByTopicViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureTableView()
         bindData()
     }
@@ -39,12 +38,11 @@ extension TrendsByTopicMainViewController {
     private func bindData() {
         viewModel.inputViewDidLoadTrigger.value = ()
         
-        viewModel.outputData.bindAndFire { [weak self] _ in
-            guard let self = self else {return}
-            rootView.tableView.reloadData()
+        viewModel.outputData.bind { [weak self] _ in
+            self?.rootView.tableView.reloadData()
         }
         
-        viewModel.outputProfile.bindAndFire { [weak self] value in
+        viewModel.outputProfile.bind { [weak self] value in
             self?.updateProfile(title: value)
         }
     }
@@ -62,7 +60,7 @@ extension TrendsByTopicMainViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TrendsByTopicTableViewCell.identifier, for: indexPath) as! TrendsByTopicTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendsByTopicTableViewCell.identifier, for: indexPath) as? TrendsByTopicTableViewCell else { return UITableViewCell() }
         cell.configureData(title: Array(viewModel.outputData.value[indexPath.row].keys).first ?? "")
         cell.collectionView.dataSource = self
         cell.collectionView.delegate = self
@@ -79,7 +77,7 @@ extension TrendsByTopicMainViewController: UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendsByTopicCollectionViewCell.identifier, for: indexPath) as! TrendsByTopicCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendsByTopicCollectionViewCell.identifier, for: indexPath) as? TrendsByTopicCollectionViewCell else { return UICollectionViewCell() }
         let data = Array(viewModel.outputData.value[collectionView.tag].values).flatMap{$0}[indexPath.item]
         cell.configureData(imageData: data)
         return cell

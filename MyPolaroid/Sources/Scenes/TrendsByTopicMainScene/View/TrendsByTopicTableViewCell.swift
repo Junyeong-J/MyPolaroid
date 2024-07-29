@@ -32,8 +32,7 @@ final class TrendsByTopicTableViewCell: BaseTableViewCell {
     
     
     override func configureHierarchy() {
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(collectionView)
+        [titleLabel, collectionView].forEach{ contentView.addSubview($0) }
     }
     
     override func configureLayout() {

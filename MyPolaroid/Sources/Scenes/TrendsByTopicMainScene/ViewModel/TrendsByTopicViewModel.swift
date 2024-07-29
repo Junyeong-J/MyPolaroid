@@ -21,17 +21,17 @@ final class TrendsByTopicViewModel {
     }
     
     private func transform() {
-        inputViewDidLoadTrigger.bindAndFire { [weak self] _ in
+        inputViewDidLoadTrigger.bind { [weak self] _ in
             self?.callRequests()
         }
         
-        inputViewWillAppearTrigger.bindAndFire { [weak self] _ in
+        inputViewWillAppearTrigger.bind { [weak self] _ in
             self?.setProfile()
         }
     }
     
     private func callRequests() {
-        let topicIDsArray: [TopicIDQuery] = [TopicIDQuery.goldenHour, TopicIDQuery.architectureInterior, TopicIDQuery.businessWork]
+        let topicIDsArray: [TopicIDQuery] = [.goldenHour, .architectureInterior, .businessWork]
         var photosByTopicArray: [[String: [TopicPhoto]]] = []
         let dispatchGroup = DispatchGroup()
         
