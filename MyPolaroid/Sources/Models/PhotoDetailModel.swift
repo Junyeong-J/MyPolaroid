@@ -9,12 +9,12 @@ import Foundation
 
 struct PhotoDetail: Decodable {
     let id: String
-    let created: String
+    var created: String
     let width: Int
     let height: Int
     let urls: PhotoDetailURLs
     let likes: Int
-    let user: PhotoDetailUser
+    var user: PhotoDetailUser
     let views: Int
     let downloads: Int
     
@@ -42,8 +42,8 @@ struct PhotoDetailURLs: Decodable {
 }
 
 struct PhotoDetailUser: Decodable {
-    let name: String
-    let profileImage: PhotoDetailUserProfile
+    var name: String
+    var profileImage: PhotoDetailUserProfile
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -52,5 +52,5 @@ struct PhotoDetailUser: Decodable {
 }
 
 struct PhotoDetailUserProfile: Decodable {
-    let medium: String
+    var medium: String
 }

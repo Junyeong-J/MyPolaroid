@@ -149,6 +149,7 @@ extension ProfileSettingViewModel{
         let allData = repository.fetchAll(value: true)
         
         for data in allData {
+            fileManager.removeImageFromDocument(filename: data.photoID + data.authorName)
             fileManager.removeImageFromDocument(filename: data.photoID)
         }
         repository.deleteAll()

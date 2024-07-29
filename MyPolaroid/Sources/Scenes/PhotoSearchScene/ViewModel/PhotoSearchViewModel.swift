@@ -82,14 +82,21 @@ final class PhotoSearchViewModel {
     private func toggleLikeStatus(_ photoID: String) {
         guard let photoData = outputData.value.first(where: { $0.id == photoID }) else { return }
         let imageUrl = photoData.urls.small
+        let photoImageURL = photoData.urls.small
+        let authorProfile = photoData.user.profileImage.medium
+        let authorName = photoData.user.name
+        let postDate = photoData.created
+        repository.detectRealmURL()
         if let existingItem = repository.fetchItem(photoID) {
             fileManager.removeImageFromDocument(filename: photoID)
+            fileManager.removeImageFromDocument(filename: photoID + authorName)
             repository.deleteIdItem(existingItem)
             outputIsLiked.value = false
             outputTostMessage.value = TostMessage.likeCancel.message
         } else {
             fileManager.saveImageFromURLToDocument(imageURL: imageUrl, filename: photoID)
-            let likeItem = LikeListTable(photoID: photoID)
+            fileManager.saveImageFromURLToDocument(imageURL: authorProfile, filename: photoID + authorName)
+            let likeItem = LikeListTable(photoID: photoID, photoImageURL: photoImageURL, authorProfile: authorProfile, authorName: authorName, postDate: postDate)
             repository.createItem(likeItem)
             outputIsLiked.value = true
             outputTostMessage.value = TostMessage.likeSuccess.message

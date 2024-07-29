@@ -17,9 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         sleep(2)
         IQKeyboardManager.shared.enable = true
-        let config = Realm.Configuration(schemaVersion: 1) { migration, oldSchemaVersion in
+        let config = Realm.Configuration(schemaVersion: 3) { migration, oldSchemaVersion in
             
-            if oldSchemaVersion < 1 {
+            if oldSchemaVersion < 3 {
+                //테이블 값 추가
             }
             
         }

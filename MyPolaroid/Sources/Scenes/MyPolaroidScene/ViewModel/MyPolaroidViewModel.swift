@@ -46,6 +46,7 @@ final class MyPolaroidViewModel {
     private func deleteData(photoID: String) {
         if let existingItem = repository.fetchItem(photoID) {
             fileManager.removeImageFromDocument(filename: photoID)
+            fileManager.removeImageFromDocument(filename: photoID + existingItem.authorName)
             repository.deleteIdItem(existingItem)
             fetchPhotoData(value: isSortLatest)
         }
