@@ -21,10 +21,7 @@ final class OnBoardingView: BaseView {
     }()
     
     override func configureHierarchy() {
-        addSubview(mainPosterImageView)
-        addSubview(serviceTitleImageView)
-        addSubview(myName)
-        addSubview(appStartButton)
+        [mainPosterImageView, serviceTitleImageView, myName, appStartButton].forEach{ addSubview($0) }
     }
     
     override func configureLayout() {
