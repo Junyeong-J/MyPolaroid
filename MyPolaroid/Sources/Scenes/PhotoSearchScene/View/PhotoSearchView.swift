@@ -13,7 +13,7 @@ final class PhotoSearchView: BaseView {
     private let buttonsView = UIView()
     let sortButton = UIButton(configuration: .sortButtonStyle(title: "관련순"))
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
-    static func collectionViewLayout() -> UICollectionViewLayout {
+    static private func collectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: (ScreenSize.width - 25)/2, height: ((ScreenSize.width - 25)/2)*1.3)
         layout.scrollDirection = .vertical

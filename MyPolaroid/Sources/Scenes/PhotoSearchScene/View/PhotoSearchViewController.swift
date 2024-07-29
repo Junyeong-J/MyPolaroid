@@ -10,7 +10,7 @@ import Toast
 
 final class PhotoSearchViewController: BaseViewController<PhotoSearchView> {
     
-    let viewModel = PhotoSearchViewModel()
+    private let viewModel = PhotoSearchViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,24 +42,12 @@ extension PhotoSearchViewController {
         rootView.collectionView.delegate = self
         rootView.collectionView.dataSource = self
         rootView.collectionView.prefetchDataSource = self
-        rootView.collectionView.register(PhotoSearchCollectionView.self, forCellWithReuseIdentifier: PhotoSearchCollectionView.identifier)
+        rootView.collectionView.register(PhotoSearchCollectionViewCell.self, forCellWithReuseIdentifier: PhotoSearchCollectionViewCell.identifier)
     }
     
     private func bindData() {
         viewModel.outputData.bindAndFire { [weak self] data in
-            if data.count == 0 {
-                self?.rootView.stateLabel.isHidden = false
-                self?.rootView.stateLabel.text = "검색 결과가 없어요."
-                self?.rootView.collectionView.isHidden = true
-            } else {
-                self?.rootView.collectionView.isHidden = false
-                self?.rootView.stateLabel.isHidden = true
-                self?.rootView.collectionView.reloadData()
-                if self?.viewModel.outputCurrentPage.value == 1 {
-                    self?.rootView.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-                }
-                
-            }
+            self?.updateUIData(data)
         }
         
         viewModel.outputTostMessage.bind { [weak self] message in
@@ -67,9 +55,29 @@ extension PhotoSearchViewController {
             self?.toastMessage(message: message)
         }
         
+        viewModel.outputTextErrorMessage.bind { [weak self] message in
+            guard let message = message else { return }
+            self?.view.makeToast(message)
+        }
+        
         rootView.stateLabel.isHidden = false
         rootView.stateLabel.text = "사진을 검색해보세요."
         rootView.collectionView.isHidden = true
+    }
+    
+    private func updateUIData(_ data: [PhotoSearch]) {
+        if data.isEmpty {
+            rootView.stateLabel.isHidden = false
+            rootView.stateLabel.text = "검색 결과가 없어요."
+            rootView.collectionView.isHidden = true
+        } else {
+            rootView.collectionView.isHidden = false
+            rootView.stateLabel.isHidden = true
+            rootView.collectionView.reloadData()
+            if viewModel.outputCurrentPage.value == 1 {
+                rootView.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            }
+        }
     }
     
     private func addTarget() {
@@ -77,53 +85,19 @@ extension PhotoSearchViewController {
     }
     
     @objc private func sortButtonClicked() {
-        if rootView.sortButton.configuration?.title == "관련순" {
-            rootView.sortButton.configuration?.title = "최신순"
-            viewModel.inputSortButtonClicked.value = true
-        } else {
-            rootView.sortButton.configuration?.title = "관련순"
-            viewModel.inputSortButtonClicked.value = false
-        }
+        let isLatest = rootView.sortButton.configuration?.title == "최신순"
+        rootView.sortButton.configuration?.title = isLatest ? "관련순" : "최신순"
+        viewModel.inputSortButtonClicked.value = !isLatest
     }
 }
 
 extension PhotoSearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text, !searchText.isEmpty else {
-            self.view.makeToast("검색어가 잘못 입력되었습니다.")
+        guard let searchText = searchBar.text else {
+            viewModel.inputSearchButtonClicked.value = nil
             return
         }
-        
-        do {
-            let _ = try validateUserInput(text: searchText)
-        } catch ValidationError.emptyString {
-            self.view.makeToast("검색어를 입력하세요")
-            return
-        } catch ValidationError.trimmingCharacters {
-            self.view.makeToast("공백만 검색이 안됩니다")
-            return
-        } catch {
-            self.view.makeToast("검색어 문제입니다.")
-            return
-        }
-        
         viewModel.inputSearchButtonClicked.value = searchText
-    }
-    
-    private func validateUserInput(text: String) throws -> Bool {
-        guard !text.isEmpty else {
-            throw ValidationError.emptyString
-        }
-        
-        guard !isOnlyWhitespace(text: text) else {
-            throw ValidationError.trimmingCharacters
-        }
-        
-        return true
-    }
-    
-    private func isOnlyWhitespace(text: String) -> Bool {
-        return text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 }
 
@@ -134,7 +108,7 @@ extension PhotoSearchViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoSearchCollectionView.identifier, for: indexPath) as? PhotoSearchCollectionView else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoSearchCollectionViewCell.identifier, for: indexPath) as? PhotoSearchCollectionViewCell else { return UICollectionViewCell() }
         let data = viewModel.outputData.value[indexPath.item]
         cell.configureData(data: data)
         cell.likeButton.tag = indexPath.item

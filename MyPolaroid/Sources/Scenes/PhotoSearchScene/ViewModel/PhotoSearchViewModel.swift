@@ -15,9 +15,11 @@ final class PhotoSearchViewModel {
     var inputSortButtonClicked: Observable<Bool> = Observable(false)
     
     var outputData: Observable<[PhotoSearch]> = Observable([])
+    var outputTextErrorMessage: Observable<String?> = Observable(nil)
     var outputCurrentPage = Observable(1)
     var outputIsLiked: Observable<Bool> = Observable(false)
     var outputTostMessage: Observable<String?> = Observable(nil)
+    
     private let repository = LikeListRepository.shared
     private let fileManager = ImageManager.shared
     private var currentPage = 1
@@ -29,20 +31,29 @@ final class PhotoSearchViewModel {
     }
     
     private func transform() {
-        inputSearchButtonClicked.bindAndFire { [weak self] word in
+        inputSearchButtonClicked.bind { [weak self] word in
             guard let word = word else { return }
-            self?.currentQuery = word
-            self?.currentPage = 1
-            self?.outputData.value = []
-            self?.callRequest(word, page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "relevant")
+            do {
+                try self?.validateUserInput(text: word)
+                self?.currentQuery = word
+                self?.currentPage = 1
+                self?.outputData.value = []
+                self?.callRequest(word, page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "relevant")
+            } catch ValidationError.emptyString {
+                self?.outputTextErrorMessage.value = "검색어를 입력하세요"
+            } catch ValidationError.trimmingCharacters {
+                self?.outputTextErrorMessage.value = "공백만 검색이 안됩니다"
+            } catch {
+                self?.outputTextErrorMessage.value = "검색어 문제입니다."
+            }
         }
         
-        inputReCallPage.bindAndFire { [weak self] _ in
+        inputReCallPage.bind { [weak self] _ in
             self?.currentPage += 1
             self?.callRequest(self?.currentQuery ?? "", page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "relevant")
         }
         
-        inputSortButtonClicked.bindAndFire { [weak self] value in
+        inputSortButtonClicked.bind { [weak self] value in
             self?.orderBy = value ? "latest" : "relevant"
             guard let query = self?.currentQuery else { return }
             self?.outputData.value = []
@@ -50,7 +61,7 @@ final class PhotoSearchViewModel {
             self?.callRequest(query, page: self?.currentPage ?? 1, orderBy: self?.orderBy ?? "latest")
         }
         
-        inputLikeButtonClicked.bindAndFire { [weak self] photoID in
+        inputLikeButtonClicked.bind { [weak self] photoID in
             guard let photoID = photoID else {return}
             self?.toggleLikeStatus(photoID)
         }
@@ -83,6 +94,19 @@ final class PhotoSearchViewModel {
             outputIsLiked.value = true
             outputTostMessage.value = TostMessage.likeSuccess.message
         }
+    }
+    
+    private func validateUserInput(text: String?) throws {
+        guard let text = text, !text.isEmpty else {
+            throw ValidationError.emptyString
+        }
+        guard !isOnlyWhitespace(text: text) else {
+            throw ValidationError.trimmingCharacters
+        }
+    }
+    
+    private func isOnlyWhitespace(text: String) -> Bool {
+        return text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
 }

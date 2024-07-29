@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-final class PhotoSearchCollectionView: BaseCollectionViewCell {
+final class PhotoSearchCollectionViewCell: BaseCollectionViewCell {
     
     private let photoImageView: UIImageView = {
         let imageView = UIImageView()

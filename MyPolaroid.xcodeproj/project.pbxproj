@@ -69,7 +69,7 @@
 		724FC9B52C536A7B00CDA561 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9B42C536A7B00CDA561 /* UserDefaultsManager.swift */; };
 		724FC9BA2C5382B100CDA561 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9B92C5382B100CDA561 /* PhotoDetailViewController.swift */; };
 		724FC9BC2C5382CB00CDA561 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9BB2C5382CB00CDA561 /* PhotoDetailView.swift */; };
-		724FC9BE2C53C50F00CDA561 /* PhotoSearchCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9BD2C53C50F00CDA561 /* PhotoSearchCollectionView.swift */; };
+		724FC9BE2C53C50F00CDA561 /* PhotoSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9BD2C53C50F00CDA561 /* PhotoSearchCollectionViewCell.swift */; };
 		724FC9C22C53F4CB00CDA561 /* MyPolaroidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9C12C53F4CB00CDA561 /* MyPolaroidViewController.swift */; };
 		724FC9C42C53F4E000CDA561 /* MyPolaroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9C32C53F4E000CDA561 /* MyPolaroidView.swift */; };
 		724FC9C62C53FEB000CDA561 /* MyPolaroidCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9C52C53FEB000CDA561 /* MyPolaroidCollectionViewCell.swift */; };
@@ -163,7 +163,7 @@
 		724FC9B42C536A7B00CDA561 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		724FC9B92C5382B100CDA561 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		724FC9BB2C5382CB00CDA561 /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
-		724FC9BD2C53C50F00CDA561 /* PhotoSearchCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchCollectionView.swift; sourceTree = "<group>"; };
+		724FC9BD2C53C50F00CDA561 /* PhotoSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		724FC9C12C53F4CB00CDA561 /* MyPolaroidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolaroidViewController.swift; sourceTree = "<group>"; };
 		724FC9C32C53F4E000CDA561 /* MyPolaroidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolaroidView.swift; sourceTree = "<group>"; };
 		724FC9C52C53FEB000CDA561 /* MyPolaroidCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolaroidCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -496,7 +496,7 @@
 			children = (
 				724FC99D2C528B8C00CDA561 /* PhotoSearchViewController.swift */,
 				724FC99B2C528B7D00CDA561 /* PhotoSearchView.swift */,
-				724FC9BD2C53C50F00CDA561 /* PhotoSearchCollectionView.swift */,
+				724FC9BD2C53C50F00CDA561 /* PhotoSearchCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -702,7 +702,7 @@
 				724FC9912C520C7900CDA561 /* PhotoSearchModel.swift in Sources */,
 				724FC95E2C51378B00CDA561 /* UnSplashRouter.swift in Sources */,
 				724FC8F32C4F36E600CDA561 /* TrendsByTopicMainView.swift in Sources */,
-				724FC9BE2C53C50F00CDA561 /* PhotoSearchCollectionView.swift in Sources */,
+				724FC9BE2C53C50F00CDA561 /* PhotoSearchCollectionViewCell.swift in Sources */,
 				724FC9D62C54C5A900CDA561 /* ImageManager.swift in Sources */,
 				724FC9272C4F8B8000CDA561 /* EditProfileViewController.swift in Sources */,
 				724FC8D72C4E561600CDA561 /* PointButton.swift in Sources */,
