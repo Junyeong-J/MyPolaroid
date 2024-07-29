@@ -12,7 +12,10 @@ final class EditProfileView: BaseView {
     
     var viewType: NavigationTitle = .profileSetting
     private let cameraImage = CameraImage()
-    lazy var profileImageView = ProfileImage(profile: "profile_0", corner: 50, border: 3)
+    lazy var profileImageView: ProfileImage = {
+        let imageName = UIImage.profileImage[0]
+        return ProfileImage(profile: imageName, corner: 50, border: 3)
+    }()
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
     
     private func collectionViewLayout() -> UICollectionViewLayout {
@@ -29,9 +32,7 @@ final class EditProfileView: BaseView {
     }
     
     override func configureHierarchy() {
-        addSubview(profileImageView)
-        addSubview(cameraImage)
-        addSubview(collectionView)
+        [profileImageView, cameraImage, collectionView].forEach{ addSubview($0) }
     }
     
     override func configureLayout() {

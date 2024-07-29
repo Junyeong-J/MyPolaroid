@@ -49,7 +49,6 @@ extension EditProfileViewController {
     private func configureCollectionView() {
         rootView.collectionView.delegate = self
         rootView.collectionView.dataSource = self
-        
         rootView.collectionView.register(EditProfileCollectionViewCell.self, forCellWithReuseIdentifier: EditProfileCollectionViewCell.identifier)
         
     }
@@ -67,7 +66,7 @@ extension EditProfileViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EditProfileCollectionViewCell.identifier, for: indexPath) as! EditProfileCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EditProfileCollectionViewCell.identifier, for: indexPath) as? EditProfileCollectionViewCell else { return UICollectionViewCell() }
         cell.configureData(imageNames: profileImage, setImage: UIImage.profileImage[indexPath.item])
         return cell
     }

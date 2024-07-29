@@ -14,7 +14,10 @@ final class EditProfileCollectionViewCell: BaseCollectionViewCell {
         return contentView.bounds.width
     }
     
-    private lazy var imageView = ProfileImage(profile: "profile_1", corner: contentViewWidth / 2, border: 1)
+    private lazy var imageView: ProfileImage = {
+        let imageName = UIImage.profileImage[0]
+        return ProfileImage(profile: imageName, corner: contentView.bounds.width / 2, border: 1)
+    }()
     
     override func configureHierarchy() {
         contentView.addSubview(imageView)
