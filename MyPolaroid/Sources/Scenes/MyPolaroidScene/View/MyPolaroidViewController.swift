@@ -53,14 +53,9 @@ extension MyPolaroidViewController {
     }
     
     @objc private func sortButtonClicked() {
-        if rootView.sortButton.configuration?.title == "최신순" {
-            rootView.sortButton.configuration?.title = "과거순"
-            viewModel.inputSortButtonClicked.value = true
-        } else {
-            rootView.sortButton.configuration?.title = "최신순"
-            viewModel.inputSortButtonClicked.value = false
-        }
-        
+        let isLatest = rootView.sortButton.configuration?.title == "최신순"
+        rootView.sortButton.configuration?.title = isLatest ? "과거순" : "최신순"
+        viewModel.inputSortButtonClicked.value = !isLatest
     }
 }
 

@@ -16,6 +16,7 @@ final class MyPolaroidViewModel {
     var outputPhotoData: Observable<[LikeListTable]> = Observable([])
     private let repository = LikeListRepository.shared
     private let fileManager = ImageManager.shared
+    private var isSortLatest = true
     
     init() {
         transform()
@@ -23,11 +24,12 @@ final class MyPolaroidViewModel {
     
     private func transform() {
         inputTriggerViewWillAppear.bindAndFire { [weak self] _ in
-            self?.fetchPhotoData(value: false)
+            self?.fetchPhotoData(value: self?.isSortLatest ?? true)
         }
         
         inputSortButtonClicked.bindAndFire { [weak self] value in
-            self?.fetchPhotoData(value: value)
+            self?.isSortLatest = !value
+            self?.fetchPhotoData(value: self?.isSortLatest ?? true)
         }
         
         inputLikeButtonClicked.bindAndFire { [weak self] photoID in
@@ -45,7 +47,7 @@ final class MyPolaroidViewModel {
         if let existingItem = repository.fetchItem(photoID) {
             fileManager.removeImageFromDocument(filename: photoID)
             repository.deleteIdItem(existingItem)
-            fetchPhotoData(value: inputSortButtonClicked.value)
+            fetchPhotoData(value: isSortLatest)
         }
     }
 }
