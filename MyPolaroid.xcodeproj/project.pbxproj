@@ -311,12 +311,10 @@
 		724FC8D02C4E519D00CDA561 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				724FC8D12C4E51D400CDA561 /* MainPosterImageView.swift */,
-				724FC8D62C4E561600CDA561 /* PointButton.swift */,
-				724FC8DF2C4E8D7C00CDA561 /* CameraImage.swift */,
+				724FC9FC2C57C3C000CDA561 /* Button */,
+				724FC9FB2C57C3AF00CDA561 /* Image */,
 				724FC8E12C4E8E7D00CDA561 /* ProfileImageView.swift */,
 				724FC8E32C4E91EE00CDA561 /* NicknameTextField.swift */,
-				724FC9D32C541A7500CDA561 /* LikeButton.swift */,
 				724FC9F92C57C23600CDA561 /* DetailLabel.swift */,
 			);
 			path = CustomView;
@@ -629,6 +627,24 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		724FC9FB2C57C3AF00CDA561 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8D12C4E51D400CDA561 /* MainPosterImageView.swift */,
+				724FC8DF2C4E8D7C00CDA561 /* CameraImage.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		724FC9FC2C57C3C000CDA561 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				724FC8D62C4E561600CDA561 /* PointButton.swift */,
+				724FC9D32C541A7500CDA561 /* LikeButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
