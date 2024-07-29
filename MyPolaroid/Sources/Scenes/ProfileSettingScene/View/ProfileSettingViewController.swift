@@ -75,15 +75,35 @@ extension ProfileSettingViewController {
         }
         
         viewModel.outputButtonValid.bindAndFire { [weak self] value in
-            self?.rootView.successButton.backgroundColor = value ? .myAppMain : .myAppGray
-            self?.rootView.successButton.isEnabled = value
-            self?.navigationItem.rightBarButtonItem?.isEnabled = value
+            self?.updateButtonState(isEnabled: value)
         }
     }
     
     private func updateSetUI(_ data: (nickname: String?, profileName: String?, mbti: [String: Bool]?, isUser: Bool)) {
         rootView.nicknameTextField.text = data.nickname
         selectedMbtiButton(data.mbti)
+    }
+    
+    private func updateButtonState(isEnabled: Bool) {
+        rootView.successButton.backgroundColor = isEnabled ? .myAppMain : .myAppGray
+        rootView.successButton.isEnabled = isEnabled
+        navigationItem.rightBarButtonItem?.isEnabled = isEnabled
+    }
+    
+    private func selectedMbtiButton(_ mbtiButtonValue: [String: Bool]?) {
+        for button in rootView.mbtiButtons {
+            guard let title = button.configuration?.title else { return }
+            let isSelected = mbtiButtonValue?[title] ?? false
+            updateButton(button: button, isSelected: isSelected)
+        }
+    }
+    
+    private func updateButton(button: UIButton, isSelected: Bool) {
+        var configuration = button.configuration
+        configuration?.baseForegroundColor = isSelected ? .myAppWhite : .myAppGray
+        button.configuration = configuration
+        button.backgroundColor = isSelected ? .myAppMain : .myAppWhite
+        button.layer.borderColor = isSelected ? UIColor.myAppMain.cgColor : UIColor.myAppGray.cgColor
     }
     
     private func tapGesture(){
@@ -102,26 +122,8 @@ extension ProfileSettingViewController {
     }
     
     private func setUI() {
-        if viewType == .profileSetting {
-            rootView.successButton.isHidden = false
-            rootView.withdrawal.isHidden = true
-        } else {
-            rootView.withdrawal.isHidden = false
-            rootView.successButton.isHidden = true
-            tabBarController?.tabBar.isHidden = true
-        }
-    }
-    
-    private func selectedMbtiButton(_ mbtiButtonValue: [String: Bool]?) {
-        for button in rootView.mbtiButtons {
-            guard let title = button.configuration?.title else { return }
-            let isSelected = mbtiButtonValue?[title] ?? false
-            var configuration = button.configuration
-            configuration?.baseForegroundColor = isSelected ? .myAppWhite : .myAppGray
-            button.configuration = configuration
-            button.backgroundColor = isSelected ? .myAppMain : .myAppWhite
-            button.layer.borderColor = isSelected ? UIColor.myAppMain.cgColor : UIColor.myAppGray.cgColor
-        }
+        rootView.successButton.isHidden = viewType != .profileSetting
+        rootView.withdrawal.isHidden = viewType == .profileSetting
     }
     
     @objc private func profileImageViewClicked() {
@@ -148,13 +150,14 @@ extension ProfileSettingViewController {
     }
     
     @objc private func storeButtonClicked() {
+        viewModel.inputNickname.value = rootView.nicknameTextField.text
         viewModel.inputSuccessOrStoreButtonClicked.value = rootView.profileImageName
         navigationController?.popViewController(animated: true)
     }
     
     @objc private func withdrawalClicked() {
         showAlert(title: "탈퇴하기", message: "탈퇴를 하면 데이터가 모두 초기화됩니다.", ok: "확인") {
-            self.viewModel.inputWithdrawalClicked.value = "withdrawal"
+            self.viewModel.inputWithdrawalClicked.value = ()
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let sceneDelegate = windowScene?.delegate as? SceneDelegate
             

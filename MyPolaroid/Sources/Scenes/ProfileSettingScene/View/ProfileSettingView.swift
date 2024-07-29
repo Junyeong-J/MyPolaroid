@@ -101,7 +101,6 @@ final class ProfileSettingView: BaseView {
             make.width.equalTo(230)
         }
         
-        
         for (index, button) in mbtiButtons.enumerated() {
             button.snp.makeConstraints { make in
                 make.size.equalTo(50)
