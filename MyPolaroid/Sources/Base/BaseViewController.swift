@@ -80,7 +80,7 @@ extension BaseViewController {
     func setNavigationBar(image: UIImage?) {
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "OUR TOPIC"
+        title = NavigationTitle.ourTopic.title
         
         guard let image = image else { return }
         let imageView = UIImageView(image: image)
