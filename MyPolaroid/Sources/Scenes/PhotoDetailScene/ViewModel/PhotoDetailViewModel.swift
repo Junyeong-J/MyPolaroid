@@ -25,6 +25,7 @@ final class PhotoDetailViewModel {
         inputViewDidLoadTrigger.bindAndFire { [weak self] id in
             guard let id = id else {return}
             self?.callRequset(id)
+            self?.loadLocalData(id: id)
         }
         
         inputHeartButtonClicked.bindAndFire { [weak self] _ in
@@ -37,11 +38,34 @@ final class PhotoDetailViewModel {
             switch result {
             case .success(let data):
                 self?.checkExistingItem(data: data)
-                //                self?.outputData.value = data
-                
             case .failure(let error):
                 print(error)
+                self?.loadLocalData(id: id)
             }
+        }
+    }
+    
+    private func loadLocalData(id: String) {
+        if let existingItem = repository.fetchItem(id) {
+            let photoData = PhotoDetail(
+                id: existingItem.photoID,
+                created: existingItem.postDate,
+                width: 0,
+                height: 0,
+                urls: PhotoDetailURLs(raw: "", small: existingItem.photoImageURL),
+                likes: 0,
+                user: PhotoDetailUser(
+                    name: existingItem.authorName,
+                    profileImage: PhotoDetailUserProfile(medium: existingItem.authorProfile)
+                ),
+                views: 0,
+                downloads: 0
+            )
+            self.outputData.value = photoData
+            outputIsLiked.value = true
+        } else {
+            outputData.value = nil
+            outputIsLiked.value = false
         }
     }
     

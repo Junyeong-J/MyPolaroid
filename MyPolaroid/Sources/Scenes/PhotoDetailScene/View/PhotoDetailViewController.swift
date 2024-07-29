@@ -39,8 +39,15 @@ extension PhotoDetailViewController {
         viewModel.outputData.bindAndFire { [weak self] data in
             guard let self = self, let data = data else { return }
             
-            rootView.userImageView.kf.setImage(with: URL(string: data.user.profileImage.medium))
-            rootView.photoImageView.kf.setImage(with: URL(string: data.urls.small))
+            let like = viewModel.outputIsLiked.value
+            
+            if like == true {
+                rootView.userImageView.image = ImageManager.shared.loadImageToDocument(filename: data.id + data.user.name)
+                rootView.photoImageView.image = ImageManager.shared.loadImageToDocument(filename: data.id)
+            } else {
+                rootView.userImageView.kf.setImage(with: URL(string: data.user.profileImage.medium))
+                rootView.photoImageView.kf.setImage(with: URL(string: data.urls.small))
+            }
             
             rootView.userNameLabel.text = data.user.name
             rootView.postDateLabel.text = FormatterManager.shared.formatDateString(data.created)
