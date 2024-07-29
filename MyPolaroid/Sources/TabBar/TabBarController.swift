@@ -19,10 +19,10 @@ class TabBarController: UITabBarController {
         let nav1 = UINavigationController(rootViewController: trend)
         nav1.tabBarItem = UITabBarItem(title: NavigationTitle.ourTopic.title, image: UIImage(named: "tab_trend"), tag: 0)
         
-//        let like = LikeListViewController()
-//        let nav2 = UINavigationController(rootViewController: like)
-//        nav2.tabBarItem = UITabBarItem(title: "좋아요", image: UIImage(systemName: "hand.thumbsup.fill"), tag: 0)
-//        
+        let random = RandomPhotoViewController()
+        let nav2 = UINavigationController(rootViewController: random)
+        nav2.tabBarItem = UITabBarItem(title: "RANDOM PHOTO", image: UIImage(named: "tab_random"), tag: 1)
+        
         let search = PhotoSearchViewController()
         let nav3 = UINavigationController(rootViewController: search)
         nav3.tabBarItem = UITabBarItem(title: NavigationTitle.searchPhoto.title, image: UIImage(named: "tab_search"), tag: 2)
@@ -32,7 +32,7 @@ class TabBarController: UITabBarController {
         nav4.tabBarItem = UITabBarItem(title: NavigationTitle.myPolaroid.title, image: UIImage(named: "tab_like"), tag: 3)
         
         
-        setViewControllers([nav1, nav3, nav4], animated: true)
+        setViewControllers([nav1, nav2, nav3, nav4], animated: true)
     }
     
 }

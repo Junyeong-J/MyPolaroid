@@ -87,6 +87,8 @@
 		724FC9E52C56ADA700CDA561 /* TostMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9E42C56ADA700CDA561 /* TostMessage.swift */; };
 		724FC9E82C56BC9900CDA561 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC9E72C56BC9900CDA561 /* IQKeyboardManagerSwift */; };
 		724FC9F12C57BC1000CDA561 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 724FC9F02C57BC1000CDA561 /* SkeletonView */; };
+		724FC9F62C57BDD400CDA561 /* RandomPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9F52C57BDD400CDA561 /* RandomPhotoViewController.swift */; };
+		724FC9F82C57BDEF00CDA561 /* RandomPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FC9F72C57BDEF00CDA561 /* RandomPhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -178,6 +180,8 @@
 		724FC9DE2C554B4900CDA561 /* LikeImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeImageName.swift; sourceTree = "<group>"; };
 		724FC9E02C55661D00CDA561 /* FormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterManager.swift; sourceTree = "<group>"; };
 		724FC9E42C56ADA700CDA561 /* TostMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TostMessage.swift; sourceTree = "<group>"; };
+		724FC9F52C57BDD400CDA561 /* RandomPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoViewController.swift; sourceTree = "<group>"; };
+		724FC9F72C57BDEF00CDA561 /* RandomPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +466,7 @@
 				724FC8D92C4E896E00CDA561 /* ProfileSettingScene */,
 				724FC9242C4F8ADA00CDA561 /* EditProfileScene */,
 				724FC8EE2C4F363900CDA561 /* TrendsByTopicMainScene */,
+				724FC9F22C57BD8500CDA561 /* RandomPhotoScene */,
 				724FC9992C528B4400CDA561 /* PhotoSearchScene */,
 				724FC9BF2C53F4A200CDA561 /* MyPolaroidScene */,
 				724FC9B62C53822600CDA561 /* PhotoDetailScene */,
@@ -598,6 +603,31 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		724FC9F22C57BD8500CDA561 /* RandomPhotoScene */ = {
+			isa = PBXGroup;
+			children = (
+				724FC9F42C57BDB200CDA561 /* ViewModel */,
+				724FC9F32C57BDAB00CDA561 /* View */,
+			);
+			path = RandomPhotoScene;
+			sourceTree = "<group>";
+		};
+		724FC9F32C57BDAB00CDA561 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				724FC9F52C57BDD400CDA561 /* RandomPhotoViewController.swift */,
+				724FC9F72C57BDEF00CDA561 /* RandomPhotoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		724FC9F42C57BDB200CDA561 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -689,11 +719,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				724FC9D92C54EDA800CDA561 /* MyPolaroidViewModel.swift in Sources */,
+				724FC9F82C57BDEF00CDA561 /* RandomPhotoView.swift in Sources */,
 				724FC9622C513B8800CDA561 /* UnSplashAPIManager.swift in Sources */,
 				724FC9652C513D2E00CDA561 /* TrendsByTopicViewModel.swift in Sources */,
 				724FC96B2C5146A500CDA561 /* ButtonTitle.swift in Sources */,
 				724FC9932C520E5D00CDA561 /* PhotoStatisticsModel.swift in Sources */,
 				724FC8F12C4F36C800CDA561 /* TrendsByTopicMainViewController.swift in Sources */,
+				724FC9F62C57BDD400CDA561 /* RandomPhotoViewController.swift in Sources */,
 				724FC8EA2C4EBF4300CDA561 /* Observable.swift in Sources */,
 				724FC8E22C4E8E7D00CDA561 /* ProfileImageView.swift in Sources */,
 				724FC99C2C528B7D00CDA561 /* PhotoSearchView.swift in Sources */,
